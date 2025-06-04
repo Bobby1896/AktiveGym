@@ -1,0 +1,15 @@
+.hero-background {
+  background-image: url('/src/assets/images/running man.png'); 
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat;
+  width: 100vw;  
+  min-height: 100vh;  
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section {
+  flex: 1.5;
+  padding: 2rem;
+}
