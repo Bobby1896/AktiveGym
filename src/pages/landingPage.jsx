@@ -4,6 +4,8 @@ import CustomButton from "../components/CustomButton";
 import { Link as RouterLink } from "react-router-dom";
 import About from "./about";
 import MeetTrainers from "./meetTrainers";
+import Steps from "./steps";
+import Testimony from "./testimony";
 
 const LandingPage = () => {
   return (
@@ -11,11 +13,9 @@ const LandingPage = () => {
       <div className="hero-background">
         <Navbar />
         <section className="hero-section">
+        <div className="container">
           <h1 className="hero-title">
-            TRAIN SMARTER.{" "}
-            <span>
-              <br />
-            </span>{" "}
+            TRAIN SMARTER. <br />
             LIVE LONGER.
           </h1>
           <p className="hero-subtitle">
@@ -27,6 +27,7 @@ const LandingPage = () => {
           <CustomButton component={RouterLink} size="large" to="/get-started">
             Explore Plan
           </CustomButton>
+          </div>
         </section>
 
         <section className="sponsor-section">
@@ -48,27 +49,28 @@ const LandingPage = () => {
         </section>
       </div>
 
+     <main className="container">
       <section id="about">
         <About />
       </section>
 
       <section id="meet-trainers">
-        <MeetTrainers/>
+        <MeetTrainers />
       </section>
 
+      <section id="how-it-works">
+        <Steps />
+      </section>
 
-      <section
-        id="how-it-works"
-        style={{ minHeight: "100vh", padding: "2rem" }}
-      >
-        <h2>How It Works</h2>
-        <p>Details about how it works.</p>
+       <section id="testimony">
+        <Testimony />
       </section>
 
       <section id="pricing" style={{ minHeight: "100vh", padding: "2rem" }}>
         <h2>Pricing</h2>
         <p>Your pricing details go here.</p>
       </section>
+      </main>
     </>
   );
 };
