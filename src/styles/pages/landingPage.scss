@@ -1,15 +1,76 @@
+
 .hero-background {
-  background-image: url('/src/assets/images/running man.png'); 
-  background-size: cover;       
-  background-position: center;  
+  background-image: url("/src/assets/images/running man.png");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  width: 100vw;  
-  min-height: 100vh;  
+  width: 100vw;
+  min-height: 120vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .hero-section {
   flex: 1.5;
   padding: 2rem;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 7%;
+  color: #000000;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  margin-bottom: 7%;
+  line-height: 2rem;
+}
+
+.sponsor-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #000000bd;
+  overflow: hidden;
+  padding: 1rem;
+  animation: slideIn 1s ease-out forwards;
+  -webkit-animation: slideIn 1s ease-out forwards;
+}
+
+.sponsor-slider {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-track img {
+  height: 30px;
+  width: auto;
+  margin: 0 2rem;
+  object-fit: contain;
+  max-height: 40px;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(200px * 10);
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-30%);
+    -webkit-transform: translateX(-30%);
+    -moz-transform: translateX(-30%);
+    -ms-transform: translateX(-30%);
+    -o-transform: translateX(-30%);
+  }
 }
