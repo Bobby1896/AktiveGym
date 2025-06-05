@@ -48,11 +48,11 @@ const LandingPage = () => {
         </section>
       </div>
 
-      <section id="about" style={{ minHeight: "100vh", padding: "2rem" }}>
+      <section id="about">
         <About />
       </section>
 
-      <section id="meet-trainers" style={{ minHeight: "100vh", padding: "2rem" }}>
+      <section id="meet-trainers">
         <MeetTrainers/>
       </section>
 
