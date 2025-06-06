@@ -6,6 +6,7 @@ import About from "./about";
 import MeetTrainers from "./meetTrainers";
 import Steps from "./steps";
 import Testimony from "./testimony";
+import Membership from "./membership";
 
 const LandingPage = () => {
   return (
@@ -66,9 +67,8 @@ const LandingPage = () => {
         <Testimony />
       </section>
 
-      <section id="pricing" style={{ minHeight: "100vh", padding: "2rem" }}>
-        <h2>Pricing</h2>
-        <p>Your pricing details go here.</p>
+      <section id="pricing">
+        <Membership />
       </section>
       </main>
     </>

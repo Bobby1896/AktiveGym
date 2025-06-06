@@ -5,19 +5,19 @@ const sizeStyles = {
   small: {
     fontSize: "0.75rem",
     padding: "6px 12px",
-    borderRadius: "20px",
+    borderRadius: "30px",
     textTransform: "none"
   },
   medium: {
     fontSize: "1rem",
     padding: "8px 18px",
-    borderRadius: "20px",
+    borderRadius: "30px",
     textTransform: "none"
   },
   large: {
     fontSize: "1.25rem",
     padding: "12px 24px",
-    borderRadius: "20px",
+    borderRadius: "30px",
     textTransform: "none"
   },
 };

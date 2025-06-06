@@ -12,10 +12,10 @@ const Testimony = () => {
   return (
     <div className="testimony-container">
       <div className="testimony-header">
-        <h1 className="section-title">
+        <h1 className="testimony-title">
           Your Gains – Real Stories from <br /> Real People{" "}
         </h1>
-        <p>What are our members saying</p>
+        <p>What are our members saying?</p>
       </div>
 
       <Swiper
@@ -37,7 +37,7 @@ const Testimony = () => {
                   <p>{testimony.feedback}</p>
                 </div>
                 <div className="reviewer">
-                  <h3 className="">{testimony.name}</h3>
+                  <p className="">{testimony.name}</p>
                 </div>
               </div>
             </div>

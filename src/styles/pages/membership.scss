@@ -1,0 +1,109 @@
+.membership-container {
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 5%;
+}
+.membership-header {
+  text-align: center;
+}
+.section-title {
+  color: #1a85c8;
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  text-transform: uppercase;
+}
+.billing-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+
+  button {
+    background-color: transparent;
+    border: 2px solid #1a85c8;
+    color: #1a85c8;
+    padding: 0.5rem 1.5rem;
+    margin: 0 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+    &.active {
+      background-color: #1a85c8;
+      color: #ffffff;
+    }
+  }
+}
+.plan-group {
+  display: flex;
+  align-items: center;
+}
+.plan-card {
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 30%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-middle-card {
+  background-color: #1a85c8;
+  border-radius: 20px;
+  padding: 2rem 3rem; 
+  border: 5px solid #ffffff;
+  height: 700px;
+  min-height: 700px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -50px; 
+  margin-bottom: -50px; 
+
+  .check-icon {
+    color: #ffffff !important;
+  }
+}
+
+.plan-details {
+  margin-top: 1.5rem;
+  gap: 1.5rem;
+}
+
+.plan-price-amount {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0.5rem 0;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+
+  li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: #f1f1f1;
+  }
+  .check-icon {
+    color: #1a85c8;
+    margin-right: 0.5rem;
+  }
+}
+.custom-button {
+  align-items: center;
+  justify-content: center;
+}
+.plan-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 2rem;
+}

@@ -106,3 +106,54 @@ export const trainers = [
     image: "src/assets/images/trainer4.png",
   },
 ];
+
+
+export const plans = [
+  {
+    name: "Student Plan",
+    description: "Perfect for college students looking to stay fit on a budget.",
+    monthly: ["$7/month"],
+    yearly: ["$70/quarter"],
+    features: [
+      "Off-peak gym access (8am - 4pm)",
+      "3 sessions/week",
+      "Beginner workout video library",
+      "Group class (1/week)",
+      "Monthly Progress tracking",
+      "10% off supplement",
+      "Event notifications"
+    ]
+  },
+  {
+    name: "Regular Plan",
+    description: "Our most popular plan for busy professionals.",
+    monthly: ["$12/month"],
+    yearly: ["$120/quarter"],
+    features: [
+      "Full access (6am - 10pm)",
+      "Unlimited sessions",
+      "Weekly diet + fitness plans",
+      "Beginner & intermediate video access",
+      "Group classes (3/week)",
+      "Weekly trainer feedback",
+      "Partner discounts",
+      "Event notifications"
+    ]
+  },
+  {
+    name: "Premium Plan",
+    description: "Elite support with full amenities.",
+    monthly: ["$45/month"],
+    yearly: ["$450/quarter"],
+    features: [
+      "24/7 gym + spa access",
+      "Personal trainer bookings",
+      "Custom diet & supplement plan",
+      "Advanced training + masterclasses",
+      "Unlimited classes (yoga, fitness)",
+      "Welcome Pack (towel, bottle, branded gear)",
+      "20% off all store items",
+      "Event notifications"
+    ]
+  }
+];
