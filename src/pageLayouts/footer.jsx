@@ -1,21 +1,35 @@
 import "../styles/pageLayouts/footer.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
     <div className="footer-container">
+       
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="src/assets/images/logo.png" alt="Gym Logo" />
+          <img src="src/assets/images/white logo.png" alt="Gym Logo" />
           <div className="social-icons">
-            <a href="www.instagram.com" target="blank">
-              <i className="fa fa-instagram"></i>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href="www.facebook.com" target="blank">
-              <i className="fa fa-facebook"></i>
+            <a
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
-
-            <a href="www.x.com" target="blank">
-              <i className="fa fa-x"></i>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faXTwitter} />
             </a>
           </div>
         </div>
@@ -44,22 +58,23 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-
-      
       </div>
-        <hr />
-        
+
       <div className="footer-bottom">
         <div>
           <p>
             &copy; {new Date().getFullYear()} AktiveGym. All rights reserved.
           </p>
-          <p>
-            Designed by <a href="/">Jonathan Alabi</a>
-          </p>
         </div>
 
         <div>
+          <p className="footer-designer">
+            Designed by {""}
+            <a href="https://github.com/Bobby1896/AktiveGym">Jonathan Alabi</a>
+          </p>
+        </div>
+
+        <div className="footer-terms">
           <ul>
             <li>
               <a href="/">Terms of conditions</a>
@@ -70,6 +85,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+     
     </div>
   );
 };
