@@ -1,0 +1,38 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 15%;
+}
+.footer-logo img{
+    color: #ffffff;
+}
+.footer-content{
+    display: flex;
+
+}
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 20px;
+    
+    li{
+        padding: 0.7rem 0;
+    }
+
+
+    li a {
+        margin: 5px 0;
+        color: #ffffff;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+    }
+}

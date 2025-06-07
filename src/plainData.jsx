@@ -1,54 +1,60 @@
 export const TestimonyData = [
-    {
-        feedback: "I joined AktiveGym on the Student Plan and lost 12kg in 3 months. The energy here is unmatched",
-        name: "LARA",
-        image: "src/assets/images/testimony1.png",
-        rating: "src/assets/images/rating.png",
-    },
-    {
-        feedback: "AktiveGym has transformed my fitness journey. The trainers are knowledgeable and the community is so supportive.",
-        name: "JAMES",
-        image: "src/assets/images/testimony2.png"
-    },
-    {
-        feedback: "I love the variety of classes and the personalized attention I get. It’s more than just a gym, it’s a lifestyle.",
-        name: "SOPHIA",
-        image: "src/assets/images/testimony3.png"
-    },
-    {
-        feedback: "The Premium Plan is worth every penny. I’ve seen incredible results and made lifelong friends here.",
-        name: "MICHAEL",
-        image: "src/assets/images/testimony4.png"
-    },
-    {
-        feedback: "Being a student, I wanted something affordable but effective. AktiveGym’s Student Plan delivered results I never expected.",
-        name: "JACK",
-        image: "src/assets/images/testimony5.png"
-    },
-    {
-        feedback: "I’ve tried many gyms, but AktiveGym’s community and trainers make it stand out. I feel motivated every time I step in.",
-        name: "EMILY",
-        image: "src/assets/images/testimony6.png"
-    },
-    {
-        feedback: "The nutrition guidance has been a game-changer for me. I’m not just working out, I’m learning how to fuel my body right.",
-        name: "DAVID",
-        image: "src/assets/images/testimony9.png"
-    },
-    {
-        feedback: "I joined the Regular Plan and it’s been the best decision. The classes are fun and the trainers are always there to help.",
-        name: "SARAH",
-        image: "src/assets/images/testimony8.png"
-    },
-    {
-        feedback: "AktiveGym is more than a gym, it’s a community. I’ve made friends and achieved goals I never thought possible.",
-        name: "OLIVER",
-        image: "src/assets/images/testimony7.png"
-    },
-    
-]
-
-
+  {
+    feedback:
+      "I joined AktiveGym on the Student Plan and lost 12kg in 3 months. The energy here is unmatched",
+    name: "LARA",
+    image: "src/assets/images/testimony1.png",
+    rating: "src/assets/images/rating.png",
+  },
+  {
+    feedback:
+      "AktiveGym has transformed my fitness journey. The trainers are knowledgeable and the community is so supportive.",
+    name: "JAMES",
+    image: "src/assets/images/testimony2.png",
+  },
+  {
+    feedback:
+      "I love the variety of classes and the personalized attention I get. It’s more than just a gym, it’s a lifestyle.",
+    name: "SOPHIA",
+    image: "src/assets/images/testimony3.png",
+  },
+  {
+    feedback:
+      "The Premium Plan is worth every penny. I’ve seen incredible results and made lifelong friends here.",
+    name: "MICHAEL",
+    image: "src/assets/images/testimony4.png",
+  },
+  {
+    feedback:
+      "Being a student, I wanted something affordable but effective. AktiveGym’s Student Plan delivered results I never expected.",
+    name: "JACK",
+    image: "src/assets/images/testimony5.png",
+  },
+  {
+    feedback:
+      "I’ve tried many gyms, but AktiveGym’s community and trainers make it stand out. I feel motivated every time I step in.",
+    name: "EMILY",
+    image: "src/assets/images/testimony6.png",
+  },
+  {
+    feedback:
+      "The nutrition guidance has been a game-changer for me. I’m not just working out, I’m learning how to fuel my body right.",
+    name: "DAVID",
+    image: "src/assets/images/testimony9.png",
+  },
+  {
+    feedback:
+      "I joined the Regular Plan and it’s been the best decision. The classes are fun and the trainers are always there to help.",
+    name: "SARAH",
+    image: "src/assets/images/testimony8.png",
+  },
+  {
+    feedback:
+      "AktiveGym is more than a gym, it’s a community. I’ve made friends and achieved goals I never thought possible.",
+    name: "OLIVER",
+    image: "src/assets/images/testimony7.png",
+  },
+];
 
 export const trainers = [
   {
@@ -107,11 +113,11 @@ export const trainers = [
   },
 ];
 
-
 export const plans = [
   {
     name: "Student Plan",
-    description: "Perfect for college students looking to stay fit on a budget.",
+    description:
+      "Perfect for college students looking to stay fit on a budget.",
     monthly: ["$7/month"],
     yearly: ["$70/quarter"],
     features: [
@@ -121,8 +127,8 @@ export const plans = [
       "Group class (1/week)",
       "Monthly Progress tracking",
       "10% off supplement",
-      "Event notifications"
-    ]
+      "Event notifications",
+    ],
   },
   {
     name: "Regular Plan",
@@ -137,8 +143,8 @@ export const plans = [
       "Group classes (3/week)",
       "Weekly trainer feedback",
       "Partner discounts",
-      "Event notifications"
-    ]
+      "Event notifications",
+    ],
   },
   {
     name: "Premium Plan",
@@ -153,7 +159,35 @@ export const plans = [
       "Unlimited classes (yoga, fitness)",
       "Welcome Pack (towel, bottle, branded gear)",
       "20% off all store items",
-      "Event notifications"
-    ]
-  }
+      "Event notifications",
+    ],
+  },
+];
+
+export const FAQData = [
+  {
+    question: "Which Membership Plan is right for me?",
+    answer: [
+      "We offer three plans to suit different needs:",
+      "1. Student Plan for budget-friendly, off-peak access.",
+      "2. Regular Plan for full gym access and group classes.",
+      "3. Premium Plan for 24/7 access, personal training, and advanced features.",
+      "Choose based on your fitness goals, schedule, and desired support level.",
+    ],
+  },
+  {
+    question: "Can I switch plans later?",
+    answer:
+      "Yes! You can upgrade or downgrade your membership at any time through your member dashboard. Plan changes take effect in the next billing cycle.",
+  },
+  {
+    question: "Do I need to come to the gym to sign up?",
+    answer:
+      "Nope! You can sign up entirely online. Once you choose a plan, you’ll receive access to your dashboard and be ready to book your first session..",
+  },
+  {
+    question: "What is included in the diet plan?",
+    answer:
+      "Each plan includes personalized diet recommendations, workout videos based on your goal, and optional progress tracking. Premium members also get meal planning with a dietician and access to advanced workouts..",
+  },
 ];
