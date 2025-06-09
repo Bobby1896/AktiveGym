@@ -14,6 +14,45 @@
     -o-border-radius: 20px;
 }
 
+.about-text{
+  max-width: 500px;
+}
 .about-header{
     color: #1A85C8;
+}
+
+@media (max-width: 768px){
+  .about-container{
+    margin-top: -50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    // justify-content: center;
+    align-items: center;
+  }
+
+  .about-text{
+    order: 1;
+    width: 100%;
+
+    h1{
+      font-size: 2rem;
+    }
+
+    p{
+      font-size: 1rem;
+    }
+  }
+
+  .about-image {
+    order: 2; 
+
+    img {
+      width: 80%;
+      height: auto;
+    }
+  }
+  
+
+
 }

@@ -33,7 +33,7 @@ const LandingPage = () => {
               transformation.
             </p>
 
-            <CustomButton component={RouterLink} size="large" to="/get-started">
+            <CustomButton component={RouterLink} size="large" to="/signUp">
               Explore Plan
             </CustomButton>
           </div>

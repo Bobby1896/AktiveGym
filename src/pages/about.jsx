@@ -6,15 +6,12 @@ const About = () => {
       <div className="about-text">
         <p className="about-header">About AktiveGym</p>
 
-        <h1>
-          STRONGER TOGETHER. <br /> BUILT FOR EVERYBODY.
-        </h1>
+        <h1>STRONGER TOGETHER. BUILT FOR EVERYBODY.</h1>
         <p>
-          At AktiveGym, we’re redefining fitness for <br /> students,
-          professionals, and athletes through <br /> expert coaching, community,
-          and a tailored <br />
-          wellness experience. Whether you're just <br /> starting out or
-          chasing elite performance
+          At AktiveGym, we’re redefining fitness for students, professionals,
+          and athletes through expert coaching, community, and a tailored
+          wellness experience. Whether you're just starting out or chasing elite
+          performance
         </p>
       </div>
 

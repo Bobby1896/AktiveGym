@@ -53,6 +53,10 @@
   display: inline-block;
 }
 
+.close-icon{
+  display: none;
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;

@@ -31,6 +31,7 @@
 }
 
 .sponsor-section {
+  margin-top: auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -50,7 +51,7 @@
 
 .slide-track img {
   height: 30px;
-  width: auto;
+  width: max-content;
   margin: 0 2rem;
   object-fit: contain;
   max-height: 40px;
@@ -130,3 +131,34 @@
   }
 }
 
+
+@media (max-width: 768px){
+  .hero-background{
+    background-size: contain;
+    background-position: top;
+    min-height: 100vh;
+  }
+
+  .hero-section{
+    padding: 1rem;
+    margin-top: 3%;
+
+  }
+
+  .hero-title{
+    font-size: 2rem;
+  }
+  .hero-subtitle{
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    
+  }
+
+  .sponsor-section{
+    display: none;
+
+  }
+  .slide-track{
+    animation-duration: 30s;
+  }
+}

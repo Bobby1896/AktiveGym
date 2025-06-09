@@ -3,14 +3,13 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Logout from "./authentication/logout";
-import Signup from "./authentication/signup";
+import SignUp from "./authentication/signup";
 import Navbar from "./pageLayouts/navBar";
 import LandingPage from "./pages/landingPage";
 
 function App() {
   return (
     <Router>
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
@@ -18,7 +17,7 @@ function App() {
         <Route path="/membership" element={<Membership />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Logout />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   )

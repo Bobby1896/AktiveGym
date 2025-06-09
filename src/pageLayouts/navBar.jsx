@@ -50,7 +50,7 @@ const Navbar = () => {
           </a>
         </li>
         <li className="mobile-buttons">
-          <CustomButton component={RouterLink} to="/get-started" fullWidth>
+          <CustomButton component={RouterLink} to="/signUp" fullWidth>
             Get Started
           </CustomButton>
           <CustomButton
@@ -68,7 +68,7 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-buttons">
-        <CustomButton component={RouterLink} to="/get-started">
+        <CustomButton component={RouterLink} to="/signup">
           Get Started
         </CustomButton>
 

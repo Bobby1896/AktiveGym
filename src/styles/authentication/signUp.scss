@@ -1,0 +1,153 @@
+.signup-container {
+  display: flex;
+  min-height: 100vh;
+
+  .progress-section {
+    width: 35%;
+    background-color: #2C2C2C;
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+
+    .logo {
+      width: 170px;
+      margin-bottom: 3rem;
+    }
+
+    .progress-steps {
+      width: 100%;
+      max-width: 300px;
+
+      .step-indicator {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+
+
+
+
+        
+        svg {
+          margin-right: 1rem;
+          flex-shrink: 0;
+        }
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+
+
+        .step-info {
+          h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.1rem;
+          }
+
+          p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+
+  .form-section {
+    width: 65%;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+
+    .step-counter {
+      color: #1a85c8;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-title {
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    .form-step {
+      flex: 1;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      .primary-button {
+        background-color: #1a85c8;
+        color: white;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          background-color: darken(#1a85c8, 10%);
+        }
+      }
+
+      .secondary-button {
+        background-color: white;
+        color: #1a85c8;
+        padding: 0.75rem 2rem;
+        border: 1px solid #1a85c8;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+
+        &:hover {
+          background-color: lighten(#1a85c8, 40%);
+        }
+      }
+    }
+
+    .radio-group {
+      margin: 1rem 0;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        input[type="radio"] {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .signup-container {
+    flex-direction: column;
+
+    .progress-section,
+    .form-section {
+      width: 100%;
+    }
+
+    .progress-section {
+      padding-bottom: 1rem;
+    }
+  }
+}
