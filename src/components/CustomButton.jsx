@@ -27,7 +27,7 @@ const CustomButton = ({
   onClick,
   bgColor = "#1A85C8",
   textColor = "#ffffff",
-  hoverBgColor,
+  // hoverBgColor,
   size = "medium", 
   style = {},
   ...rest
@@ -39,9 +39,9 @@ const CustomButton = ({
       sx={{
         backgroundColor: bgColor,
         color: textColor,
-        "&:hover": {
-          backgroundColor: hoverBgColor || bgColor,
-        },
+        // "&:hover": {
+        //   backgroundColor: hoverBgColor || bgColor,
+        // },
         ...sizeStyles[size],
         ...style,
       }}
