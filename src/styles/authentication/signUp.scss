@@ -1,6 +1,7 @@
 .signup-container {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .progress-section {
@@ -11,6 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100vh;
 
   .logo {
     width: 170px;
@@ -56,10 +58,9 @@
 
 .form-section {
   width: 65%;
-  padding: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
 
   .step-counter {
     color: #1a85c8;
@@ -69,53 +70,98 @@
   .form-title {
     margin-top: 0;
     margin-bottom: 2rem;
+    text-transform: capitalize;
   }
 
-  .form-step {
-    width: 75%;
+  .signup-form {
+    width: 100%;
+    gap: 1.5rem;
   }
 
-  .form-group {
-    margin-bottom: 2%;
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+  .error-msg {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    margin-bottom: -1rem;
   }
 
-  .gs-group {
+  .gs-field {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2%;
     width: 100%;
-
-    .age-group {
-        width: 50%;
-    }
   }
-  .radio-group {
+
+  .age-field {
+    width: 50%;
+  }
+
+  .gender-options {
     display: flex;
     gap: 2rem;
-    margin-top: 1rem;
 
-    .radio-option1,
-    .radio-option2 {
+    .male-option,
+    .female-option {
       background-color: #2c2c2c;
-      padding: 1rem 1.5em;
-      border-radius: 10px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
+      padding: 1rem 2rem;
+      border-radius: 6px;
     }
+  }
+
+  .custom-input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #2c2c2c;
+    color: #ffffff;
+    margin-top: 5px;
+    box-sizing: border-box;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+  }
+
+  .custom-input:focus {
+    outline: none;
+    // border-color: #ffffff;
+  }
+
+  .custom-radio {
+    width: 18px;
+    height: 18px;
+    accent-color: #1a85c8;
+    margin-right: 8px;
+  }
+
+  .password-field {
+    position: relative;
+    display: flex;
+    align-items: center;
 
     .custom-input {
-      background-color: #2c2c2c;
-      color: white;
-      caret-color: white;
-      border: none;
-      padding: 8px;
-      border-radius: 4px;
+      width: 100%;
+      padding-right: 40px; 
     }
 
-    .custom-input input::placeholder {
-      color: rgba(255, 255, 255, 0.7);
+    .toggle-password {
+      position: absolute;
+      right: 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 

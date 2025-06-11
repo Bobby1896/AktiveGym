@@ -7,18 +7,21 @@ import {
   EyeIcon,
   EyeClosedIcon,
 } from "../svg";
-import BasicTextField from "../components/TextInput";
+import { Formik, Form, Field } from "formik";
+import { schema } from "../schema";
 
 const SignUp = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
+  const initialValues = {
+    name: "",
+    email: "",
+    age: "",
+    gender: "",
+    password: "",
+    cpassword: "",
   };
 
   return (
@@ -75,92 +78,118 @@ const SignUp = () => {
         </h2>
 
         {currentStep === 1 && (
-          <form className="form-step">
-            <div className="form-group">
-              <label htmlFor="fullName">Full Name</label>
-              <BasicTextField
-                id="fullName"
-                type="text"
-                className="custom-input"
-              />
-            </div>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={schema}
+            onSubmit={""}
+          >
+            {({ errors, touched }) => (
+              <Form className="signup-form">
+                <div className="form-field">
+                  <label htmlFor="name">Full Name</label>
 
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <BasicTextField
-                id="email"
-                type="email"
-                className="custom-input"
-              />
-            </div>
-
-            <div className="gs-group">
-              <div className="gender-group">
-                <label>Gender</label>
-
-                <div className="radio-group">
-                  <div className="radio-option1">
-                    <input type="radio" id="male" name="gender" value="male" />
-                    <label htmlFor="male">Male</label>
-                  </div>
-
-                  <div className="radio-option2">
-                    <input
-                      type="radio"
-                      id="female"
-                      name="gender"
-                      value="female"
-                    />
-                    <label htmlFor="female">Female</label>
+                  <Field type="text" name="name" className="custom-input" />
+                  <div className="error-containner">
+                    {errors.name && touched.name && (
+                      <p className="error-msg">{errors.name}</p>
+                    )}
                   </div>
                 </div>
-              </div>
-              <div className="age-group">
-                <label htmlFor="age">Age</label>
-                <BasicTextField
-                  id="age"
-                  type="number"
-                  className="small-input"
-                />
-              </div>
-            </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <BasicTextField
-                id="password"
-                type={showConfirmPassword ? "text" : "password"}
-                className="medium-input"
-                endAdornment={
-                  <div
-                    className="password-toggle"
-                    onClick={togglePasswordVisibility}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {showPassword ? <EyeClosedIcon /> : <EyeIcon />}
-                  </div>
-                }
-              />
-            </div>
+                <div className="form-field">
+                  <label htmlFor="email">Email</label>
 
-            <div className="form-group">
-              <label htmlFor="confirmPassword">Confirm Password</label>
-              <BasicTextField
-                id="confirmPassword"
-                type={showConfirmPassword ? "text" : "password"}
-                className="medium-input"
-                endAdornment={
-                  <div
-                    className="password-toggle"
-                    onClick={toggleConfirmPasswordVisibility}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {showConfirmPassword ? <EyeClosedIcon /> : <EyeIcon />}
+                  <Field type="email" name="email" className="custom-input" />
+                  {errors.email && touched.email && (
+                    <p className="error-msg">{errors.email}</p>
+                  )}
+                </div>
+
+                <div className="gs-field">
+                  <div className="form-field">
+                    <label htmlFor="gender">Gender</label>
+                    <div className="gender-options">
+                      <div className="male-option">
+                        <label>
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="male"
+                            className="age-input"
+                          />
+                          Male
+                        </label>
+                      </div>
+                      <div className="female-option">
+                        <label>
+                          <Field
+                            type="radio"
+                            name="gender"
+                            value="female"
+                            className="age-input"
+                          />
+                          Female
+                        </label>
+                      </div>
+                    </div>
+                    {errors.gender && touched.gender && (
+                      <p className="error-msg">{errors.gender}</p>
+                    )}
                   </div>
-                }
-              />
-            </div>
-          </form>
+
+                  <div className="age-field">
+                    <label htmlFor="age">Age</label>
+                    <Field type="age" name="age" className="custom-input" />
+                    {errors.age && touched.age && (
+                      <p className="error-msg">{errors.age}</p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="form-field">
+                  <label htmlFor="password">Password</label>
+                  <div className="password-field">
+                    <Field
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      className="custom-input"
+                    />
+                    <span
+                      className="toggle-password"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <EyeClosedIcon /> : <EyeIcon />}
+                    </span>
+                  </div>
+                  {errors.password && touched.password && (
+                    <p className="error-msg">{errors.password}</p>
+                  )}
+                </div>
+
+                <div className="form-field">
+                  <label htmlFor="cpassword">Confirm Password</label>
+                  <div className="password-field">
+                    <Field
+                      type={showConfirmPassword ? "text" : "password"}
+                      name="cpassword"
+                      className="custom-input"
+                    />
+                    <span
+                      className="toggle-password"
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
+                    >
+                      {showConfirmPassword ? <EyeClosedIcon /> : <EyeIcon />}
+                    </span>
+                  </div>
+                  {errors.cpassword && touched.cpassword && (
+                    <p className="error-msg">{errors.cpassword}</p>
+                  )}
+                </div>
+              </Form>
+            )}
+          </Formik>
         )}
         {currentStep === 2 && (
           <div className="form-step">
