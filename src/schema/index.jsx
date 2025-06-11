@@ -26,4 +26,10 @@ export const schema = Yup.object({
     .min(1, "Age must be a number and at leaast 1")
     .max(100, "Please enter a valid age")
     .required("Please enter your age"),
+  height: Yup.number()
+    .min(1, "Height must be a number and at least 1")
+    .required("Please enter your height"),
+  weight: Yup.number()
+    .min(1, "Weight must be a number and at least 1")
+    .required("Please enter your weight"),
 });
