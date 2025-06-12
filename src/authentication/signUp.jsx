@@ -6,9 +6,12 @@ import {
   SubscribeIcon,
   EyeIcon,
   EyeClosedIcon,
+  BackArrowIcon,
 } from "../svg";
 import { Formik, Form, Field } from "formik";
 import { schema } from "../schema";
+import { Link } from "react-router-dom";
+import CustomButton from "../components/CustomButton";
 
 const SignUp = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -66,6 +69,14 @@ const SignUp = () => {
             </div>
           </div>
         </div>
+
+        <div className="spacer" />
+        <Link to={"/"}>
+          <div className="return-home">
+            <BackArrowIcon />
+            <p>Back to home</p>
+          </div>
+        </Link>
       </div>
 
       <div className="form-section">
@@ -76,7 +87,7 @@ const SignUp = () => {
         <h2 className="form-title">
           {currentStep === 1 && "Create your Account"}
           {currentStep === 2 && "Fitness & Body Info"}
-          {currentStep === 3 && "Choose Your Plan"}
+          {currentStep === 3 && "Subscribe to a Plan"}
         </h2>
 
         {currentStep === 1 && (
@@ -228,87 +239,87 @@ const SignUp = () => {
 
                   <div className="form-field">
                     <div className="">
-                    <label htmlFor="fitnessGoal">Fitness Goal</label>
-                    <div className="diet-options">
-                      <div className="vegan-option">
-                        <label>
-                          <Field
-                            type="checkbox"
-                            name="fitness"
-                            value="lose-weight"
-                            className="diet-input"
-                          />
-                          Lose Weight
-                        </label>
-                      </div>
+                      <label htmlFor="fitnessGoal">Fitness Goal</label>
+                      <div className="diet-options">
+                        <div className="vegan-option">
+                          <label>
+                            <Field
+                              type="checkbox"
+                              name="fitness"
+                              value="lose-weight"
+                              className="diet-input"
+                            />
+                            Lose Weight
+                          </label>
+                        </div>
 
-                      <div className="hp-option">
-                        <label>
-                          <Field
-                            type="checkbox"
-                            name="fitness"
-                            value="build-muscle"
-                            className="diet-input"
-                          />
-                          Build Muscle
-                        </label>
-                      </div>
+                        <div className="hp-option">
+                          <label>
+                            <Field
+                              type="checkbox"
+                              name="fitness"
+                              value="build-muscle"
+                              className="diet-input"
+                            />
+                            Build Muscle
+                          </label>
+                        </div>
 
-                      <div className="np-option">
-                        <label>
-                          <Field
-                            type="checkbox"
-                            name="fitness"
-                            value="get-flexible"
-                            className="diet-input"
-                          />
-                          Get Flexible
-                        </label>
+                        <div className="np-option">
+                          <label>
+                            <Field
+                              type="checkbox"
+                              name="fitness"
+                              value="get-flexible"
+                              className="diet-input"
+                            />
+                            Get Flexible
+                          </label>
+                        </div>
                       </div>
-                    </div>
                     </div>
                   </div>
 
                   <div className="form-field">
                     <div className="">
-                    <label htmlFor="dietary">Dietary Preference</label>
-                    <div className="diet-options">
-                      <div className="vegan-option">
-                        <label>
-                          <Field
-                            type="radio"
-                            name="diet"
-                            value="vegan"
-                            className="diet-input"
-                          />
-                          Vegan
-                        </label>
-                      </div>
+                      <label htmlFor="dietary">Dietary Preference</label>
+                      <div className="diet-options">
+                        <div className="vegan-option">
+                          <label>
+                            <Field
+                              type="radio"
+                              name="diet"
+                              value="vegan"
+                              className="diet-input"
+                            />
+                            Vegan
+                          </label>
+                        </div>
 
-                      <div className="hp-option">
-                        <label>
-                          <Field
-                            type="radio"
-                            name="diet"
-                            value="high-protein"
-                            className="diet-input"
-                          />
-                          High Protein
-                        </label>
-                      </div>
+                        <div className="hp-option">
+                          <label>
+                            <Field
+                              type="radio"
+                              name="diet"
+                              value="high-protein"
+                              className="diet-input"
+                            />
+                            High Protein
+                          </label>
+                        </div>
 
-                      <div className="np-option">
-                        <label>
-                          <Field
-                            type="radio"
-                            name="diet"
-                            value="no-preference"
-                            className="diet-input"
-                          />
-                          No Preference
-                        </label>
+                        <div className="np-option">
+                          <label>
+                            <Field
+                              type="radio"
+                              name="diet"
+                              value="no-preference"
+                              className="diet-input"
+                            />
+                            No Preference
+                          </label>
+                        </div>
                       </div>
-                    </div>
                     </div>
                   </div>
                 </Form>
@@ -325,21 +336,24 @@ const SignUp = () => {
 
         <div className="form-actions">
           {currentStep > 1 && (
-            <button
-              className="secondary-button"
+            <CustomButton
+              size="medium"
+              bgColor="#ffffff"
+              textColor="#1A85C8"
+              style="secondary-button"
               onClick={() => setCurrentStep(currentStep - 1)}
             >
               Back
-            </button>
+            </CustomButton>
           )}
-          <button
+          <CustomButton
             className="primary-button"
             onClick={() =>
               currentStep < 3 ? setCurrentStep(currentStep + 1) : ""
             }
           >
             {currentStep < 3 ? "Next" : "Complete Sign Up"}
-          </button>
+          </CustomButton>
         </div>
       </div>
     </div>

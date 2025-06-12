@@ -10,13 +10,13 @@ const sizeStyles = {
   },
   medium: {
     fontSize: "1rem",
-    padding: "8px 18px",
+    padding: "0.4rem 2rem",
     borderRadius: "30px",
     textTransform: "none"
   },
   large: {
     fontSize: "1.25rem",
-    padding: "12px 24px",
+    padding: "0.5rem 3rem",
     borderRadius: "30px",
     textTransform: "none"
   },
@@ -27,7 +27,7 @@ const CustomButton = ({
   onClick,
   bgColor = "#1A85C8",
   textColor = "#ffffff",
-  // hoverBgColor,
+  hoverBgColor,
   size = "medium", 
   style = {},
   ...rest
@@ -39,9 +39,9 @@ const CustomButton = ({
       sx={{
         backgroundColor: bgColor,
         color: textColor,
-        // "&:hover": {
-        //   backgroundColor: hoverBgColor || bgColor,
-        // },
+        "&:hover": {
+          backgroundColor: hoverBgColor || bgColor,
+        },
         ...sizeStyles[size],
         ...style,
       }}

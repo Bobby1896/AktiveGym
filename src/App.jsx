@@ -4,7 +4,7 @@ import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Logout from "./authentication/logout";
 import SignUp from "./authentication/signup";
-import Navbar from "./pageLayouts/navBar";
+import Login from "./authentication/login";
 import LandingPage from "./pages/landingPage";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="/steps" element={<Steps />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/login" element={<Logout />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
