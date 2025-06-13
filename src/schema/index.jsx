@@ -3,7 +3,11 @@ import * as Yup from "yup";
 const passwordRegex = new RegExp(
   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
 );
-// const emailRegex = new RegExp("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+const cardNumberRegex = /^(\d{4}\s){3}\d{4}$/;
+const expiryDateRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+const cvvRegex = /^[0-9]{3,4}$/;
+
+// const emailRegex = ("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
 
 export const schema = Yup.object({
   name: Yup.string()
@@ -32,4 +36,32 @@ export const schema = Yup.object({
   weight: Yup.number()
     .min(1, "Weight must be a number and at least 1")
     .required("Please enter your weight"),
+  cardNumber: Yup.string()
+    .matches(cardNumberRegex, "Card number must be 16 digits")
+    .required("Please enter your card number"),
+  expiryDate: Yup.string()
+    .matches(
+      expiryDateRegex,
+      "Expiry date must be in MM/YYYY format (e.g., 09/2025)"
+    )
+    .test(
+      "is-future-date",
+      "Expiry date must be in the future",
+      function (value) {
+        if (!value) return false; 
+
+        const [month, year] = value.split("/").map(Number);
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1; 
+
+        return (
+          year > currentYear || (year === currentYear && month >= currentMonth)
+        );
+      }
+    )
+    .required("Please enter your card's expiry date"),
+  cvv: Yup.string()
+    .matches(cvvRegex, "CVV must be 3 or 4 digits")
+    .required("Please enter your card's CVV"),
 });

@@ -1,3 +1,4 @@
+
 .hero-background {
   background-image: url("/src/assets/images/running man.png");
   background-size: cover;
@@ -9,6 +10,8 @@
   flex-direction: column;
   position: relative;
 }
+
+
 
 .hero-section {
   flex: 1.5;
@@ -22,7 +25,9 @@
 .hero-title {
   font-size: 4rem;
   margin-bottom: 1rem;
+  
 }
+
 
 .hero-subtitle {
   margin-bottom: 7%;
@@ -127,6 +132,7 @@
     }
   }
 }
+
 
 @media (max-width: 768px) {
   .hero-background {

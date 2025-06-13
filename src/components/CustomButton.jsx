@@ -18,7 +18,7 @@ const sizeStyles = {
     fontSize: "1.25rem",
     padding: "0.5rem 3rem",
     borderRadius: "30px",
-    textTransform: "none"
+    textTransform: "none",
   },
 };
 

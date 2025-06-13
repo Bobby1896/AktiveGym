@@ -3,6 +3,7 @@ import CustomButton from "../components/CustomButton";
 import { useState } from "react";
 import { plans } from "../plainData";
 import { FaCheck } from "react-icons/fa";
+import { Link as RouterLink } from "react-router-dom";
 
 const Membership = () => {
   const [billingCycle, setBillingCycle] = useState("monthly");
@@ -59,6 +60,7 @@ const Membership = () => {
                   size="large"
                   bgColor={index === 1 ? "#ffffff" : "#1A85C8"}
                   textColor={index === 1 ? "#1A85C8" : "#ffffff"}
+                  component={RouterLink}  to="/signup"
                 >
                   Choose Plan
                 </CustomButton>

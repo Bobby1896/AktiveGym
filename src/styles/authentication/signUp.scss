@@ -15,7 +15,6 @@
   align-items: center;
   height: 100vh;
 
-
   .logo {
     width: 170px;
     margin-bottom: 3rem;
@@ -228,6 +227,77 @@
     justify-content: flex-start;
     gap: 1rem;
     margin-top: 6rem;
+  }
+}
+
+.payment-section {
+  margin-top: -2rem;
+
+  .payment-header {
+    display: flex;
+    justify-content: space-between;
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .payment-amount {
+    font-weight: 600;
+    font-size: 28px;
+  }
+
+  .payment-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -1rem;
+  }
+  .payment-title {
+    // font-size: 0.8rem;
+    font-weight: bold;
+  }
+  .line {
+    margin-bottom: 1.5rem;
+  }
+  .expiry-cvv-fields {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .expiry-field,
+  .cvv-field {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .subtotal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-issuer {
+    position: absolute;
+    right: 10px;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    // color: #555;
+  }
+
+  .FaCcVisa {
+    color: #1a1f71;
+  }
+  .FaCcMastercard {
+    color: #eb001b;
+  }
+  .FaCcAmex {
+    color: #002663;
+  }
+  .FaCcDiscover {
+    color: #ff6000;
   }
 }
 

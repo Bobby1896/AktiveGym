@@ -27,3 +27,9 @@ p {
   font-weight: 400;
   font-size: 1rem
 }
+
+.custom-input::-webkit-outer-spin-button,
+.custom-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
