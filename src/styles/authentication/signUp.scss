@@ -1,7 +1,6 @@
 .signup-container {
   display: flex;
   height: 100vh;
-  overflow: hidden;
 }
 
 .progress-section {
@@ -14,6 +13,7 @@
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
+  // position: fixed;
 
   .logo {
     width: 170px;
@@ -232,6 +232,7 @@
 
 .payment-section {
   margin-top: -2rem;
+  margin-bottom: -4rem;
 
   .payment-header {
     display: flex;
@@ -299,6 +300,86 @@
   .FaCcDiscover {
     color: #ff6000;
   }
+
+ /*billing country dropdown*/
+.billing-select {
+  margin-top: 0.5rem;
+
+  .an-simple-select__control {
+    background-color: #2c2c2c; 
+    border: 1px solid #2c2c2c;
+    border-radius: 6px;
+    min-height: 50px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+
+  /* Input field */
+  .an-simple-select__input {
+    color: #ffffff !important; 
+  }
+
+  /* Placeholder text */
+  .an-simple-select__placeholder {
+    color:#ffffff
+  }
+
+  /* Single selected value */
+  .an-simple-select__single-value {
+    color: #ffffff; /* Dark text */
+  }
+
+  .an-simple-select__dropdown-indicator {
+    color: #ffffff;
+    padding: 8px;
+  }
+
+  /* Separator line */
+  .an-simple-select__indicator-separator {
+    background-color: rgba(44, 44, 44, 0.3);
+  }
+  
+  /* Options */
+  .an-simple-select__option {
+    background-color: #ffffff;
+    color: #2c2c2c;
+    padding: 10px 16px;
+
+    &--is-focused {
+      background-color: #f0f0f0;
+    }
+
+    &--is-selected {
+      background-color: #ffffff;
+      color: #2c2c2c;
+    }
+
+    &:hover {
+      background-color: #1a85c8;
+      color: #ffffff;
+    }
+  }
+
+  /* Search input in the menu */
+  .an-simple-select__input-container {
+    color: #2c2c2c;
+    // padding: 8px 16px 4px;
+  }
+}
+
+.terms-conditions{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  p {
+    font-size: 0.9rem;
+    color: #ffffff;
+  }
+}
+}
+.form-actions{
+  margin-bottom: 10rem;
 }
 
 @media (max-width: 768px) {

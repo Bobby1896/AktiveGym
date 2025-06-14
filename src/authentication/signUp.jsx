@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import "../styles/authentication/signUp.scss";
 import {
   AccountIcon,
@@ -20,11 +20,15 @@ import {
 import { Link } from "react-router-dom";
 import CustomButton from "../components/CustomButton";
 import { getCardIssuer } from "../schema/cardIssuer";
+import Select from "react-select";
+// import countryList from "react-select-country-list";
 
 const SignUp = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [cardType, setCardType] = useState(null);
+  // const countries = useMemo(() => countryList().getData(), []);
 
   const initialValues = {
     name: "",
@@ -41,8 +45,6 @@ const SignUp = () => {
     fitness: [],
     diet: "",
   };
-
-  const [cardType, setCardType] = useState(null);
 
   const renderCardLogo = () => {
     switch (cardType) {
@@ -467,11 +469,62 @@ const SignUp = () => {
                         type="text"
                         name="name"
                         className="custom-input"
-                        placeholder="Fullname on Card"
+                        placeholder="Full name on Card"
                       />
                       {errors.name && touched.name && (
                         <p className="error-msg">{errors.name}</p>
                       )}
+                    </div>
+
+                    {/* <div className="form-field">
+                      <label htmlFor="billing-address">Billing Address</label>
+                      <Select
+                        id="billingCountry"
+                        name="billingCountry"
+                        options={countries}
+                        className="billing-select"
+                        classNamePrefix="an-simple-select"
+                        isSearchable
+                        placeholder="Select your country"
+                        value={
+                          countries.find(
+                            (c) => c.value === values.billingCountry
+                          ) || null
+                        }
+                        onChange={(option) =>
+                          setFieldValue("billingCountry", option?.value)
+                        }
+                      />
+
+                      {errors.billingCountry && touched.billingCountry && (
+                        <p className="error-msg">{errors.billingCountry}</p>
+                      )}
+
+                      <Field
+                        type="text"
+                        name="zipCode"
+                        className="custom-input"
+                        placeholder="Zip Code"
+                      />
+                      {errors.zipCode && touched.zipCode && (
+                        <p className="error-msg">{errors.zipCode}</p>
+                      )}
+                    </div> */}
+
+                    <div className="terms-conditions">
+                      <label>
+                        <Field
+                          type="checkbox"
+                          name="terms"
+                          className="terms-checkbox"
+                        />
+                      </label>
+                      <p className="terms-text">
+                        You will be charged the amount and at the frequency
+                        listed above until you cancel. We may change our prices
+                        as described in our Terms of Use. You can cancel any
+                        time.
+                      </p>
                     </div>
                   </Form>
                 )}
@@ -498,7 +551,7 @@ const SignUp = () => {
               currentStep < 3 ? setCurrentStep(currentStep + 1) : ""
             }
           >
-            {currentStep < 3 ? "Next" : "Complete Sign Up"}
+            {currentStep < 3 ? "Next" : " Sign Up"}
           </CustomButton>
         </div>
       </div>

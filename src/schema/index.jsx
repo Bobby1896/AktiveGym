@@ -48,12 +48,12 @@ export const schema = Yup.object({
       "is-future-date",
       "Expiry date must be in the future",
       function (value) {
-        if (!value) return false; 
+        if (!value) return false;
 
         const [month, year] = value.split("/").map(Number);
         const currentDate = new Date();
         const currentYear = currentDate.getFullYear();
-        const currentMonth = currentDate.getMonth() + 1; 
+        const currentMonth = currentDate.getMonth() + 1;
 
         return (
           year > currentYear || (year === currentYear && month >= currentMonth)
@@ -64,4 +64,8 @@ export const schema = Yup.object({
   cvv: Yup.string()
     .matches(cvvRegex, "CVV must be 3 or 4 digits")
     .required("Please enter your card's CVV"),
+  billingCountry: Yup.string().required("Please select your billing country"),
+  zipCode: Yup.string()
+    // .matches(/^\d{5}$/, "Zip code must be exactly 5 digits")
+    .required("Please enter your zip code"),
 });
