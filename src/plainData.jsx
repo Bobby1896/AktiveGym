@@ -129,6 +129,7 @@ export const plans = [
       "10% off supplement",
       "Event notifications",
     ],
+    price: "$7"
   },
   {
     name: "Regular Plan",
@@ -145,6 +146,7 @@ export const plans = [
       "Partner discounts",
       "Event notifications",
     ],
+    price: "$12"
   },
   {
     name: "Premium Plan",
@@ -161,6 +163,7 @@ export const plans = [
       "20% off all store items",
       "Event notifications",
     ],
+    price: "45"
   },
 ];
 
@@ -190,4 +193,10 @@ export const FAQData = [
     answer:
       "Each plan includes personalized diet recommendations, workout videos based on your goal, and optional progress tracking. Premium members also get meal planning with a dietician and access to advanced workouts..",
   },
+];
+
+export const MembershipPlan = [
+  { id: "regular", name: "Regular", price: 12, value: "REGULAR" },
+  { id: "premium", name: "Premium", price: 45, value: "PREMIUM" },
+  { id: "student", name: "Student", price: 7, value: "STUDENT" },
 ];

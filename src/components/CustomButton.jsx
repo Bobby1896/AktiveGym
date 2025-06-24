@@ -24,17 +24,17 @@ const sizeStyles = {
 
 const CustomButton = ({
   children,
-  onClick,
   bgColor = "#1A85C8",
   textColor = "#ffffff",
   hoverBgColor,
   size = "medium", 
   style = {},
+  type = "button",
+  disabled,
   ...rest
 }) => {
   return (
     <MUIButton
-      onClick={onClick}
       {...rest}
       sx={{
         backgroundColor: bgColor,
@@ -46,6 +46,8 @@ const CustomButton = ({
         ...style,
       }}
       className="custom-button"
+      type={type}
+      disabled= {disabled}
     >
       {children}
     </MUIButton>

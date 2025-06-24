@@ -55,18 +55,26 @@ const Membership = () => {
                   </li>
                 ))}
               </ul>
-               <div className="plan-button">
+              <div className="plan-button">
                 <CustomButton
                   size="large"
                   bgColor={index === 1 ? "#ffffff" : "#1A85C8"}
                   textColor={index === 1 ? "#1A85C8" : "#ffffff"}
-                  component={RouterLink}  to="/signup"
+                  component={RouterLink}
+                  to={{
+                    pathname: "/signup",
+                    state: {
+                      selectedPlan: {
+                        ...plan,
+                        billingCycle,
+                      },
+                    },
+                  }}
                 >
                   Choose Plan
                 </CustomButton>
               </div>
             </div>
-           
           </div>
         ))}
       </div>

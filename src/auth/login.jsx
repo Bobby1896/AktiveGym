@@ -1,38 +1,72 @@
 import { useState } from "react";
-import { Link as RouterLink, Link } from "react-router-dom";
-import "../styles/authentication/login.scss";
+import * as Yup from "yup";
+import { Link as RouterLink, Link, useNavigate } from "react-router-dom";
+import "../styles/auth/login.scss";
 import { Formik, Form, Field } from "formik";
-import { schema } from "../schema";
 import CustomButton from "../components/CustomButton";
 import { EyeClosedIcon, EyeIcon } from "../svg";
-import { WhiteGymLogo } from "../svg";
+import { useLoginMutation } from "../redux/services/loginApi";
+import { toast } from "react-toastify";
+
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [loginData, {isLoading} ] = useLoginMutation();
   const initialValues = {
     email: "",
     password: "",
   };
+  const navigate = useNavigate();
+
+  const handleSubmit = async (values) => {
+    const payload = {
+      email: values.email,
+      password: values.password,
+    };
+
+    try {
+      await loginData(payload).unwrap();
+      toast.success(loginData?.message || "Login Successful")
+      navigate("/");
+    } catch (error) {
+      toast.error(error?.data?.message ||"Error Logining");
+    }
+  };
+
+  // const passwordRegex = new RegExp(
+  //   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  // );
+
+  const loginSchema = Yup.object({
+    email: Yup.string()
+      .email("Please enter valid email")
+      .required("Please enter your email"),
+    password: Yup.string()
+      // .matches(
+      //   // passwordRegex,
+      //   "Please enter valid password with at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character"
+      // )
+      .required("Please enter your password"),
+  });
 
   return (
     <div className="login-container">
       <div className="login-image">
-        <img
-          src="src/assets/images/loginImg.png"
-          
-          alt="Image on Login Page"
-        />
+        <img src="src/assets/images/loginImg.png" alt="Image on Login Page" />
       </div>
 
       <div className="login-form-container">
-        <img src="src/assets/images/white logo.png" className="login-imagery" alt="White Logo" />
+        <img
+          src="src/assets/images/white logo.png"
+          className="login-imagery"
+          alt="White Logo"
+        />
         <h2 className="login-header">Login to your Account</h2>
 
         <Formik
           initialValues={initialValues}
-          validationSchema={schema}
-          onSubmit={""}
+          validationSchema={loginSchema}
+          onSubmit={handleSubmit}
         >
           {({ errors, touched }) => (
             <Form className="login-form">
@@ -65,12 +99,7 @@ const Login = () => {
               </div>
 
               <div className="login-button">
-                <CustomButton
-                  type="submit"
-                  component={RouterLink}
-                  to="/dashboard"
-                  size="large"
-                >
+                <CustomButton type="submit" size="large" disabled={isLoading}>
                   Login
                 </CustomButton>
               </div>
@@ -79,7 +108,7 @@ const Login = () => {
                 <p>
                   Don't have an account?{" "}
                   <span className="sign-up-link">
-                    <Link to="/signup" className="signup-link">
+                    <Link to="/signup" className="signup-link" >
                       Sign Up
                     </Link>
                   </span>

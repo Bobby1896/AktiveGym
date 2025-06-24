@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
-import Logout from "./authentication/logout";
-import SignUp from "./authentication/signup";
-import Login from "./authentication/login";
+import Login from "./auth/login";
+import SignUp from "./auth/signup";
+import Logout from "./auth/logOut";
 import LandingPage from "./pages/landingPage";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
