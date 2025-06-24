@@ -1,6 +1,8 @@
 .signup-container {
   display: flex;
-  height: 100vh;
+  height: 100%;
+  // margin: 0;
+ 
 }
 
 .progress-section {
@@ -13,7 +15,6 @@
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  // position: fixed;
 
   .logo {
     width: 170px;
@@ -79,6 +80,8 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 2rem;
+  flex: 1;
+  overflow-y: auto;
 
   .step-counter {
     color: #1a85c8;

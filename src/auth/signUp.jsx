@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as Yup from "yup";
-import "../styles/auth/signUp.scss"
+import "../styles/auth/signUp.scss";
 import { FullSubscriptionIcon } from "../svg";
 import {
   AccountIcon,
@@ -23,10 +23,12 @@ import CustomButton from "../components/CustomButton";
 import { useSignUpMutation } from "../redux/services/signUpApi";
 import { toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
+import BasicModal from "../components/BasicModal";
 
 const SignUp = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [signUpData, { isLoading }] = useSignUpMutation();
   const [cardType, setCardType] = useState(null);
@@ -101,6 +103,7 @@ const SignUp = () => {
 
     try {
       await signUpData(payload).unwrap();
+      setShowModal(true);
       toast.success(
         signUpData?.message || "Sign up successful! Please log in to continue."
       );
@@ -649,6 +652,19 @@ const SignUp = () => {
           )}
         </Formik>
       </div>
+
+      <BasicModal
+        isOpen={showModal}
+        icon={<SuccessIcon />}
+        onClose={() => setShowModal(false)}
+        title="PAYMENT SUCCESSFUL"
+        subTitle="Thank you for joining the AktiveGym community — your journey to a stronger, healthier you starts now."
+        buttonText="Continue"
+        onContinue={() => {
+          setShowModal(false);
+          navigate("/dashboard");
+        }}
+      />
     </div>
   );
 };

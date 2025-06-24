@@ -4,14 +4,14 @@ import { Link as RouterLink, Link, useNavigate } from "react-router-dom";
 import "../styles/auth/login.scss";
 import { Formik, Form, Field } from "formik";
 import CustomButton from "../components/CustomButton";
-import { EyeClosedIcon, EyeIcon } from "../svg";
+import { EyeClosedIcon, EyeIcon, SuccessIcon } from "../svg";
 import { useLoginMutation } from "../redux/services/loginApi";
 import { toast } from "react-toastify";
-
+import BasicModal from "../components/BasicModal";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [loginData, {isLoading} ] = useLoginMutation();
+  const [loginData, { isLoading }] = useLoginMutation();
   const initialValues = {
     email: "",
     password: "",
@@ -26,10 +26,10 @@ const Login = () => {
 
     try {
       await loginData(payload).unwrap();
-      toast.success(loginData?.message || "Login Successful")
+      toast.success(loginData?.message || "Login Successful");
       navigate("/");
     } catch (error) {
-      toast.error(error?.data?.message ||"Error Logining");
+      toast.error(error?.data?.message || "Error Logining");
     }
   };
 
@@ -108,7 +108,7 @@ const Login = () => {
                 <p>
                   Don't have an account?{" "}
                   <span className="sign-up-link">
-                    <Link to="/signup" className="signup-link" >
+                    <Link to="/signup" className="signup-link">
                       Sign Up
                     </Link>
                   </span>
@@ -118,6 +118,8 @@ const Login = () => {
           )}
         </Formik>
       </div>
+
+  
     </div>
   );
 };
