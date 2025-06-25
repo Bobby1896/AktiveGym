@@ -7,7 +7,7 @@
 }
 main {
   width: 100%;
-  padding: 50px;
+  padding: 0px 50px ;
 }
 .sidebar {
   background: #2c2c2c;
@@ -57,7 +57,7 @@ main {
   -o-transition: all 0.5s;
 }
 .sidebar-link:hover {
-  background: #50a3d7;
+  background: #80abc5;
   border-radius: 30px;
   color: #ffffff;
   transition: all 0.5ss;
@@ -79,9 +79,11 @@ main {
   color: #ffffff;
    border-radius: 30px;
 }
-
 .icon,
 .link_text {
   font-size: 25px;
   align-items: center;
+  justify-content: center;
 }
+
+

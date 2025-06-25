@@ -89,8 +89,10 @@ const SideBar = ({ children }) => {
                 isActive ? "sidebar-link active-sidebar" : "sidebar-link"
               }
             >
-              <div className="icon">{item.icon}</div>
-              <div className="link-text">{item.name}</div>
+              
+                <div className="icon">{item.icon}</div>
+                <div className="link-text">{item.name}</div>
+              
             </NavLink>
           ))}
         </div>

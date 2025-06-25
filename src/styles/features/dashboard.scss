@@ -1,0 +1,55 @@
+.dashboard-nav{
+    display: flex;
+    justify-content: space-between;
+}
+.name-initials{
+    display: flex;
+    gap: 10px;
+    padding: 4px 5px 4px 5px;
+    // background: #2C2C2C;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    align-items: center;
+    
+}
+.initials{
+    background: #1A85C8;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.user-progress{
+    display:flex;
+    justify-content: space-between;
+    background: #2C2C2C;
+    padding: 20px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.progress-item{
+    background: #181818;
+    padding: 15px 10px 10px 30px;
+    border-radius: 30px ;
+    -webkit-border-radius: 30px ;
+    -moz-border-radius: 30px ;
+    -ms-border-radius: 30px ;
+    -o-border-radius: 30px ;
+    width: 20%;
+}
+.progress-data{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: -10px;
+}

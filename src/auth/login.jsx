@@ -16,6 +16,7 @@ const Login = () => {
     email: "",
     password: "",
   };
+  console.log(loginData, "okjg");
   const navigate = useNavigate();
 
   const handleSubmit = async (values) => {
@@ -25,7 +26,10 @@ const Login = () => {
     };
 
     try {
-      await loginData(payload).unwrap();
+      const response = await loginData(payload).unwrap();
+
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("expiresIn", response.expiresIn);
       toast.success(loginData?.message || "Login Successful");
       navigate("/dashboard");
     } catch (error) {
@@ -33,19 +37,19 @@ const Login = () => {
     }
   };
 
-  const passwordRegex = new RegExp(
-    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-  );
+  // const passwordRegex = new RegExp(
+  //   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  // );
 
   const loginSchema = Yup.object({
     email: Yup.string()
       .email("Please enter valid email")
       .required("Please enter your email"),
     password: Yup.string()
-      .matches(
-        passwordRegex,
-        "Please enter valid password with at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character"
-      )
+      // .matches(
+      //   // passwordRegex,
+      //   "Please enter valid password with at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character"
+      // )
       .required("Please enter your password"),
   });
 
@@ -118,8 +122,6 @@ const Login = () => {
           )}
         </Formik>
       </div>
-
-  
     </div>
   );
 };
