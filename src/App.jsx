@@ -6,6 +6,15 @@ import Login from "./auth/login";
 import SignUp from "./auth/signup";
 import Logout from "./auth/logOut";
 import LandingPage from "./pages/landingPage";
+import Dashboard from "./features/dashboard";
+import DietaryPlan from "./features/dietaryPlan";
+import Notification from "./features/notification";
+import Trainers from "./features/trainers";
+import UserManagement from "./features/userManagement";
+import WorkoutPlan from "./features/workoutPlan";
+import SideBar from "./pageLayouts/sideBar";
+import DashBoardLayout from "./pageLayouts/dashBoardLayout";
+import Account from "./features/account";
 
 function App() {
   return (
@@ -15,9 +24,20 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/steps" element={<Steps />} />
         <Route path="/membership" element={<Membership />} />
-        <Route path="/logout" element={<Logout />} />
+
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+
+        <Route element={<DashBoardLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dietaryPlan" element={<DietaryPlan />} />
+          <Route path="/notification" element={<Notification />} />
+          <Route path="/trainers" element={<Trainers />} />
+          <Route path="/userManagement" element={<UserManagement />} />
+          <Route path="/workoutPlan" element={<WorkoutPlan />} />
+          <Route path="/profile" element={<Account />} />
+          <Route path="/logout" element={<Logout />} />
+        </Route>
       </Routes>
     </Router>
   );

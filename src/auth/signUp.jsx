@@ -24,6 +24,7 @@ import { useSignUpMutation } from "../redux/services/signUpApi";
 import { toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
 import BasicModal from "../components/BasicModal";
+import { SuccessIcon } from "../svg";
 
 const SignUp = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -83,7 +84,6 @@ const SignUp = () => {
     const payload = {
       fullName: values.name,
       email: values.email,
-      cardName: values.cardName,
       gender: values.gender?.toUpperCase(),
       age: Number(values.age),
       password: values.password,
@@ -95,6 +95,7 @@ const SignUp = () => {
         dietaryPreference: values.diet?.toUpperCase(),
       },
       paymentInfo: {
+        cardName: values.cardName,
         cardNumber: values.cardNumber?.replace(/\s/g, ""),
         expiryDate: values.expiryDate,
         cvv: values.cvv,

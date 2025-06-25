@@ -1,5 +1,5 @@
 
-export const BASE_URL= "http://aktivegym.onrender.com";
+export const BASE_URL= "https://aktivegym.onrender.com";
 
 export const AUTH_API = {
   SIGNUP: `/api/v1/auth/signup`,

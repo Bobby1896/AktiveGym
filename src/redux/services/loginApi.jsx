@@ -11,7 +11,6 @@ export const loginApi = createApi({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (credentials) => ({
-        // mode: "no-cors",
         url: AUTH_API.LOGIN,
         headers: {
           "Content-Type": "application/json",

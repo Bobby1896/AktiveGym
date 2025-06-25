@@ -18,7 +18,7 @@ const LandingPage = () => {
     setOpenIndex(index === openIndex ? null : index);
   };
   return (
-    <>
+    <div>
       <div className="hero-background">
         <Navbar />
         <section className="hero-section">
@@ -113,7 +113,7 @@ const LandingPage = () => {
       <footer>
         <Footer />
       </footer>
-    </>
+    </div>
   );
 };
 

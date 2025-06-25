@@ -27,25 +27,25 @@ const Login = () => {
     try {
       await loginData(payload).unwrap();
       toast.success(loginData?.message || "Login Successful");
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       toast.error(error?.data?.message || "Error Logining");
     }
   };
 
-  // const passwordRegex = new RegExp(
-  //   "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
-  // );
+  const passwordRegex = new RegExp(
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+  );
 
   const loginSchema = Yup.object({
     email: Yup.string()
       .email("Please enter valid email")
       .required("Please enter your email"),
     password: Yup.string()
-      // .matches(
-      //   // passwordRegex,
-      //   "Please enter valid password with at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character"
-      // )
+      .matches(
+        passwordRegex,
+        "Please enter valid password with at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character"
+      )
       .required("Please enter your password"),
   });
 
