@@ -1,55 +1,192 @@
-.dashboard-nav{
-    display: flex;
-    justify-content: space-between;
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
 }
-.name-initials{
-    display: flex;
-    gap: 10px;
-    padding: 4px 5px 4px 5px;
-    // background: #2C2C2C;
+.name-initials {
+  display: flex;
+  gap: 10px;
+  padding: 4px 5px 4px 5px;
+  // background: #2C2C2C;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  align-items: center;
+}
+.initials {
+  background: #1a85c8;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.user-progress {
+  display: flex;
+  justify-content: space-between;
+  background: #2c2c2c;
+  padding: 20px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+.user-desc{
+    opacity: 0.7;
+}
+.progress-item {
+  background: #181818;
+  padding: 15px 10px 10px 30px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  width: 20%;
+
+}
+.progress-data {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: -10px;
+}
+.second-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+.recommendation-sect {
+  width: 75%;
+}
+.recommended-trainer {
+  background: #2c2c2c;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 5px 30px 10px 30px;
+}
+.recommended-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rec-text {
+  font-weight: 500;
+  font-size: 24px;
+}
+.rec-view {
+  text-decoration: none;
+  color: #1a85c8;
+  cursor: pointer;
+  font-size: 20px;
+}
+.rec-view:hover {
+  text-decoration: underline;
+}
+.rtrainer-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.rtrainer {
+    background: #181818;
+    padding: 20px;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    align-items: center;
-    
 }
-.initials{
-    background: #1A85C8;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    padding: 10px;
+.rec-fullname{
     font-size: 18px;
-    font-weight: 500;
-}
-.user-progress{
-    display:flex;
-    justify-content: space-between;
-    background: #2C2C2C;
-    padding: 20px;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-}
-
-.progress-item{
-    background: #181818;
-    padding: 15px 10px 10px 30px;
-    border-radius: 30px ;
-    -webkit-border-radius: 30px ;
-    -moz-border-radius: 30px ;
-    -ms-border-radius: 30px ;
-    -o-border-radius: 30px ;
-    width: 20%;
-}
-.progress-data{
-    font-size: 24px;
     font-weight: 700;
     margin-bottom: -10px;
+
+}
+.rtrainer-name{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rec-speciality{
+    opacity: 0.7;
+}
+
+.rating{
+    display: flex;
+    gap: 4px 
+}
+
+.event-section {
+  width: 20%;
+//   height: 60%;
+  background: #1a85c8;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  padding: 0px 20px 50px;
+
+  
+
+  .event-info{
+    align-items: center;
+    text-align: center;
+    margin-top: 40px;
+
+    .event-header{
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: -15px;
+    
+  }
+    .event-text{
+        font-size: 18px;
+
+    }
+  }
+
+  .event-period{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    margin-top: 30px;
+    gap: 15px;
+
+    .event-day{
+        font-size: 18px;
+    }
+  }
+
+  .event-location{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+
+    .event-center{
+        font-size:18px
+    }
+  }
+
+  .membership-card{
+    display: flex;
+    margin-top: 100px;
+    gap: 15px;
+
+    .gymId{
+        font-size: 20px;
+    }
+  }
+  
+
 }
