@@ -9,6 +9,7 @@ import {
   LocationIcon,
 } from "../svg";
 import { useDashboardQuery } from "../redux/services/DashboardApi";
+import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { Link } from "react-router-dom";
 import { StarIcon } from "../svg";
 import { useRecommendedTrainerQuery } from "../redux/services/recommendedTrainerApi";
@@ -16,25 +17,31 @@ import trainer1 from "../assets/images/smallTrainer1.png";
 import trainer2 from "../assets/images/smallTrainer2.png";
 import trainer3 from "../assets/images/smallTrainer3.png";
 import trainer4 from "../assets/images/smallTrainer2.png";
+import food1 from "../assets/images/smallFood1.png";
+import food2 from "../assets/images/smallFood2.png";
+import food3 from "../assets/images/smallFood3.png";
 import CustomButton from "../components/CustomButton";
+import FirstLetters from "../utilis/FirstLetters";
 
 const Dashboard = () => {
   const { data: userData, isLoading: isLoadingData } = useDashboardQuery();
   const { data: rTrainerData, isLoading } = useRecommendedTrainerQuery();
+  const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
 
   const trainerImages = [trainer1, trainer2, trainer3, trainer4];
+  const foodImages = [food1, food2, food3];
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="red">
       <div className="dashboard-container">
         <div className="dashboard-nav">
           <div className="dashboard-header">
-            <h1>Dashboard</h1>
+            <p className="header-text">Dashboard</p>
           </div>
 
           <div className="name-initials">
-            <p className="initials">{"22"}</p>
-            <p>{"Stella Sarah"}</p>
+            <FirstLetters name={uProfileData?.fullName} className="initials" />
+            <p>{uProfileData?.fullName}</p>
           </div>
         </div>
 
@@ -72,7 +79,7 @@ const Dashboard = () => {
             ) : (
               <p className="progress-data">{userData?.bmi ?? "No BMI data"} </p>
             )}
-            <p className="user-desc">BMI - Normaal </p>
+            <p className="user-desc">BMI - Normal </p>
           </div>
 
           <div className="progress-item">
@@ -102,25 +109,56 @@ const Dashboard = () => {
               <div className="rtrainer-list">
                 {rTrainerData?.slice(0, 4).map((trainer, index) => (
                   <div className="rtrainer" key={trainer.id}>
-                    <img
-                      className="rec-images"
-                      src={trainerImages[index]}
-                      alt={trainer.fullName}
-                    />
+                    <div className="rec-image-wrapper">
+                      <img
+                        className="rec-images"
+                        src={trainerImages[index]}
+                        alt={trainer?.fullName}
+                      />
+                    </div>
 
                     <div className="rtrainer-name">
                       <div>
-                        <p className="rec-fullname">{trainer.fullName} </p>
-                        <p className="rec-speciality">{trainer.speciality} </p>
+                        <p className="rec-fullname">{trainer?.fullName} </p>
+                        <p className="rec-speciality">{trainer?.speciality} </p>
                       </div>
 
                       <div className="rating">
                         <StarIcon />
-                        {trainer.rating}
+                        {trainer?.rating}
                       </div>
                     </div>
 
                     <CustomButton to="">View Profile</CustomButton>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rec-food">
+              <div className="rec-food-header">
+                <p className="rec-text">Recommended Food</p>
+
+                <Link to="/dietaryPlan" className="rec-view">
+                  View More
+                </Link>
+              </div>
+
+              <div className="rfood-list">
+                {rTrainerData?.slice(0, 3).map((trainer, index) => (
+                  <div className="rfood" key={trainer?.id}>
+                    <img
+                      className="food-rec-images"
+                      src={foodImages[index]}
+                      alt={trainer?.fullName}
+                    />
+
+                    <div>
+                      <div>
+                        <p className="rfood-name">{trainer?.fullName}</p>
+                        <p className="rfood-type">{trainer?.speciality}</p>
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -134,34 +172,44 @@ const Dashboard = () => {
               <em className="event-logo">By AktiveGym</em>
             </div>
 
-            <div className="event-period">
-              <CalenderIcon className="event-icon" />
-              <div className="event-date">
-                <p className="event-day">
-                  Monday, July 7th 2025 <br />
-                  <span style={{ fontSize: 16 }}>09:00 AM - 14:00 PM</span>
-                </p>
+            <div className="event-details">
+              <div className="event-period">
+                <CalenderIcon className="event-icon" />
+                <div className="event-date">
+                  <p className="event-day">
+                    Monday, July 7th 2025 <br />
+                    <span style={{ fontSize: 16 }}>09:00 AM - 14:00 PM</span>
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div className="event-location">
-              <LocationIcon />
-              <div className="event-site">
-                <p className="event-center">
-                  AktiveGym Center
-                  <br />
-                  <span style={{ fontSize: 16 }}>Manchester</span>
-                </p>
+              <div className="event-location">
+                <LocationIcon />
+                <div className="event-site">
+                  <p className="event-center">
+                    AktiveGym Center
+                    <br />
+                    <span style={{ fontSize: 16 }}>Manchester</span>
+                  </p>
+                </div>
               </div>
             </div>
 
             <div className="membership-card">
               <img
-                src="src/assets/images/Member Card.png"
+                src="src/assets/images/MemberCard.png"
                 alt="Membership Card"
+                className="gymId-Icon"
               />
               <p className="gymId">
-                GYM ID: <br /> <span style={{fontWeight: 600}}>{"12389398"}</span>
+                GYM ID: <br />{" "}
+                {uLoadingData ? (
+                  <Skeleton count={3} />
+                ) : (
+                  <span style={{ fontWeight: 600 }}>
+                    {uProfileData.membershipId}
+                  </span>
+                )}
               </p>
             </div>
           </div>

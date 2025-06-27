@@ -104,7 +104,7 @@ const Login = () => {
 
               <div className="login-button">
                 <CustomButton type="submit" size="large" disabled={isLoading}>
-                  Login
+                  {isLoading ? "Processing..." : "Login"}
                 </CustomButton>
               </div>
 

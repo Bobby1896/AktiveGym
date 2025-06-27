@@ -4,10 +4,13 @@
 // }
 .sidebar-container {
   display: flex;
+//   height: 100vh;
 }
 main {
   width: 100%;
   padding: 0px 50px ;
+//   height: 100vh; // Match sidebar height
+//   overflow-y: auto;
 }
 .sidebar {
   background: #2c2c2c;
@@ -46,7 +49,7 @@ main {
   display: flex;
   color: #939597;
   padding: 10px 30px;
-  margin: 0px 20px;
+  margin: 0px 15px;
   text-decoration: none;
   align-items: center;
   gap: 15px;

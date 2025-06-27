@@ -1,30 +1,43 @@
+// .dashboard-container{
+//     height: 100vh;
+// }
 .dashboard-nav {
   display: flex;
   justify-content: space-between;
-}
-.name-initials {
-  display: flex;
-  gap: 10px;
-  padding: 4px 5px 4px 5px;
-  // background: #2C2C2C;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
   align-items: center;
+
+  .header-text {
+    font-size: 24px;
+
+    font-weight: 600;
+  }
 }
 .initials {
   background: #1a85c8;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  padding: 10px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  padding: 5px 15px;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 20px;
 }
+.name-initials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background: #2c2c2c;
+  height: 20px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
 .user-progress {
   display: flex;
   justify-content: space-between;
@@ -37,8 +50,8 @@
   -o-border-radius: 30px;
 }
 
-.user-desc{
-    opacity: 0.7;
+.user-desc {
+  opacity: 0.7;
 }
 .progress-item {
   background: #181818;
@@ -49,7 +62,6 @@
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
   width: 20%;
-
 }
 .progress-data {
   font-size: 24px;
@@ -60,133 +72,204 @@
   display: flex;
   justify-content: space-between;
   margin-top: 2%;
-}
-.recommendation-sect {
-  width: 75%;
-}
-.recommended-trainer {
-  background: #2c2c2c;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  padding: 5px 30px 10px 30px;
-}
-.recommended-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.rec-text {
-  font-weight: 500;
-  font-size: 24px;
-}
-.rec-view {
-  text-decoration: none;
-  color: #1a85c8;
-  cursor: pointer;
-  font-size: 20px;
-}
-.rec-view:hover {
-  text-decoration: underline;
-}
-.rtrainer-list {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.rtrainer {
-    background: #181818;
-    padding: 20px;
+
+  .recommendation-sect {
+    width: 75%;
+  }
+  .recommended-trainer,
+  .rec-food {
+    background: #2c2c2c;
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-}
-.rec-fullname{
+    padding: 5px 20px 15px 30px;
+  }
+  .recommended-header,
+  .rec-food-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .rec-text {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .rec-view {
+    text-decoration: none;
+    color: #1a85c8;
+    cursor: pointer;
     font-size: 18px;
+    // margin-top: auto;
+  }
+  .rec-view:hover {
+    text-decoration: underline;
+  }
+  .rtrainer-list {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .rtrainer {
+    background: #181818;
+    padding: 15px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20%;
+    // height: 250px;
+  }
+  .rec-fullname {
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: -10px;
-
-}
-.rtrainer-name{
+    margin-bottom: -15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .rec-images {
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+  }
+  .rtrainer-name {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.rec-speciality{
+    // height: 50%;
+  }
+  .rec-speciality {
     opacity: 0.7;
-}
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-.rating{
+  .rating {
     display: flex;
-    gap: 4px 
+    gap: 4px;
+  }
+  .rfood {
+    display: flex;
+    background: #181818;
+    padding: 10px 50px 10px 0px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    gap: 5px;
+    width: 27%;
+  }
+  .rec-food {
+    margin-top: 2%;
+  }
+  .rfood-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .food-rec-images {
+    width: 40%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+  .rfood-type {
+    background: #2c2c2c;
+    text-align: center;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    padding: 2px 7px;
+  }
 }
-
 .event-section {
+  //   display: flex;
+  //   flex-direction: column;
+  //   height: 100%;
   width: 20%;
-//   height: 60%;
+  align-items: center;
   background: #1a85c8;
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
-  padding: 0px 20px 50px;
+  padding: 0px 20px;
 
-  
-
-  .event-info{
+  .event-info {
     align-items: center;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
 
-    .event-header{
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: -15px;
-    
-  }
-    .event-text{
-        font-size: 18px;
-
+    .event-header {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: -15px;
+    }
+    .event-text {
+      font-size: 18px;
     }
   }
 
-  .event-period{
-    text-align: center;
-    align-items: center;
+  .event-details {
+    margin-bottom: 4rem;
+    .event-period {
+      align-items: center;
+      display: flex;
+      gap: 15px;
+      height: 20%;
+
+      .event-day {
+        font-size: 16px;
+      }
+    }
+
+    .event-location {
+      text-align: center;
+      align-items: center;
+      display: flex;
+      margin-top: 0.5rem;
+      gap: 15px;
+
+      .event-center {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .membership-card {
     display: flex;
-    margin-top: 30px;
     gap: 15px;
 
-    .event-day{
-        font-size: 18px;
+    .gymId {
+      font-size: 20px;
+    }
+
+    .gymId-Icon {
+      width: 40%;
+      object-fit: contain;
+      object-position: center;
     }
   }
-
-  .event-location{
-    text-align: center;
-    align-items: center;
-    display: flex;
-    gap: 15px;
-
-    .event-center{
-        font-size:18px
-    }
-  }
-
-  .membership-card{
-    display: flex;
-    margin-top: 100px;
-    gap: 15px;
-
-    .gymId{
-        font-size: 20px;
-    }
-  }
-  
-
 }
