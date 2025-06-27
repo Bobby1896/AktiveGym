@@ -10,8 +10,20 @@ import {
 } from "../svg";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { logout } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SideBar = ({ children }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout()); // clear Redux store
+    localStorage.removeItem("token"); // or remove any saved auth data
+    navigate("/", { replace: true }); // redirect to home
+  };
+
   const menuItem = [
     {
       path: "/dashboard",
@@ -58,7 +70,7 @@ const SideBar = ({ children }) => {
     },
   ];
   return (
-    <div className="sidebar-container">
+    <aside className="sidebar-container">
       <div className="sidebar">
         <div className="sidebar-top-section">
           <img src="src/assets/images/white logo.png" alt="White Logo" />
@@ -81,24 +93,38 @@ const SideBar = ({ children }) => {
         </div>
 
         <div className="sidebar-footer">
-          {bottomItems.map((item, index) => (
-            <NavLink
-              to={item.path}
-              key={index}
-              className={({ isActive }) =>
-                isActive ? "sidebar-link active-sidebar" : "sidebar-link"
-              }
-            >
-              
-                <div className="icon">{item.icon}</div>
-                <div className="link-text">{item.name}</div>
-              
-            </NavLink>
-          ))}
+          {bottomItems.map((item, index) => {
+            if (item.name === "Log Out") {
+              return (
+                <div
+                  key={index}
+                  onClick={handleLogout}
+                  className="sidebar-link"
+                  style={{ cursor: "pointer" }}
+                >
+                  <div className="icon">{item.icon}</div>
+                  <div className="link-text">{item.name}</div>
+                </div>
+              );
+            } else {
+              return (
+                <NavLink
+                  to={item.path}
+                  key={index}
+                  className={({ isActive }) =>
+                    isActive ? "sidebar-link active-sidebar" : "sidebar-link"
+                  }
+                >
+                  <div className="icon">{item.icon}</div>
+                  <div className="link-text">{item.name}</div>
+                </NavLink>
+              );
+            }
+          })}
         </div>
       </div>
-      <main>{children}</main>
-    </div>
+      <main className="main-layout">{children}</main>
+    </aside>
   );
 };
 

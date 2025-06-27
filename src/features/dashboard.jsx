@@ -1,5 +1,6 @@
 import "../styles/features/dashboard.scss";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import {
   MachoIcon,
   BmiIcon,
@@ -25,14 +26,15 @@ import FirstLetters from "../utilis/FirstLetters";
 
 const Dashboard = () => {
   const { data: userData, isLoading: isLoadingData } = useDashboardQuery();
-  const { data: rTrainerData, isLoading } = useRecommendedTrainerQuery();
+  const { data: rTrainerData, isLoading: isLoadingRData } =
+    useRecommendedTrainerQuery();
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
 
   const trainerImages = [trainer1, trainer2, trainer3, trainer4];
   const foodImages = [food1, food2, food3];
 
   return (
-    <SkeletonTheme baseColor="#2C2C2C" highlightColor="red">
+    <SkeletonTheme baseColor="#2C2C2C" highlightColor="white">
       <div className="dashboard-container">
         <div className="dashboard-nav">
           <div className="dashboard-header">
@@ -40,8 +42,20 @@ const Dashboard = () => {
           </div>
 
           <div className="name-initials">
-            <FirstLetters name={uProfileData?.fullName} className="initials" />
-            <p>{uProfileData?.fullName}</p>
+            {uLoadingData ? (
+              <>
+                <Skeleton circle width={40} height={40} />
+                <Skeleton width={120} height={15} style={{ marginTop: 10 }} />
+              </>
+            ) : (
+              <>
+                <FirstLetters
+                  name={uProfileData?.fullName}
+                  className="initials"
+                />
+                <p>{uProfileData?.fullName}</p>
+              </>
+            )}
           </div>
         </div>
 
@@ -50,7 +64,7 @@ const Dashboard = () => {
             <MachoIcon />
 
             {isLoadingData ? (
-              <Skeleton count={4} />
+              <Skeleton count={2} />
             ) : (
               <p className="progress-data">
                 {userData?.workoutProgress ?? "No workout data"}%
@@ -63,7 +77,7 @@ const Dashboard = () => {
           <div className="progress-item">
             <CaloriesIcon />
             {isLoadingData ? (
-              <Skeleton count={4} />
+              <Skeleton count={2} />
             ) : (
               <p className="progress-data">
                 {userData?.caloriesBurned ?? "No calories data"}cal
@@ -75,7 +89,7 @@ const Dashboard = () => {
           <div className="progress-item">
             <BmiIcon />
             {isLoadingData ? (
-              <Skeleton count={4} />
+              <Skeleton count={2} />
             ) : (
               <p className="progress-data">{userData?.bmi ?? "No BMI data"} </p>
             )}
@@ -84,8 +98,8 @@ const Dashboard = () => {
 
           <div className="progress-item">
             <WeightIcon />
-            {isLoading ? (
-              <Skeleton count={4} />
+            {isLoadingRData ? (
+              <Skeleton count={2} />
             ) : (
               <p className="progress-data">
                 {userData?.weight ?? "No Weight data"}kg
@@ -119,14 +133,29 @@ const Dashboard = () => {
 
                     <div className="rtrainer-name">
                       <div>
-                        <p className="rec-fullname">{trainer?.fullName} </p>
-                        <p className="rec-speciality">{trainer?.speciality} </p>
+                        {isLoadingRData ? (
+                          <>
+                            <Skeleton width={100} height={15} />
+                            <Skeleton width={80} height={15} />
+                          </>
+                        ) : (
+                          <>
+                            <p className="rec-fullname">{trainer?.fullName}</p>
+                            <p className="rec-speciality">
+                              {trainer?.speciality}
+                            </p>
+                          </>
+                        )}
                       </div>
 
-                      <div className="rating">
-                        <StarIcon />
-                        {trainer?.rating}
-                      </div>
+                      {isLoadingRData ? (
+                        <Skeleton width={60} height={15} />
+                      ) : (
+                        <div className="rating">
+                          <StarIcon />
+                          {trainer?.rating}
+                        </div>
+                      )}
                     </div>
 
                     <CustomButton to="">View Profile</CustomButton>
@@ -145,19 +174,29 @@ const Dashboard = () => {
               </div>
 
               <div className="rfood-list">
-                {rTrainerData?.slice(0, 3).map((trainer, index) => (
-                  <div className="rfood" key={trainer?.id}>
+                {(isLoadingRData
+                  ? Array(3).fill({})
+                  : rTrainerData?.slice(0, 3)
+                )?.map((trainer, index) => (
+                  <div className="rfood" key={index}>
                     <img
                       className="food-rec-images"
                       src={foodImages[index]}
-                      alt={trainer?.fullName}
+                      alt={trainer?.fullName || "Food"}
                     />
 
                     <div>
-                      <div>
-                        <p className="rfood-name">{trainer?.fullName}</p>
-                        <p className="rfood-type">{trainer?.speciality}</p>
-                      </div>
+                      {isLoadingRData ? (
+                        <>
+                          <Skeleton width={100} height={15} />
+                          <Skeleton width={80} height={15} />
+                        </>
+                      ) : (
+                        <>
+                          <p className="rfood-name">{trainer?.fullName}</p>
+                          <p className="rfood-type">{trainer?.speciality}</p>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -204,10 +243,10 @@ const Dashboard = () => {
               <p className="gymId">
                 GYM ID: <br />{" "}
                 {uLoadingData ? (
-                  <Skeleton count={3} />
+                  <Skeleton count={1} />
                 ) : (
                   <span style={{ fontWeight: 600 }}>
-                    {uProfileData.membershipId}
+                    {uProfileData?.membershipId}
                   </span>
                 )}
               </p>
