@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to AktiveGym</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        color: #333;
+      }
+
+      main {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f2f5f8;
+      }
+
+      .main-content {
+        background-color: #ffffff;
+        padding: 20px;
+      }
+
+      header,
+      footer {
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      h2 {
+        color: #1a85c8;
+        text-align: center;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      span {
+        cursor: pointer;
+      }
+      span.highlight {
+        color: #1a85c8;
+        font-weight: bold;
+      }
+
+      ul {
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+
+      ul li {
+        margin-bottom: 8px;
+      }
+
+      button {
+        background-color: #1a85c8;
+        color: #fff;
+        padding: 10px 50px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+
+      .socials {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 0;
+        margin: 20px 0 0 0;
+      }
+
+      .socials li {
+        display: inline-block;
+      }
+
+      .socials img {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      a {
+        text-decoration: none;
+        color: #ffffff;
+      }
+
+      footer span {
+        color: #1a85c8;
+        background-color: #f7f9fc;
+      }
+
+      img {
+        width: 20%;
+        object-fit: contain;
+        object-position: center;
+      }
+      .support {
+        color: #1a85c8;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <img src="src/assets/images/bigLogo.png" alt="AktiveGym Logo" />
+        <h2>Welcome to AktiveGym!</h2>
+
+        <p></p>
+      </header>
+
+      <section class="main-content">
+        <div>
+          <p><span class="highlight">Hi {"Username"},</span></p>
+          <p>
+            Welcome to AktiveGym — we’re excited to have you on board! Your
+            account has been successfully created, and you’re now just one step
+            away from starting your fitness journey with us.
+          </p>
+        </div>
+
+        <div>
+          <p>
+            Your Gym ID: <span class="highlight">AKG123456</span><br />
+            Please keep this ID safe — it helps you check in, book sessions, and
+            access exclusive member features.
+          </p>
+        </div>
+
+        <div>
+          <p><strong>What’s Next?</strong></p>
+          <ul>
+            <li>Log in to your dashboard</li>
+            <li>View your personalized workout & diet plans</li>
+            <li>Book classes or track your progress</li>
+            <li>Explore membership benefits</li>
+          </ul>
+        </div>
+
+        <div>
+          <button><a href="{http:aktiveGym/login}">Login</a></button>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          Need help? Reach out to us anytime at
+          <span>
+            <a href="www.email.com" class="support"
+              >support@aktivegym.com</a
+            > </span
+          >. If you’d rather not receive this kind of email, you can
+          <span>
+            <a href="www.unsubscribe.com" class="support">unsubscribe</a>
+          </span>
+          or manage your email preferences.
+        </p>
+
+        <div style="display: flex; justify-content: space-between">
+          <img
+            src="src/assets/images/smallLogo.png"
+            alt="AktiveGym smaall Logo"
+          />
+          <ul class="socials">
+            <li>
+              <a href="https://facebook.com" target="_blank">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                  alt="Facebook"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank">
+                <img
+                  class="icon"
+                  src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+                  alt="Instagram"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com" target="_blank">
+                <img
+                  class="icon"
+                  src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                  alt="Twitter"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
