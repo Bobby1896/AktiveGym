@@ -19,9 +19,9 @@ const SideBar = ({ children }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logout()); // clear Redux store
-    localStorage.removeItem("token"); // or remove any saved auth data
-    navigate("/", { replace: true }); // redirect to home
+    dispatch(logout()); 
+    localStorage.removeItem("token"); 
+    navigate("/", { replace: true }); 
   };
 
   const menuItem = [

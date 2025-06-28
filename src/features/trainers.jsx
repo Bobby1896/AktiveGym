@@ -1,8 +1,12 @@
-import React from 'react'
 
 const Trainers = () => {
   return (
-    <div>T</div>
+    <div className="trainers-container">
+      <div>
+        
+      </div>
+
+    </div>
   )
 }
 

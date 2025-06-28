@@ -8,7 +8,8 @@ export const AUTH_API = {
   REFRESH_TOKEN: `/api/v1/auth/refresh-token`,
   DASHBOARD: `/api/v1/user/dashboard`,
   RECOMMENDED_TRAINER: `/api/v1/trainer/recommendation`,
-  USER_PROFILE: `api/v1/user/profile`
+  USER_PROFILE: `api/v1/user/profile`,
+  TRAINERS: `/api/v1/trainer`
 };
 
 

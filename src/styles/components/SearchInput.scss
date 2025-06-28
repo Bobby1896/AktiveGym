@@ -1,0 +1,27 @@
+.custom-search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+
+  input {
+    width: 100%;
+    padding: 10px 12px 10px 36px; 
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+
+    &:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+  }
+}

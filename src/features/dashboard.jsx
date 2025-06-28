@@ -34,7 +34,7 @@ const Dashboard = () => {
   const foodImages = [food1, food2, food3];
 
   return (
-    <SkeletonTheme baseColor="#2C2C2C" highlightColor="white">
+    <SkeletonTheme baseColor="#2C2C2C" highlightColor="white" animation="wave">
       <div className="dashboard-container">
         <div className="dashboard-nav">
           <div className="dashboard-header">
