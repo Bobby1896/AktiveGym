@@ -61,6 +61,7 @@ const SignUp = () => {
     diet: "",
     height: "",
     weight: "",
+    fitnessGoal: "",
   };
   const renderCardLogo = () => {
     switch (cardType) {
@@ -81,6 +82,14 @@ const SignUp = () => {
   }, [selectedPlan]);
 
   const handleSubmit = async (values) => {
+    const validFitnessGoals = [
+      "BUILD_MUSCLE",
+      "LOOSE_WEIGHT",
+      "GET_FLEXIBLE",
+      "IMPROVE_STAMINA",
+      "GAIN_WEIGHT",
+    ];
+
     const payload = {
       fullName: values.name,
       email: values.email,
@@ -93,12 +102,18 @@ const SignUp = () => {
         weight: parseFloat(values.weight),
         height: parseFloat(values.height),
         dietaryPreference: values.diet?.toUpperCase(),
+        fitnessGoal: Array.isArray(values.fitnessGoal)
+          ? values.fitnessGoal
+              .map((goal) => goal.toUpperCase().replace(/-/g, "_"))
+              .filter((goal) => validFitnessGoals.includes(goal))
+          : [],
       },
+
       paymentInfo: {
         cardName: values.cardName,
         cardNumber: values.cardNumber?.replace(/\s/g, ""),
-        expiryDate: values.expiryDate,
-        cvv: values.cvv,
+        expiryDate: String(values.expiryDate),
+        cvv: String(values.cvv),
       },
     };
 
@@ -110,8 +125,9 @@ const SignUp = () => {
       );
       navigate("/login");
     } catch (error) {
-      toast.error(error?.data?.message || "Error signing up");
+      toast.error(error?.data?.error || "Error signing up");
     }
+    console.log("Payload to send:", JSON.stringify(payload, null, 2));
   };
 
   const passwordRegex = new RegExp(
@@ -399,7 +415,7 @@ const SignUp = () => {
                           <label>
                             <Field
                               type="checkbox"
-                              name="fitness"
+                              name="fitnessGoal"
                               value="lose-weight"
                               className="diet-input"
                             />
@@ -411,7 +427,7 @@ const SignUp = () => {
                           <label>
                             <Field
                               type="checkbox"
-                              name="fitness"
+                              name="fitnessGoal"
                               value="build-muscle"
                               className="diet-input"
                             />
@@ -423,7 +439,7 @@ const SignUp = () => {
                           <label>
                             <Field
                               type="checkbox"
-                              name="fitness"
+                              name="fitnessGoal"
                               value="get-flexible"
                               className="diet-input"
                             />
