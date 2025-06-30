@@ -8,16 +8,16 @@ import {
   CaloriesIcon,
   CalenderIcon,
   LocationIcon,
+  StarIcon
 } from "../svg";
 import { useDashboardQuery } from "../redux/services/DashboardApi";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { Link } from "react-router-dom";
-import { StarIcon } from "../svg";
 import { useRecommendedTrainerQuery } from "../redux/services/recommendedTrainerApi";
 import trainer1 from "../assets/images/smallTrainer1.png";
 import trainer2 from "../assets/images/smallTrainer2.png";
 import trainer3 from "../assets/images/smallTrainer3.png";
-import trainer4 from "../assets/images/smallTrainer2.png";
+import trainer4 from "../assets/images/trainer6.png";
 import food1 from "../assets/images/smallFood1.png";
 import food2 from "../assets/images/smallFood2.png";
 import food3 from "../assets/images/smallFood3.png";
@@ -142,7 +142,12 @@ const Dashboard = () => {
                           <>
                             <p className="rec-fullname">{trainer?.fullName}</p>
                             <p className="rec-speciality">
-                              {trainer?.speciality}
+                              {
+                                trainer?.speciality
+                                  ?.split("-")
+                                  .map((s) => s.trim())
+                                  .filter((s) => s)[0]
+                              }
                             </p>
                           </>
                         )}
@@ -158,7 +163,7 @@ const Dashboard = () => {
                       )}
                     </div>
 
-                    <CustomButton to="">View Profile</CustomButton>
+                    <CustomButton className="profile-btn" to="">View Profile</CustomButton>
                   </div>
                 ))}
               </div>
@@ -194,7 +199,14 @@ const Dashboard = () => {
                       ) : (
                         <>
                           <p className="rfood-name">{trainer?.fullName}</p>
-                          <p className="rfood-type">{trainer?.speciality}</p>
+                          <p className="rfood-type">
+                            {
+                              trainer?.speciality
+                                ?.split("-")
+                                .map((s) => s.trim())
+                                .filter((s) => s)[0]
+                            }
+                          </p>
                         </>
                       )}
                     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import "../styles/auth/SearchInput.scss"
+import "../styles/components/SearchInput.scss"
 
 const SearchInput = ({ placeholder = "Search...", onSearch }) => {
   const [query, setQuery] = useState("");

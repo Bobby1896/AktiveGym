@@ -7,7 +7,7 @@ export const trainersApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
-      const token = localStorage.getItem("token"); 
+      const token = localStorage.getItem("token");
       if (token) {
         headers.set("Authorization", `Bearer ${token}`);
       }
@@ -17,17 +17,17 @@ export const trainersApi = createApi({
   tagTypes: ["Trainers"],
   endpoints: (builder) => ({
     trainers: builder.query({
-      query: () => ({
+      query: ({ pageSize, pageNumber, searchQuery }) => ({
         url: AUTH_API.TRAINERS,
         headers: {
           "Content-Type": "application/json",
         },
         method: "GET",
-        
+        params: { pageSize, pageNumber, searchQuery },
       }),
     }),
   }),
 });
 
-export const { useTrainersQuery} = trainersApi;
+export const { useTrainersQuery } = trainersApi;
 export const trainersReducer = trainersApi.reducer;

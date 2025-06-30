@@ -154,8 +154,9 @@
     // height: 50%;
   }
   .rec-speciality {
+    font-size: 14px;
     opacity: 0.7;
-    white-space: nowrap;
+    white-space: wrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -192,6 +193,10 @@
     margin: 0 auto;
     border-radius: 20px;
   }
+
+.profile-btn{
+    margin-top: auto;
+}
   .rfood-type {
     background: #2c2c2c;
     text-align: center;
