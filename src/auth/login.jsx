@@ -61,7 +61,7 @@ const Login = () => {
 
       <div className="login-form-container">
         <img
-          src="src/assets/images/white logo.png"
+          src="src/assets/images/whiteLogo.png"
           className="login-imagery"
           alt="White Logo"
         />

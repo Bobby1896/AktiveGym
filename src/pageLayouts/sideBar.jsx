@@ -73,7 +73,7 @@ const SideBar = ({ children }) => {
     <aside className="sidebar-container">
       <div className="sidebar">
         <div className="sidebar-top-section">
-          <img src="src/assets/images/white logo.png" alt="White Logo" />
+          <img src="src/assets/images/whiteLogo.png" alt="White Logo" />
           <div className="bars">{/* <FaBars /> */}</div>
         </div>
 

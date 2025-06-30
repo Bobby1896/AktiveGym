@@ -7,6 +7,9 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "../styles/features/trainersProfile.scss";
 import FirstLetters from "../utilis/FirstLetters";
 import CustomButton from "../components/CustomButton";
+import { useAssignTrainerMutation } from "../redux/services/assignTrainer";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const TrainersProfile = () => {
   const { id } = useParams();
@@ -15,6 +18,21 @@ const TrainersProfile = () => {
 
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const { data: trainersData, isLoading } = useGetTrainerByIdQuery({ id });
+  const [assignTrainer, { isLoading: isLoadingAssignT }] = useAssignTrainerMutation();
+
+  const navigate = useNavigate();
+
+  const handleAssignSubmit = async () => {
+    try {
+      await assignTrainer({ trainerId: id }).unwrap();
+      toast.success(
+        `Your request for ${trainersData?.fullName} has been received. Our team will connect with you shortly.`
+      );
+      navigate("/trainers");
+    } catch (error) {
+      toast.error(error?.data?.error || "Unable to Request Trainer");
+    }
+  };
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444">
@@ -51,7 +69,7 @@ const TrainersProfile = () => {
 
         <div className="trainers-profile">
           {isLoading ? (
-            <Skeleton width={100} height={100}/>
+            <Skeleton width={100} height={100} />
           ) : (
             <div className="trainer-img">
               {image && <img src={image} alt="Trainer" />}
@@ -130,7 +148,13 @@ const TrainersProfile = () => {
               <Skeleton />
             ) : (
               <div className="request-btn">
-                <CustomButton type="submit">Request Trainer</CustomButton>
+                <CustomButton
+                  type="submit"
+                  onClick={handleAssignSubmit}
+                  disabled={isLoadingAssignT}
+                >
+                  {isLoadingAssignT ? "Processsing..." : " Request Trainer"}
+                </CustomButton>
               </div>
             )}
           </div>

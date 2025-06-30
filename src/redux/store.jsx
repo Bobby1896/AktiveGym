@@ -6,6 +6,7 @@ import { dashboardReducer, dashboardApi } from "./services/DashboardApi";
 import { recommendedTrainerApi, recommendedTrainerReducer } from "./services/recommendedTrainerApi";
 import { userProfileApi, userProfileReducer } from "./services/userProfileApi";
 import { trainersApi, trainersReducer } from "./services/trainersApi";
+import { assignTrainerApi, assignTrainerReducer } from "./services/assignTrainer";
 
 export const store = configureStore({
   reducer: {
@@ -21,6 +22,8 @@ export const store = configureStore({
     [userProfileApi.reducerPath]: userProfileApi.reducer,
     trainers: trainersReducer,
     [trainersApi.reducerPath]: trainersApi.reducer,
+    assignTrainer: assignTrainerReducer,
+    [assignTrainerApi.reducerPath]: assignTrainerApi.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -29,5 +32,6 @@ export const store = configureStore({
       .concat(dashboardApi.middleware)
       .concat(recommendedTrainerApi.middleware)
       .concat(userProfileApi.middleware)
-      .concat(trainersApi.middleware),
+      .concat(trainersApi.middleware)
+      .concat(assignTrainerApi.middleware),
 });

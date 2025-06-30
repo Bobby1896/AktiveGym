@@ -31,6 +31,7 @@ const CustomButton = ({
   style = {},
   type = "button",
   disabled,
+  onClick,
   ...rest
 }) => {
   return (
@@ -46,6 +47,7 @@ const CustomButton = ({
         ...style,
       }}
       className="custom-button"
+      onClick={onClick}
       type={type}
       disabled= {disabled}
     >

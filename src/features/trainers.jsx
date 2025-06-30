@@ -53,7 +53,7 @@ const Trainers = () => {
   });
 
   return (
-    <SkeletonTheme baseColor="#2C2C2C" animation="wave">
+    <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
       {" "}
       <div className="trainers-container">
         <div className="dashboard-nav">

@@ -207,7 +207,7 @@ const SignUp = () => {
     <div className="signup-container">
       <div className="progress-section">
         <img
-          src="src/assets/images/white logo.png"
+          src="src/assets/images/whiteLogo.png"
           alt="AktiveGym Logo"
           className="logo"
         />
