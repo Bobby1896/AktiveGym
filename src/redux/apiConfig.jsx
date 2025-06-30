@@ -9,7 +9,7 @@ export const AUTH_API = {
   DASHBOARD: `/api/v1/user/dashboard`,
   RECOMMENDED_TRAINER: `/api/v1/trainer/recommendation`,
   USER_PROFILE: `api/v1/user/profile`,
-  TRAINERS: `/api/v1/trainer`
+  TRAINERS: `/api/v1/trainer`,
 };
 
 

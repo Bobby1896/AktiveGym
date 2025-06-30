@@ -8,7 +8,7 @@ import {
   CaloriesIcon,
   CalenderIcon,
   LocationIcon,
-  StarIcon
+  StarIcon,
 } from "../svg";
 import { useDashboardQuery } from "../redux/services/DashboardApi";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
@@ -163,7 +163,17 @@ const Dashboard = () => {
                       )}
                     </div>
 
-                    <CustomButton className="profile-btn" to="">View Profile</CustomButton>
+                    <Link
+                      to={`/trainersProfile/${trainer.id}`}
+                      state={{
+                        trainer: trainer,
+                        image: trainerImages[index % trainerImages.length],
+                      }}
+                    >
+                      <CustomButton className="profile-btn">
+                        View Profile
+                      </CustomButton>
+                    </Link>
                   </div>
                 ))}
               </div>

@@ -26,8 +26,14 @@ export const trainersApi = createApi({
         params: { pageSize, pageNumber, searchQuery },
       }),
     }),
+    getTrainerById: builder.query({
+      query: ({id}) => ({
+        url: `${AUTH_API.TRAINERS}/${id}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useTrainersQuery } = trainersApi;
-export const trainersReducer = trainersApi.reducer;
+export const { useTrainersQuery, useGetTrainerByIdQuery } = trainersApi;
+export const { trainersReducer, trainerByIdReducer } = trainersApi.reducer;

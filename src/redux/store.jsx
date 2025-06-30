@@ -1,16 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import signUpReducer from "./slices/signUpSlice";
 import { signUpApi } from "./services/signUpApi";
-import { loginReducer } from "./services/loginApi";
-import { loginApi } from "./services/loginApi";
-import { dashboardReducer } from "./services/DashboardApi";
-import { dashboardApi } from "./services/DashboardApi";
-import { recommendedTrainerApi } from "./services/recommendedTrainerApi";
-import { recommendedTrainerReducer } from "./services/recommendedTrainerApi";
-import { userProfileApi } from "./services/userProfileApi";
-import { userProfileReducer } from "./services/userProfileApi";
-import { trainersApi } from "./services/trainersApi";
-import { trainersReducer } from "./services/trainersApi";
+import { loginReducer, loginApi } from "./services/loginApi";
+import { dashboardReducer, dashboardApi } from "./services/DashboardApi";
+import { recommendedTrainerApi, recommendedTrainerReducer } from "./services/recommendedTrainerApi";
+import { userProfileApi, userProfileReducer } from "./services/userProfileApi";
+import { trainersApi, trainersReducer } from "./services/trainersApi";
 
 export const store = configureStore({
   reducer: {

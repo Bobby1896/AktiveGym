@@ -15,6 +15,7 @@ import WorkoutPlan from "./features/workoutPlan";
 import SideBar from "./pageLayouts/sideBar";
 import DashBoardLayout from "./pageLayouts/dashBoardLayout";
 import Account from "./features/account";
+import TrainersProfile from "./features/trainersProfile";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/workoutPlan" element={<WorkoutPlan />} />
           <Route path="/profile" element={<Account />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
         </Route>
       </Routes>
     </Router>

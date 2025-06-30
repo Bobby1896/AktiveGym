@@ -53,7 +53,7 @@ const Trainers = () => {
   });
 
   return (
-    <SkeletonTheme baseColor="#2C2C2C"  animation="wave">
+    <SkeletonTheme baseColor="#2C2C2C" animation="wave">
       {" "}
       <div className="trainers-container">
         <div className="dashboard-nav">
@@ -129,9 +129,17 @@ const Trainers = () => {
                     </div>
                   </div>
 
-                  <CustomButton className="profile-btn" to="">
-                    View Profile
-                  </CustomButton>
+                  <Link
+                    to={`/trainersProfile/${trainer.id}`}
+                    state={{
+                      trainer: trainer,
+                      image: trainersImages[index % trainersImages.length],
+                    }}
+                  >
+                    <CustomButton className="profile-btn">
+                      View Profile
+                    </CustomButton>
+                  </Link>
                 </div>
               ))
             )}
