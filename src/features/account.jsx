@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "../styles/features/account.scss";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
@@ -5,8 +6,15 @@ import FirstLetters from "../utilis/FirstLetters";
 import Membership from "../pages/membership";
 
 const Account = () => {
-  const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
+  const {
+    data: uProfileData,
+    isLoading: uLoadingData,
+    refetch,
+  } = useUserProfileQuery();
 
+  useEffect(() => {
+    refetch();
+  });
   const personalDetails = [
     { label: "Name", value: uProfileData?.fullName },
     { label: "Email", value: uProfileData?.email },
@@ -50,20 +58,21 @@ const Account = () => {
         <div className="account-main">
           <div className="user-profile">
             <FirstLetters
-              name={uProfileData?.fullName}
+              name={uProfileData?.fullName || "N/A"}
               className="account-initials"
             />
             <p className="user-name">
               <span style={{ fontWeight: 600, fontSize: 20 }}>
-                {uProfileData.fullName}{" "}
-              </span>{" "}
+                {uProfileData.fullName || "N/A"}
+              </span>
               <br />
               <span style={{ opacity: 0.7, fontSize: 18 }}>
-                {" "}
-                {uProfileData?.email}{" "}
+                {uProfileData?.email || "N/A"}
               </span>{" "}
               <br />{" "}
-              <span>Current Trainer: {uProfileData?.trainer?.fullName} </span>{" "}
+              <span>
+                Current Trainer: {uProfileData?.trainer?.fullName || "N/A"}{" "}
+              </span>{" "}
             </p>
           </div>
 
