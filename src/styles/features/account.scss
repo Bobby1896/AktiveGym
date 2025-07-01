@@ -1,0 +1,70 @@
+.account-main {
+  background-color: #2c2c2c;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 20px;
+
+  .user-profile {
+    text-align: center;
+    margin: 4%;
+
+    .account-initials {
+      background: #1a85c8;
+      border-radius: 30px;
+      -webkit-border-radius: 30px;
+      -moz-border-radius: 30px;
+      -ms-border-radius: 30px;
+      -o-border-radius: 30px;
+      padding: 15px 25px;
+      font-size: 24px;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .user-name {
+      margin-top: 1rem;
+    }
+  }
+
+  .account-payment {
+    background-color: #181818;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 20px;
+    font-size: 14px;
+  }
+
+  .user-details {
+    display: flex;
+    gap: 10%;
+    background-color: #181818;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 2%;
+
+    .personal,
+    .body-fitness {
+      width: 45%;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .label {
+      font-weight: 600;
+    }
+
+    .value {
+      font-weight: 400;
+      text-transform: capitalize;
+    }
+  }
+}
