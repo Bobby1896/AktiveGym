@@ -16,6 +16,7 @@ import SideBar from "./pageLayouts/sideBar";
 import DashBoardLayout from "./pageLayouts/dashBoardLayout";
 import Account from "./features/account";
 import TrainersProfile from "./features/trainersProfile";
+import PrivateRoute from "./utils/auth/privateRoute";
 
 function App() {
   return (
@@ -29,7 +30,13 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
 
-        <Route element={<DashBoardLayout />}>
+        <Route
+          element={
+            <PrivateRoute>
+              <DashBoardLayout />
+            </PrivateRoute>
+          }
+        >
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dietaryPlan" element={<DietaryPlan />} />
           <Route path="/notification" element={<Notification />} />

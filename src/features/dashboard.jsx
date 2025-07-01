@@ -22,7 +22,7 @@ import food1 from "../assets/images/smallFood1.png";
 import food2 from "../assets/images/smallFood2.png";
 import food3 from "../assets/images/smallFood3.png";
 import CustomButton from "../components/CustomButton";
-import FirstLetters from "../utilis/FirstLetters";
+import FirstLetters from "../utils/FirstLetters";
 
 const Dashboard = () => {
   const { data: userData, isLoading: isLoadingData } = useDashboardQuery();

@@ -3,10 +3,16 @@ import signUpReducer from "./slices/signUpSlice";
 import { signUpApi } from "./services/signUpApi";
 import { loginReducer, loginApi } from "./services/loginApi";
 import { dashboardReducer, dashboardApi } from "./services/DashboardApi";
-import { recommendedTrainerApi, recommendedTrainerReducer } from "./services/recommendedTrainerApi";
+import {
+  recommendedTrainerApi,
+  recommendedTrainerReducer,
+} from "./services/recommendedTrainerApi";
 import { userProfileApi, userProfileReducer } from "./services/userProfileApi";
 import { trainersApi, trainersReducer } from "./services/trainersApi";
-import { assignTrainerApi, assignTrainerReducer } from "./services/assignTrainer";
+import {
+  assignTrainerApi,
+  assignTrainerReducer,
+} from "./services/assignTrainerApi";
 
 export const store = configureStore({
   reducer: {
@@ -23,7 +29,7 @@ export const store = configureStore({
     trainers: trainersReducer,
     [trainersApi.reducerPath]: trainersApi.reducer,
     assignTrainer: assignTrainerReducer,
-    [assignTrainerApi.reducerPath]: assignTrainerApi.reducer
+    [assignTrainerApi.reducerPath]: assignTrainerApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

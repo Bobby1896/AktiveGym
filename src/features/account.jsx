@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "../styles/features/account.scss";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
-import FirstLetters from "../utilis/FirstLetters";
+import FirstLetters from "../utils/FirstLetters";
 import Membership from "../pages/membership";
 
 const Account = () => {
@@ -63,15 +63,20 @@ const Account = () => {
             />
             <p className="user-name">
               <span style={{ fontWeight: 600, fontSize: 20 }}>
-                {uProfileData.fullName || "N/A"}
+                {uLoadingData ? <Skeleton /> : uProfileData?.fullName || "N/A"}
               </span>
               <br />
               <span style={{ opacity: 0.7, fontSize: 18 }}>
-                {uProfileData?.email || "N/A"}
+                {uLoadingData ? <Skeleton /> : uProfileData?.email || "N/A"}
               </span>{" "}
               <br />{" "}
               <span>
-                Current Trainer: {uProfileData?.trainer?.fullName || "N/A"}{" "}
+                Current Trainer:{" "}
+                {uLoadingData ? (
+                  <Skeleton />
+                ) : (
+                  uProfileData?.trainer?.fullName || "N/A"
+                )}
               </span>{" "}
             </p>
           </div>
@@ -84,24 +89,32 @@ const Account = () => {
             <div className="personal">
               <h3>Personal Details</h3>
               <div className="details-grid">
-                {personalDetails.map(({ label, value }) => (
-                  <div className="detail-row" key={label}>
-                    <p className="label">{label}</p>
-                    <p className="value">{value || "N/A"}</p>
-                  </div>
-                ))}
+                {uLoadingData ? (
+                  <Skeleton count={4} />
+                ) : (
+                  personalDetails.map(({ label, value }) => (
+                    <div className="detail-row" key={label}>
+                      <p className="label">{label}</p>
+                      <p className="value">{value || "N/A"}</p>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
 
             <div className="body-fitness">
               <h3>Fitness & Body Information</h3>
               <div className="details-grid">
-                {fitnessDetails.map(({ label, value }) => (
-                  <div className="detail-row" key={label}>
-                    <p className="label">{label}</p>
-                    <p className="value">{value || "N/A"}</p>
-                  </div>
-                ))}
+                {uLoadingData ? (
+                  <Skeleton count={4} />
+                ) : (
+                  fitnessDetails.map(({ label, value }) => (
+                    <div className="detail-row" key={label}>
+                      <p className="label">{label}</p>
+                      <p className="value">{value || "N/A"}</p>
+                    </div>
+                  ))
+                )}
               </div>
             </div>
           </div>

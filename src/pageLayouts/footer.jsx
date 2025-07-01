@@ -12,7 +12,7 @@ const Footer = () => {
        
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="src/assets/images/white logo.png" alt="Gym Logo" />
+          <img src="src/assets/images/whiteLogo.png" alt="Gym Logo" />
           <div className="social-icons">
             <a
               href="https://www.instagram.com"

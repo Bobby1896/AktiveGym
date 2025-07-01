@@ -4,7 +4,7 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import CustomButton from "../components/CustomButton";
-import FirstLetters from "../utilis/FirstLetters";
+import FirstLetters from "../utils/FirstLetters";
 import SearchInput from "../components/SearchInput";
 import { useTrainersQuery } from "../redux/services/trainersApi";
 import { StarIcon } from "../svg";

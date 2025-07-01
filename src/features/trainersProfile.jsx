@@ -5,9 +5,9 @@ import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { useGetTrainerByIdQuery } from "../redux/services/trainersApi";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "../styles/features/trainersProfile.scss";
-import FirstLetters from "../utilis/FirstLetters";
+import FirstLetters from "../utils/FirstLetters";
 import CustomButton from "../components/CustomButton";
-import { useAssignTrainerMutation } from "../redux/services/assignTrainer";
+import { useAssignTrainerMutation } from "../redux/services/assignTrainerApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +18,8 @@ const TrainersProfile = () => {
 
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const { data: trainersData, isLoading } = useGetTrainerByIdQuery({ id });
-  const [assignTrainer, { isLoading: isLoadingAssignT }] = useAssignTrainerMutation();
+  const [assignTrainer, { isLoading: isLoadingAssignT }] =
+    useAssignTrainerMutation();
 
   const navigate = useNavigate();
 
