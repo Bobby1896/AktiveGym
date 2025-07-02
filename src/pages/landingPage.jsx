@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import Navbar from "../pageLayouts/navBar";
 import "../styles/pages/landingPage.scss";
 import CustomButton from "../components/CustomButton";
@@ -8,7 +8,7 @@ import MeetTrainers from "./meetTrainers";
 import Steps from "./steps";
 import Testimony from "./testimony";
 import Membership from "./membership";
-import { FAQData } from "../plainData";
+import { FAQData } from "../utils/plainData";
 import Footer from "../pageLayouts/footer";
 
 const LandingPage = () => {
@@ -33,7 +33,7 @@ const LandingPage = () => {
               transformation.
             </p>
 
-            <CustomButton component={RouterLink} size="large" to="/signup" >
+            <CustomButton component={RouterLink} size="large" to="/signup">
               Explore Plan
             </CustomButton>
           </div>
@@ -109,7 +109,7 @@ const LandingPage = () => {
           </div>
         </section>
       </main>
-      
+
       <footer>
         <Footer />
       </footer>

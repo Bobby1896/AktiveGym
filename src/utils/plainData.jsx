@@ -1,3 +1,8 @@
+import workoutImg from "../assets/images/workOut1.png";
+import workoutImg1 from "../assets/images/workOut2.png";
+import workoutImg2 from "../assets/images/workOut3.png";
+import workoutImg3 from "../assets/images/workOut4.png";
+
 export const TestimonyData = [
   {
     feedback:
@@ -129,7 +134,7 @@ export const plans = [
       "10% off supplement",
       "Event notifications",
     ],
-    price: "$7"
+    price: "$7",
   },
   {
     name: "Regular Plan",
@@ -146,7 +151,7 @@ export const plans = [
       "Partner discounts",
       "Event notifications",
     ],
-    price: "$12"
+    price: "$12",
   },
   {
     name: "Premium Plan",
@@ -163,7 +168,7 @@ export const plans = [
       "20% off all store items",
       "Event notifications",
     ],
-    price: "45"
+    price: "45",
   },
 ];
 
@@ -199,4 +204,31 @@ export const MembershipPlan = [
   { id: "regular", name: "Regular", price: 12, value: "REGULAR" },
   { id: "premium", name: "Premium", price: 45, value: "PREMIUM" },
   { id: "student", name: "Student", price: 7, value: "STUDENT" },
+];
+
+export const WorkOutType = [
+  {
+    name: "Full Body Workout",
+    description:
+      "A balanced routine to target all major muscle groups. Ideal for building strength, endurance, and overall fitness.",
+    images: workoutImg
+    },
+  {
+    name: "Core & Fat Burn",
+    description:
+      "Torch calories and strengthen your core with high-intensity circuits designed for fat loss and definition.",
+    images: workoutImg1
+    },
+  {
+    name: "Upper Body Strength",
+    description:
+      "Work your chest, back, arms, and shoulders. Perfect for sculpting and building upper-body power.",
+    images: workoutImg2
+    },
+  {
+    name: "Full Leg Workout",
+    description:
+      "Focus on glutes, quads, hamstrings, and calves. Build lower-body strength and improve stability.",
+    images: workoutImg3
+    },
 ];

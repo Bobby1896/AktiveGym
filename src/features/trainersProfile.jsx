@@ -1,9 +1,10 @@
-import { CalenderIcon, LocationIcon, CertificateIcon } from "../svg";
+import { CalenderIcon, LocationIcon, CertificateIcon } from "../utils/svg";
 import { Link, useParams, useLocation } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { useGetTrainerByIdQuery } from "../redux/services/trainersApi";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import "../styles/features/trainersProfile.scss";
 import FirstLetters from "../utils/FirstLetters";
 import CustomButton from "../components/CustomButton";

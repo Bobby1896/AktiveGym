@@ -1,5 +1,5 @@
 import "../styles/pages/testimony.scss";
-import { TestimonyData } from "../plainData";
+import { TestimonyData } from "../utils/plainData";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Navigation, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";

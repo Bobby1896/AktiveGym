@@ -1,7 +1,7 @@
 import "../styles/pages/membership.scss";
 import CustomButton from "../components/CustomButton";
 import { useState } from "react";
-import { plans } from "../plainData";
+import { plans } from "../utils/plainData";
 import { FaCheck } from "react-icons/fa";
 import { Link as RouterLink } from "react-router-dom";
 

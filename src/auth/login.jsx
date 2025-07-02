@@ -4,7 +4,7 @@ import { Link as RouterLink, Link, useNavigate } from "react-router-dom";
 import "../styles/auth/login.scss";
 import { Formik, Form, Field } from "formik";
 import CustomButton from "../components/CustomButton";
-import { EyeClosedIcon, EyeIcon, SuccessIcon } from "../svg";
+import { EyeClosedIcon, EyeIcon, SuccessIcon } from "../utils/svg";
 import { useLoginMutation } from "../redux/services/loginApi";
 import { toast } from "react-toastify";
 import BasicModal from "../components/BasicModal";

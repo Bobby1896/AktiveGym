@@ -7,7 +7,7 @@ import CustomButton from "../components/CustomButton";
 import FirstLetters from "../utils/FirstLetters";
 import SearchInput from "../components/SearchInput";
 import { useTrainersQuery } from "../redux/services/trainersApi";
-import { StarIcon } from "../svg";
+import { StarIcon } from "../utils/svg";
 import { Link } from "react-router-dom";
 import trainer1 from "../assets/images/smallTrainer1.png";
 import trainer2 from "../assets/images/smallTrainer2.png";

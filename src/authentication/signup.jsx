@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as Yup from "yup";
-import "../styles/auth/signUp.scss";
+import "../styles/authentication/signUp.scss";
 import { FullSubscriptionIcon } from "../utils/svg";
 import {
   AccountIcon,
@@ -23,13 +23,10 @@ import CustomButton from "../components/CustomButton";
 import { useSignUpMutation } from "../redux/services/signUpApi";
 import { toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
-import BasicModal from "../components/BasicModal";
-import { SuccessIcon } from "../utils/svg";
 
 const SignUp = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [signUpData, { isLoading }] = useSignUpMutation();
   const [cardType, setCardType] = useState(null);
@@ -61,7 +58,6 @@ const SignUp = () => {
     diet: "",
     height: "",
     weight: "",
-    fitnessGoal: "",
   };
   const renderCardLogo = () => {
     switch (cardType) {
@@ -82,17 +78,10 @@ const SignUp = () => {
   }, [selectedPlan]);
 
   const handleSubmit = async (values) => {
-    const validFitnessGoals = [
-      "BUILD_MUSCLE",
-      "LOOSE_WEIGHT",
-      "GET_FLEXIBLE",
-      "IMPROVE_STAMINA",
-      "GAIN_WEIGHT",
-    ];
-
     const payload = {
       fullName: values.name,
       email: values.email,
+      cardName: values.cardName,
       gender: values.gender?.toUpperCase(),
       age: Number(values.age),
       password: values.password,
@@ -102,32 +91,23 @@ const SignUp = () => {
         weight: parseFloat(values.weight),
         height: parseFloat(values.height),
         dietaryPreference: values.diet?.toUpperCase(),
-        fitnessGoal: Array.isArray(values.fitnessGoal)
-          ? values.fitnessGoal
-              .map((goal) => goal.toUpperCase().replace(/-/g, "_"))
-              .filter((goal) => validFitnessGoals.includes(goal))
-          : [],
       },
-
       paymentInfo: {
-        cardName: values.cardName,
         cardNumber: values.cardNumber?.replace(/\s/g, ""),
-        expiryDate: String(values.expiryDate),
-        cvv: String(values.cvv),
+        expiryDate: values.expiryDate,
+        cvv: values.cvv,
       },
     };
 
     try {
       await signUpData(payload).unwrap();
-      setShowModal(true);
       toast.success(
         signUpData?.message || "Sign up successful! Please log in to continue."
       );
       navigate("/login");
     } catch (error) {
-      toast.error(error?.data?.error || "Error signing up");
+      toast.error(error?.data?.message || "Error signing up");
     }
-    console.log("Payload to send:", JSON.stringify(payload, null, 2));
   };
 
   const passwordRegex = new RegExp(
@@ -207,7 +187,7 @@ const SignUp = () => {
     <div className="signup-container">
       <div className="progress-section">
         <img
-          src="src/assets/images/whiteLogo.png"
+          src="src/assets/images/white logo.png"
           alt="AktiveGym Logo"
           className="logo"
         />
@@ -415,7 +395,7 @@ const SignUp = () => {
                           <label>
                             <Field
                               type="checkbox"
-                              name="fitnessGoal"
+                              name="fitness"
                               value="lose-weight"
                               className="diet-input"
                             />
@@ -427,7 +407,7 @@ const SignUp = () => {
                           <label>
                             <Field
                               type="checkbox"
-                              name="fitnessGoal"
+                              name="fitness"
                               value="build-muscle"
                               className="diet-input"
                             />
@@ -439,7 +419,7 @@ const SignUp = () => {
                           <label>
                             <Field
                               type="checkbox"
-                              name="fitnessGoal"
+                              name="fitness"
                               value="get-flexible"
                               className="diet-input"
                             />
@@ -669,19 +649,6 @@ const SignUp = () => {
           )}
         </Formik>
       </div>
-
-      <BasicModal
-        isOpen={showModal}
-        icon={<SuccessIcon />}
-        onClose={() => setShowModal(false)}
-        title="PAYMENT SUCCESSFUL"
-        subTitle="Thank you for joining the AktiveGym community — your journey to a stronger, healthier you starts now."
-        buttonText="Continue"
-        onContinue={() => {
-          setShowModal(false);
-          navigate("/dashboard");
-        }}
-      />
     </div>
   );
 };

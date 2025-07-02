@@ -9,7 +9,7 @@ import {
   CalenderIcon,
   LocationIcon,
   StarIcon,
-} from "../svg";
+} from "../utils/svg";
 import { useDashboardQuery } from "../redux/services/DashboardApi";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { Link } from "react-router-dom";

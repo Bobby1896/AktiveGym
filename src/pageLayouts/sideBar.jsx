@@ -7,7 +7,7 @@ import {
   ProfileIcon,
   TrainerIcon,
   WorkoutPlanIcon,
-} from "../svg";
+} from "../utils/svg";
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
@@ -19,9 +19,9 @@ const SideBar = ({ children }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    dispatch(logout()); 
-    localStorage.removeItem("token"); 
-    navigate("/", { replace: true }); 
+    dispatch(logout());
+    localStorage.removeItem("token");
+    navigate("/", { replace: true });
   };
 
   const menuItem = [
