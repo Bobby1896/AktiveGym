@@ -10,7 +10,7 @@ import {
   LocationIcon,
   StarIcon,
 } from "../utils/svg";
-import { useDashboardQuery } from "../redux/services/DashboardApi";
+import { useDashboardQuery } from "../redux/services/dashboardApi";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { Link } from "react-router-dom";
 import { useRecommendedTrainerQuery } from "../redux/services/recommendedTrainerApi";
