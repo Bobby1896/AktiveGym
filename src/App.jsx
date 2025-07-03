@@ -3,7 +3,7 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-import SignUp from "./auth/signup";
+import SignUp from "../src/auth/signUp"
 import Logout from "./auth/logOut";
 import LandingPage from "./pages/landingPage";
 import Dashboard from "./features/dashboard";
