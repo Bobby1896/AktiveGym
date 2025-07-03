@@ -18,6 +18,7 @@ const Login = () => {
   };
   console.log(loginData, "okjg");
   const navigate = useNavigate();
+  // const {uuid} = useParams()
 
   const handleSubmit = async (values) => {
     const payload = {

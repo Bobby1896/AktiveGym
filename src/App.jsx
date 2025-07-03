@@ -28,6 +28,7 @@ function App() {
         <Route path="/membership" element={<Membership />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/login/:uuid" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
 
         <Route
