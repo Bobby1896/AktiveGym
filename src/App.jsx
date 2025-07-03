@@ -12,7 +12,6 @@ import Notification from "./features/notification";
 import Trainers from "./features/trainers";
 import UserManagement from "./features/userManagement";
 import WorkoutPlan from "./features/workoutPlan";
-import SideBar from "./pageLayouts/sideBar";
 import DashBoardLayout from "./pageLayouts/dashBoardLayout";
 import Account from "./features/account";
 import TrainersProfile from "./features/trainersProfile";
