@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import signUpReducer from "./slices/signUpSlice";
 import { signUpApi } from "./services/signUpApi";
+import { dashboardApi, dashboardReducer } from "../redux/services/dashboardApi";
 import { loginReducer, loginApi } from "./services/loginApi";
-import { dashboardReducer, dashboardApi } from "./services/DashboardApi";
+// import { dashboardApi, dashboardReducer } from "./services/dashboardApi";
 import {
   recommendedTrainerApi,
   recommendedTrainerReducer,
