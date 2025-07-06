@@ -3,7 +3,7 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-import SignUp from "../src/auth/signUp"
+import SignUp from "../src/auth/signUp";
 import Logout from "./auth/logOut";
 import LandingPage from "./pages/landingPage";
 import Dashboard from "./features/dashboard";
@@ -16,6 +16,7 @@ import DashBoardLayout from "./pageLayouts/dashBoardLayout";
 import Account from "./features/account";
 import TrainersProfile from "./features/trainersProfile";
 import PrivateRoute from "./utils/auth/privateRoute";
+import WorkoutExercises from "./features/workoutExercises";
 
 function App() {
   return (
@@ -46,6 +47,10 @@ function App() {
           <Route path="/profile" element={<Account />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
+          <Route
+            path="/workOutExercises/:type"
+            element={<WorkoutExercises />}
+          />
         </Route>
       </Routes>
     </Router>

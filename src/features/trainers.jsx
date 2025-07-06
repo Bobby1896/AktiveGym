@@ -130,7 +130,7 @@ const Trainers = () => {
                   </div>
 
                   <Link
-                    to={`/trainersProfile/${trainer.id}`}
+                    to={`/trainersProfile/${trainer?.id}`}
                     state={{
                       trainer: trainer,
                       image: trainersImages[index % trainersImages.length],

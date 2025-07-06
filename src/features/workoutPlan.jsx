@@ -28,6 +28,8 @@ const WorkoutPlan = () => {
     }
   }, [searchQuery]);
 
+  // const handleWorkoutPlan = () => {};
+
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444">
       <div className="workout-container">
@@ -73,7 +75,18 @@ const WorkoutPlan = () => {
                 <div className="card-content">
                   <p className="trainer-heading">{workout.name}</p>
                   <p className="wp-desc">{workout.description}</p>
-                  <CustomButton className="workout-btn">Start Now</CustomButton>
+
+                  <Link
+                    to={`/workOutExercises/${workout?.type}`}
+                    state={{
+                      workout: workout?.name,
+                      type: workout?.type,
+                    }}
+                  >
+                    <CustomButton className="workout-btn">
+                      Start Now
+                    </CustomButton>
+                  </Link>
                 </div>
               </div>
             ))}

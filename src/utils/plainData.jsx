@@ -211,24 +211,28 @@ export const WorkOutType = [
     name: "Full Body Workout",
     description:
       "A balanced routine to target all major muscle groups. Ideal for building strength, endurance, and overall fitness.",
-    images: workoutImg
+    images: workoutImg,
+    type: "FULL_BODY_WORKOUT"
     },
   {
     name: "Core & Fat Burn",
     description:
       "Torch calories and strengthen your core with high-intensity circuits designed for fat loss and definition.",
-    images: workoutImg1
+    images: workoutImg1,
+    type: "CORE_AND_FAT_BURN_WORKOUT"
     },
   {
     name: "Upper Body Strength",
     description:
       "Work your chest, back, arms, and shoulders. Perfect for sculpting and building upper-body power.",
-    images: workoutImg2
+    images: workoutImg2,
+    type: "UPPER_BODY_STRETCH_WORKOUT"
     },
   {
     name: "Full Leg Workout",
     description:
       "Focus on glutes, quads, hamstrings, and calves. Build lower-body strength and improve stability.",
-    images: workoutImg3
+    images: workoutImg3,
+    type: "FULL_LEG_WORKOUT",
     },
 ];
