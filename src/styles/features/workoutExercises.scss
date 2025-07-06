@@ -1,0 +1,87 @@
+.exercises-container {
+  .exercise-wrapper {
+    width: 100%;
+
+    .exercise-card {
+      display: flex;
+      gap: 5%;
+
+      .exercise-gif {
+        background: #2c2c2c;
+        width: 70%;
+        padding: 20px;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+
+        h3 {
+          text-transform: capitalize;
+        }
+        .exercise-img {
+          border-radius: 20px;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          -ms-border-radius: 20px;
+          -o-border-radius: 20px;
+          width: 100%;
+        }
+
+        .exercise-subheading {
+          color: #1a85c8;
+        }
+      }
+
+      .exercise-checks {
+        width: 35%;
+
+        .exercise-checkbox-list {
+          padding-left: 0;
+          list-style: none;
+
+          li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 16px;
+            background-color: #2c2c2c;
+            padding: 20px;
+            margin-bottom: 1.5rem;
+            border-radius: 30px;
+            color: #fff;
+            text-transform: capitalize;
+          }
+
+          .exercise-index {
+            background-color: #3c3c3c;
+            padding: 10px 10px;
+            border-radius: 100px;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+          }
+
+          .exercise-name {
+            flex: 1;
+            text-align: left;
+            font-size: 16px;
+          }
+
+          label {
+            input {
+              width: 24px;
+              height: 24px;
+              cursor: pointer;
+              border-radius: 30% !important;
+              -webkit-border-radius: 30% !important;
+              -moz-border-radius: 30% !important;
+              -ms-border-radius: 30% !important;
+              -o-border-radius: 30% !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
