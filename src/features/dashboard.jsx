@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "../styles/features/dashboard.scss";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -25,10 +26,18 @@ import CustomButton from "../components/CustomButton";
 import FirstLetters from "../utils/FirstLetters";
 
 const Dashboard = () => {
-  const { data: userData, isLoading: isLoadingData } = useDashboardQuery();
+  const {
+    data: userData,
+    isLoading: isLoadingData,
+    refetch,
+  } = useDashboardQuery();
   const { data: rTrainerData, isLoading: isLoadingRData } =
     useRecommendedTrainerQuery();
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
+
+  useEffect(() => {
+    refetch();
+  });
 
   const trainerImages = [trainer1, trainer2, trainer3, trainer4];
   const foodImages = [food1, food2, food3];

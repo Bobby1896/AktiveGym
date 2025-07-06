@@ -90,6 +90,10 @@ const SignUp = () => {
       "GAIN_WEIGHT",
     ];
 
+    const goals = Array.isArray(values.fitnessGoal)
+      ? values.fitnessGoal
+      : [values.fitnessGoal];
+
     const payload = {
       fullName: values.name,
       email: values.email,
@@ -100,13 +104,11 @@ const SignUp = () => {
       membershipPlan: values.membershipPlan?.toUpperCase(),
       fitnessAndBodyInfo: {
         weight: parseFloat(values.weight),
-        height: parseFloat(values.height),
+        height: parseFloat(values.height) / 100,
         dietaryPreference: values.diet?.toUpperCase(),
-        fitnessGoal: Array.isArray(values.fitnessGoal)
-          ? values.fitnessGoal
-              .map((goal) => goal.toUpperCase().replace(/-/g, "_"))
-              .filter((goal) => validFitnessGoals.includes(goal))
-          : [],
+        fitnessGoal: goals
+          .map((goal) => goal.toUpperCase().replace(/-/g, "_"))
+          .filter((goal) => validFitnessGoals.includes(goal)),
       },
 
       paymentInfo: {

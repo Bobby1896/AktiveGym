@@ -20,7 +20,7 @@ const WorkoutExercises = () => {
     data: workoutData,
     isLoading: loadingWorkoutData,
     refetch,
-  } = useWorkOutQuery(type, {});
+  } = useWorkOutQuery(type);
   const [updateWorkoutProgress] = useUpdateWorkoutProgressMutation();
 
   const [selectedExercises, setSelectedExercises] = useState([]);
