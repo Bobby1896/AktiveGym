@@ -9,7 +9,7 @@ const Account = () => {
   const {
     data: uProfileData,
     isLoading: uLoadingData,
-    refetch,
+    refetch, 
   } = useUserProfileQuery();
 
   useEffect(() => {

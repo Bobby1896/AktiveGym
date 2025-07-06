@@ -14,7 +14,8 @@ import {
   assignTrainerApi,
   assignTrainerReducer,
 } from "./services/assignTrainerApi";
-import { workOutApi, workOutReducer } from "./services/workOutApi";
+import { workOutApi, workOutReducer} from "./services/workOutApi";
+
 
 export const store = configureStore({
   reducer: {
@@ -34,6 +35,7 @@ export const store = configureStore({
     [assignTrainerApi.reducerPath]: assignTrainerApi.reducer,
     workOut: workOutReducer,
     [workOutApi.reducerPath]: workOutApi.reducer
+
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()

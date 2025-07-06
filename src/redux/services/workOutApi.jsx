@@ -23,11 +23,17 @@ export const workOutApi = createApi({
           "Content-Type": "application/json",
         },
         method: "GET",
-        params: {type},
+        params: { type },
+      }),
+    }),
+    updateWorkoutProgress: builder.mutation({
+      query: ({ exercise, flag }) => ({
+        url: `${AUTH_API.WORKOUT}?exercise=${exercise}&flag=${flag}`,
+        method: "PUT",
       }),
     }),
   }),
 });
 
-export const { useWorkOutQuery } = workOutApi;
-export const workOutReducer  = workOutApi.reducer;
+export const { useWorkOutQuery, useUpdateWorkoutProgressMutation } = workOutApi;
+export const { workOutReducer } = workOutApi.reducer;

@@ -6,15 +6,23 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import FirstLetters from "../utils/FirstLetters";
 import { useUserProfileQuery } from "../redux/services/userProfileApi.jsx";
-import { useWorkOutQuery } from "../redux/services/workOutApi.jsx";
+import {
+  useWorkOutQuery,
+  useUpdateWorkoutProgressMutation,
+} from "../redux/services/workOutApi.jsx";
 
 const WorkoutExercises = () => {
   const { state } = useLocation();
   const type = state?.type;
 
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
-  const { data: workoutData, isLoading: loadingWorkoutData } =
-    useWorkOutQuery(type);
+  const {
+    data: workoutData,
+    isLoading: loadingWorkoutData,
+    refetch,
+  } = useWorkOutQuery(type, {});
+  const [updateWorkoutProgress] = useUpdateWorkoutProgressMutation();
+
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [formattedExercises, setFormattedExercises] = useState([]);
   const [lastCheckedExercise, setLastCheckedExercise] = useState(null);
@@ -22,6 +30,7 @@ const WorkoutExercises = () => {
   useEffect(() => {
     if (workoutData) {
       const exercises = [];
+      const selected = [];
 
       Object.keys(workoutData).forEach((key) => {
         if (
@@ -33,19 +42,47 @@ const WorkoutExercises = () => {
           const imageUrl = workoutData[`${key}ImageUrl`];
           const howToDoIt = workoutData[`${key}HowToDoIt`];
           exercises.push({ name, imageUrl, howToDoIt });
+
+          if (workoutData[key] === true) {
+            selected.push({ name, imageUrl, howToDoIt });
+          }
         }
       });
 
       setFormattedExercises(exercises);
-      setSelectedExercises([exercises[0]]);
-      setLastCheckedExercise(exercises[0]);
+      if (selected.length > 0) {
+        setSelectedExercises(selected);
+        setLastCheckedExercise(selected[selected.length - 1]);
+      } else {
+        setSelectedExercises([]);
+        setLastCheckedExercise(exercises[0]);
+      }
     }
   }, [workoutData]);
 
-  const handleToggleExercise = (exercise) => {
+  useEffect(() => {
+    refetch();
+  });
+
+  const formatExerciseKey = (name) => {
+    return name.replace(/([a-z])([A-Z])/g, "$1_$2").toUpperCase();
+  };
+
+  const handleToggleExercise = async (exercise) => {
     const alreadySelected = selectedExercises.find(
       (ex) => ex.name === exercise.name
     );
+
+    const flag = !alreadySelected;
+
+    try {
+      await updateWorkoutProgress({
+        exercise: formatExerciseKey(exercise?.name),
+        flag: flag,
+      }).unwrap();
+    } catch (err) {
+      console.error("Failed to update workout progress:", err);
+    }
 
     if (alreadySelected) {
       if (selectedExercises.length === 1) return;

@@ -24,7 +24,7 @@ export const trainersApi = createApi({
         },
         method: "GET",
         params: { pageSize, pageNumber, searchQuery },
-      }),
+      })
     }),
     getTrainerById: builder.query({
       query: ({id}) => ({
