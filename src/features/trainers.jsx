@@ -82,7 +82,10 @@ const Trainers = () => {
         <div className="trainers">
           <div className="">
             <p className="trainer-heading">Meet your Fitness Trainers</p>
-            <SearchInput onSearch={handleSearch} />
+            <SearchInput
+              placeholder="Search for trainers"
+              onSearch={handleSearch}
+            />
           </div>
 
           <div className="trainers-cards">
