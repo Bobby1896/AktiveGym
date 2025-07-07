@@ -11,7 +11,8 @@ export const AUTH_API = {
   USER_PROFILE: `api/v1/user/profile`,
   TRAINERS: `/api/v1/trainer`,
   ASSIGN_TRAINER: `/api/v1/trainer/assign`,
-  WORKOUT: `/api/v1/user/workout`
+  WORKOUT: `/api/v1/user/workout`,
+  USERS_LIST: `/api/v1/user`
 };
 
 

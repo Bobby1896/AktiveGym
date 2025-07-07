@@ -14,8 +14,8 @@ import {
   assignTrainerApi,
   assignTrainerReducer,
 } from "./services/assignTrainerApi";
-import { workOutApi, workOutReducer} from "./services/workOutApi";
-
+import { workOutApi, workOutReducer } from "./services/workOutApi";
+import { usersListApi, usersListReducer } from "./services/usersListApi";
 
 export const store = configureStore({
   reducer: {
@@ -34,8 +34,9 @@ export const store = configureStore({
     assignTrainer: assignTrainerReducer,
     [assignTrainerApi.reducerPath]: assignTrainerApi.reducer,
     workOut: workOutReducer,
-    [workOutApi.reducerPath]: workOutApi.reducer
-
+    [workOutApi.reducerPath]: workOutApi.reducer,
+    usersList: usersListReducer,
+    [usersListApi.reducerPath]: usersListApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -46,5 +47,6 @@ export const store = configureStore({
       .concat(userProfileApi.middleware)
       .concat(trainersApi.middleware)
       .concat(assignTrainerApi.middleware)
-      .concat(workOutApi.middleware),
+      .concat(workOutApi.middleware)
+      .concat(usersListApi.middleware),
 });

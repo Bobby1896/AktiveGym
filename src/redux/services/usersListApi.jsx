@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { AUTH_API } from "../apiConfig";
 import { BASE_URL } from "../apiConfig";
 
-export const workOutApi = createApi({
-  reducerPath: "workOutApi",
+export const usersListApi = createApi({
+  reducerPath: "usersListApi",
   baseQuery: fetchBaseQuery({
     baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
@@ -14,26 +14,19 @@ export const workOutApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["WorkOut"],
+  tagTypes: ["Users List"],
   endpoints: (builder) => ({
-    workOut: builder.query({
-      query: (type) => ({
-        url: AUTH_API.WORKOUT,
+    usersList: builder.query({
+      query: () => ({
+        url: AUTH_API.USERS_LIST,
         headers: {
           "Content-Type": "application/json",
         },
         method: "GET",
-        params: { type },
-      }),
-    }),
-    updateWorkoutProgress: builder.mutation({
-      query: ({ exercise, flag }) => ({
-        url: `${AUTH_API.WORKOUT}?exercise=${exercise}&flag=${flag}`,
-        method: "PUT",
       }),
     }),
   }),
 });
 
-export const { useWorkOutQuery, useUpdateWorkoutProgressMutation } = workOutApi;
-export const  workOutReducer  = workOutApi.reducer;
+export const { useUsersListQuery } = usersListApi;
+export const usersListReducer = usersListApi.reducer;
