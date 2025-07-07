@@ -10,13 +10,13 @@
 .main-layout {
   width: 100%;
   padding: 0px 50px;
-  margin-left:300px; // Space for the fixed sidebar
+  margin-left:300px; 
 //   overflow-y: auto; 
 
 }
 .sidebar {
   background: #2c2c2c;
- position: fixed; // Fixed position so it stays in place
+  position: fixed; 
   color: #ffffff;
   height: 98vh;
   border-radius: 30px;
@@ -52,7 +52,7 @@
   display: flex;
   color: #939597;
   padding: 10px 30px;
-  margin: 0px 15px;
+  margin: 8px 15px;
   text-decoration: none;
   align-items: center;
   gap: 15px;
@@ -76,9 +76,7 @@
   -ms-border-radius: 30px;
   -o-border-radius: 30px;
 
-  .icon {
-    color: #ffffff;
-  }
+  
 }
 .active-sidebar {
   background: #1a85c8 !important;
@@ -86,8 +84,7 @@
   border-radius: 30px;
 }
 .icon,
-.link_text {
-  font-size: 25px;
+.link-text {
   align-items: center;
   justify-content: center;
 }

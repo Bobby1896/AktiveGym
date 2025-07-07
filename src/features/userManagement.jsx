@@ -24,7 +24,7 @@ const UserManagement = () => {
       label: "Full Name",
       options: {
         setCellProps: () => ({
-          style: { width: "150px" },
+          style: { width: "200px" },
         }),
       },
     },
@@ -48,7 +48,25 @@ const UserManagement = () => {
     },
     { name: "gender", label: "Gender" },
     { name: "age", label: "Age" },
-    { name: "status", label: "Status" },
+    {
+      name: "status",
+      label: "Status",
+      options: {
+        customBodyRender: (value) => {
+          const isActive = String(value).toLowerCase() === "active";
+          const cellStyle = {
+            backgroundColor: isActive ? "#D0FED5" : "#7f1d1d", // green | red
+            color: "#1A85C8",
+            borderRadius: "15px",
+            padding: "10px 40px",
+            display: "inline-block",
+            textTransform: "capitalize",
+          };
+          return <span style={cellStyle}>{value}</span>;
+        },
+        setCellProps: () => ({ style: { width: "50px" } }),
+      },
+    },
   ];
 
   const rawData = userData?.content || [];
@@ -61,11 +79,11 @@ const UserManagement = () => {
     .map((row, index) => ({ id: index, ...row }));
 
   return (
-    <SkeletonTheme>
+    <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
       <div className="users-container">
         <div className="dashboard-nav">
           <div className="dashboard-header">
-            <p className="header-text">Trainer</p>
+            <p className="header-text">User Management</p>
           </div>
 
           <div className="name-initials">
@@ -91,7 +109,7 @@ const UserManagement = () => {
         ) : (
           <div className="users-table-wrapper">
             <div className="user-header">
-              <p className="trainer-heading">Meet your Fitness Trainers</p>
+              <p className="trainer-heading">List of all users</p>
               <SearchInput
                 placeholder="Search for User"
                 onSearch={handleSearch}
