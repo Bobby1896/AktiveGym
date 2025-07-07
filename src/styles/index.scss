@@ -33,3 +33,72 @@ p {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.MuiPaper-root {
+  background-color: #2c2c2c!important; 
+  color: white !important;
+  
+}
+
+.MuiTableHead-root,
+.MuiTableBody-root,
+.MuiTableFooter-root {
+  background-color:#2c2c2c!important; 
+  color: white !important;
+}
+
+.MuiTableCell-head,
+.MuiTableCell-body,
+.MuiTableCell-footer {
+  background-color: #2c2c2c!important; 
+  color: white !important;
+  border-bottom: none !important;
+  
+}
+
+.MuiTableCell-body{
+  opacity: 0.8;
+}
+
+
+/* Optional: Adjust padding and spacing */
+.MuiTableCell-root {
+  padding: 12px 16px !important;
+}
+
+.MuiTypography-root {
+  color: white !important;
+}
+
+/* Footer container background & text */
+.MuiTablePagination-root {
+  
+  color: white !important;
+}
+
+/* Rows per page text */
+.MuiTablePagination-caption {
+  color: white !important;
+}
+
+/* Pagination select dropdown */
+.MuiTablePagination-selectLabel,
+.MuiSelect-root,
+.MuiSelect-icon {
+  color: white !important;
+}
+
+/* Page number and navigation arrows */
+.MuiTablePagination-toolbar .MuiTypography-root,
+.MuiSvgIcon-root {
+  color: white !important;
+}
+
+/* Dropdown menu (optional): white text on blue background */
+.MuiMenu-paper {
+  color: white !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: #3b5ba9 !important; // lighter blue on hover
+}

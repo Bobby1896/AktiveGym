@@ -6,67 +6,59 @@ import FirstLetters from "../utils/FirstLetters";
 import BasicTable from "../components/BasicTable";
 import { useUsersListQuery } from "../redux/services/usersListApi";
 import { formatDate } from "../utils/DateFormat";
+import SearchInput from "../components/SearchInput";
+import { useState } from "react";
 
 const UserManagement = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
-  const { data: userData } = useUsersListQuery();
+  const { data: userData, isLoading: loadingUserData } = useUsersListQuery();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (value) => {
+    setSearchTerm(value.toLowerCase());
+  };
 
   const columns = [
     {
       name: "name",
-      label: "Name",
-      // options: {
-      //   filter: true,
-      //   sort: true,
-      // },
+      label: "Full Name",
+      options: {
+        setCellProps: () => ({
+          style: { width: "150px" },
+        }),
+      },
     },
     {
       name: "email",
       label: "Email",
-      // options: {
-      //   filter: true,
-      //   sort: true,
-      // },
+      options: {
+        setCellProps: () => ({
+          style: { width: "300px" },
+        }),
+      },
     },
     {
       name: "dateJoined",
       label: "Date Joined",
+
       options: {
-        // sort: true,
         customBodyRender: (value) => formatDate(value),
+        setCellProps: () => ({}),
       },
     },
-    {
-      name: "gender",
-      label: "Gender",
-      // options: {
-      //   filter: false,
-      //   sort: false,
-      // },
-    },
-    {
-      name: "age",
-      label: "Age",
-      // options: {
-      //   filter: false,
-      //   sort: true,
-      // },
-    },
-    {
-      name: "status",
-      label: "Status",
-      // options: {
-      //   filter: true,
-      //   sort: true,
-      // },
-    },
+    { name: "gender", label: "Gender" },
+    { name: "age", label: "Age" },
+    { name: "status", label: "Status" },
   ];
 
-  const data =
-    userData?.content?.map((row, index) => ({
-      id: index,
-      ...row,
-    })) || [];
+  const rawData = userData?.content || [];
+  const data = rawData
+    .filter((row) =>
+      Object.values(row).some((val) =>
+        String(val).toLowerCase().includes(searchTerm)
+      )
+    )
+    .map((row, index) => ({ id: index, ...row }));
 
   return (
     <SkeletonTheme>
@@ -94,23 +86,21 @@ const UserManagement = () => {
           </div>
         </div>
 
-        <div>
-          <BasicTable
-            // title="User List"
-            data={data}
-            columns={columns}
-            options={{
-              filter: false,
-              sort: false,
-              search: false,
-              print: false,
-              download: false,
-              selectableRows: "none",
+        {loadingUserData ? (
+          <Skeleton count={20} />
+        ) : (
+          <div className="users-table-wrapper">
+            <div className="user-header">
+              <p className="trainer-heading">Meet your Fitness Trainers</p>
+              <SearchInput
+                placeholder="Search for User"
+                onSearch={handleSearch}
+              />
+            </div>
 
-              viewColumns: false,
-            }}
-          />
-        </div>
+            <BasicTable data={data} columns={columns} />
+          </div>
+        )}
       </div>
     </SkeletonTheme>
   );
