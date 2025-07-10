@@ -2,7 +2,6 @@
   display: flex;
   height: 100%;
   // margin: 0;
- 
 }
 
 .progress-section {
@@ -281,7 +280,6 @@
     justify-content: space-between;
   }
 
-
   .card-input-wrapper {
     position: relative;
     width: 100%;
@@ -292,7 +290,7 @@
       right: 15px;
       transform: translateY(-50%);
       pointer-events: none;
-       svg {
+      svg {
         width: 28px;
         height: 28px;
       }
@@ -311,6 +309,8 @@
       }
     }
   }
+
+  
 
   /*billing country dropdown*/
   .billing-select {
@@ -392,6 +392,12 @@
 .form-actions {
   margin-bottom: 10rem;
 }
+
+input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
 
 @media (max-width: 768px) {
   .signup-container {

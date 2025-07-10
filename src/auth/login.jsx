@@ -73,7 +73,7 @@ const Login = () => {
           validationSchema={loginSchema}
           onSubmit={handleSubmit}
         >
-          {({ errors, touched }) => (
+          {({ errors, touched, isValid, dirty }) => (
             <Form className="login-form">
               <div className="form-group">
                 <label htmlFor="email">Email</label>
@@ -104,7 +104,7 @@ const Login = () => {
               </div>
 
               <div className="login-button">
-                <CustomButton type="submit" size="large" disabled={isLoading}>
+                <CustomButton type="submit" size="large" disabled={!isValid || !dirty || isLoading}>
                   {isLoading ? "Processing..." : "Login"}
                 </CustomButton>
               </div>

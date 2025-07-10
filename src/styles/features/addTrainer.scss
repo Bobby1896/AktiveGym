@@ -19,7 +19,7 @@
           font-size: 16px;
           border-radius: 6px;
           border: none;
-          background-color: #181818;
+          background-color: #181818 !important;
           color: #ffffff;
           margin-top: 0.5rem;
           box-sizing: border-box;
@@ -27,16 +27,26 @@
           -moz-border-radius: 6px;
           -ms-border-radius: 6px;
           -o-border-radius: 6px;
-
+             font-family: "Poppins", sans-serif !important;
           color-scheme: dark;
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
         }
         &::-webkit-calendar-picker-indicator {
           filter: invert(1); // Turns black icons to white
+        }
+        input:-webkit-autofill,
+        textarea:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px #181818 inset !important;
+          -webkit-text-fill-color: #ffffff !important;
+         
         }
 
         .custom-area {
           height: 150px;
           resize: none;
+           font-family: "Poppins", sans-serif !important;
         }
 
         .custom-area:focus {

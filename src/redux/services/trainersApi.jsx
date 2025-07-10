@@ -32,9 +32,16 @@ export const trainersApi = createApi({
         method: "GET",
       }),
     }),
+    addTrainer: builder.mutation({
+      query: (trainerData) => ({
+        url: AUTH_API.TRAINERS,
+        method: "POST",
+        body: trainerData,
+      }),
+    }),
   }),
 });
 
-export const { useTrainersQuery, useGetTrainerByIdQuery } = trainersApi;
+export const { useTrainersQuery, useGetTrainerByIdQuery, useAddTrainerMutation } = trainersApi;
 export const trainersReducer = trainersApi.reducer;
-export const trainerByIdReducer = trainersApi.reducer;
+

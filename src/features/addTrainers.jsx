@@ -8,20 +8,31 @@ import FirstLetters from "../utils/FirstLetters";
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import CustomButton from "../components/CustomButton";
+import { useAddTrainerMutation } from "../redux/services/trainersApi";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { formatDate } from "../utils/DateFormat";
 
 const AddTrainers = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
+  const [assignTrainer, { isLoading: isLoadingAssignT }] =
+    useAddTrainerMutation();
+
+  const navigate = useNavigate();
 
   const initialValues = {
     name: "",
     email: "",
     experience: "",
+    role: "",
+    certification: "",
     specialities: "",
     description: "",
     phone: "",
     timeAvailable: "",
     date: "",
   };
+
   const trainerSchema = Yup.object({
     name: Yup.string()
       .min(3, "Name must be at least 3 characters")
@@ -29,6 +40,9 @@ const AddTrainers = () => {
     email: Yup.string()
       .email("Please enter valid email")
       .required("Please enter your email"),
+    role: Yup.string()
+      .min(3, "Role must be at least 3 characters")
+      .required("Please enter your role"),
     experience: Yup.number()
       .min(1, "Experience must be a number and at least 1")
       .max(50, "Please enter a valid experience in years")
@@ -43,8 +57,33 @@ const AddTrainers = () => {
       .min(3, "Certification must be at least 3 characters")
       .required("Please enter your certification details"),
     timeAvailable: Yup.string().required("Please enter your available time"),
-    date: Yup.date().required("Please enter the date you joined"),
+    date: Yup.date()
+      .min(new Date(), "Date must be today or later")
+      .required("Please enter a valid date"),
   });
+
+  const handleSubmitNewTrainer = async (values) => {
+    const formattedDate = formatDate(values.date);
+    const availablePeriod = `${formattedDate} | ${values.timeAvailable}`;
+
+    const payload = {
+      fullName: values.name,
+      email: values.email,
+      yearsOfExperience: values.experience.toString(),
+      specialities: values.specialities,
+      description: values.description,
+      certification: values.certification,
+      role: values.role,
+      availablePeriod,
+    };
+    try {
+      await assignTrainer(payload).unwrap();
+      toast.success("Trainer added successfully");
+      navigate("/trainers");
+    } catch (error) {
+      toast.error(error?.data?.error || "Unable to add Trainer");
+    }
+  };
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
@@ -79,13 +118,13 @@ const AddTrainers = () => {
           <Formik
             initialValues={initialValues}
             validationSchema={trainerSchema}
-            onSubmit={""}
+            onSubmit={handleSubmitNewTrainer}
           >
-            {({ errors, touched }) => (
+            {({ errors, touched, isValid, dirty }) => (
               <Form className="add-trainer-form">
                 <div className="add-trainer-details">
                   <div className="form-group">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Full Name</label>
                     <Field name="name" type="text" className="custom-input" />
                     {errors.name && touched.name && (
                       <p className="error-msg">{errors.name}</p>
@@ -178,10 +217,24 @@ const AddTrainers = () => {
                   </div>
                 </div>
 
+                <div className="add-trainer-details">
+                  <div className="form-group">
+                    <label htmlFor="field">Field</label>
+                    <Field name="role" type="text" className="custom-input" />
+                    {errors.role && touched.role && (
+                      <p className="error-msg">{errors.role}</p>
+                    )}
+                  </div>
+                </div>
+
                 <div className="add-trainer-button">
-                  <CustomButton type="submit" size="large">
+                  <CustomButton
+                    type="submit"
+                    size="large"
+                    disabled={!isValid || !dirty || isLoadingAssignT}
+                  >
                     {" "}
-                    Submit{" "}
+                    {isLoadingAssignT ? "Processing..." : "Add Trainer"}
                   </CustomButton>
                 </div>
               </Form>

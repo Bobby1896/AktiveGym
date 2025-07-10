@@ -271,7 +271,7 @@ const SignUp = () => {
           validationSchema={signUpSchema}
           onSubmit={handleSubmit}
         >
-          {({ errors, touched, setFieldValue }) => (
+          {({ errors, touched, setFieldValue, isValid, dirty }) => (
             <Form id="signup-form" className="signup-form">
               {currentStep === 1 && (
                 <>
@@ -653,7 +653,7 @@ const SignUp = () => {
                   <CustomButton
                     type="submit"
                     className="primary-button"
-                    disabled={isLoading}
+                    disabled={!isValid || !dirty || isLoading}
                   >
                     {isLoading ? "Processing..." : "Sign Up"}
                   </CustomButton>

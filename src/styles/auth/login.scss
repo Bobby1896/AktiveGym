@@ -94,3 +94,9 @@
 .signup-link {
   color: #1a85c8;
 }
+
+input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+  }
