@@ -26,6 +26,7 @@ const Trainers = () => {
     pageNumber: 1,
     pageSize: 10,
     searchQuery: "",
+    category: "ALL",
   });
 
   const trainersImages = [

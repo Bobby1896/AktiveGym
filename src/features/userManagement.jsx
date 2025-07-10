@@ -37,15 +37,16 @@ const UserManagement = () => {
         }),
       },
     },
-    // {
-    //   name: "assignedTrainer",
-    //   label: "Assigned Trainer",
-    //   options: {
-    //     setCellProps: () => ({
-    //       style: { width: "300px" },
-    //     }),
-    //   },
-    // },
+    {
+      name: "trainer",
+      label: "Assigned Trainer",
+      options: {
+        customBodyRender: (value) => value?.fullName || "Not Assigned",
+        setCellProps: () => ({
+          style: { width: "150px" },
+        }),
+      },
+    },
     {
       name: "dateJoined",
       label: "Date Joined",
@@ -65,7 +66,7 @@ const UserManagement = () => {
           const isActive = String(value).toLowerCase() === "active";
           const cellStyle = {
             backgroundColor: isActive ? "#D0FED5" : "#7f1d1d", // green | red
-            color: "#1A85C8",
+            color: isActive ? "#1A85C8" : "#ffffff",
             borderRadius: "15px",
             padding: "10px 40px",
             display: "inline-block",

@@ -17,13 +17,13 @@ export const trainersApi = createApi({
   tagTypes: ["Trainers"],
   endpoints: (builder) => ({
     trainers: builder.query({
-      query: ({ pageSize, pageNumber, searchQuery }) => ({
+      query: ({ pageSize, pageNumber, searchQuery, category }) => ({
         url: AUTH_API.TRAINERS,
         headers: {
           "Content-Type": "application/json",
         },
         method: "GET",
-        params: { pageSize, pageNumber, searchQuery },
+        params: { pageSize, pageNumber, searchQuery, category },
       }),
     }),
     getTrainerById: builder.query({
@@ -42,6 +42,9 @@ export const trainersApi = createApi({
   }),
 });
 
-export const { useTrainersQuery, useGetTrainerByIdQuery, useAddTrainerMutation } = trainersApi;
+export const {
+  useTrainersQuery,
+  useGetTrainerByIdQuery,
+  useAddTrainerMutation,
+} = trainersApi;
 export const trainersReducer = trainersApi.reducer;
-
