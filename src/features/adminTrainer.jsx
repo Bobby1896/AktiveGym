@@ -9,7 +9,7 @@ import { formatDate } from "../utils/DateFormat";
 import SearchInput from "../components/SearchInput";
 import { useState } from "react";
 
-const UserManagement = () => {
+const AdminTrainer = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const { data: userData, isLoading: loadingUserData } = useUsersListQuery();
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,15 +37,6 @@ const UserManagement = () => {
         }),
       },
     },
-    // {
-    //   name: "assignedTrainer",
-    //   label: "Assigned Trainer",
-    //   options: {
-    //     setCellProps: () => ({
-    //       style: { width: "300px" },
-    //     }),
-    //   },
-    // },
     {
       name: "dateJoined",
       label: "Date Joined",
@@ -118,9 +109,9 @@ const UserManagement = () => {
         ) : (
           <div className="users-table-wrapper">
             <div className="user-header">
-              <p className="trainer-heading">List of all users</p>
+              <p className="trainer-heading">List of all trainers</p>
               <SearchInput
-                placeholder="Search for User"
+                placeholder="Search for Trainers"
                 onSearch={handleSearch}
               />
             </div>
@@ -133,4 +124,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default AdminTrainer;

@@ -17,6 +17,8 @@ import Account from "./features/account";
 import TrainersProfile from "./features/trainersProfile";
 import PrivateRoute from "./utils/auth/privateRoute";
 import WorkoutExercises from "./features/workoutExercises";
+import AdminTrainer from "./features/adminTrainer";
+import AddTrainers from "./features/addTrainers";
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
           <Route path="/profile" element={<Account />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
+          <Route path="/adminTrainer" element={<AdminTrainer />} />
+          <Route path="/addTrainers" element={<AddTrainers />} />
           <Route
             path="/workOutExercises/:type"
             element={<WorkoutExercises />}

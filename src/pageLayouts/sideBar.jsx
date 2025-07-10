@@ -55,6 +55,11 @@ const SideBar = ({ children }) => {
       name: "Work-Out Plan",
       icon: <WorkoutPlanIcon />,
     },
+     {
+      path: "/adminTrainer",
+      name: "Admin Trainer",
+      icon: <WorkoutPlanIcon />,
+    },
   ];
 
   const bottomItems = [
