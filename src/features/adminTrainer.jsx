@@ -8,11 +8,43 @@ import { useUsersListQuery } from "../redux/services/usersListApi";
 import { formatDate } from "../utils/DateFormat";
 import SearchInput from "../components/SearchInput";
 import { useState } from "react";
+import BasicModal from "../components/BasicModal";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CustomButton from "../components/CustomButton";
+import { toast } from "react-toastify";
+import { useDeleteTrainerMutation } from "../redux/services/trainersApi";
+import { AddIcon } from "../utils/svg";
+import { Link } from "react-router-dom";
 
 const AdminTrainer = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const { data: userData, isLoading: loadingUserData } = useUsersListQuery();
+  const [deleteTrainer] = useDeleteTrainerMutation();
   const [searchTerm, setSearchTerm] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [activeTab, setActiveTab] = useState("ALL");
+
+  const handleDeleteUser = async (user) => {
+    try {
+      await deleteTrainer({ id: user.id }).unwrap();
+      setOpenModal(false);
+      toast.success(`Trainer ${user.name} deleted successfully!`);
+      // setSelectedUser(null);
+    } catch (error) {
+      toast.error("Failed to delete user:", error);
+    }
+  };
+
+  const handleDeleteClick = (user) => {
+    setSelectedUser(user);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedUser(null);
+  };
 
   const handleSearch = (value) => {
     setSearchTerm(value.toLowerCase());
@@ -32,6 +64,9 @@ const AdminTrainer = () => {
       name: "email",
       label: "Email",
       options: {
+        filter: false,
+        sort: false,
+        customBodyRender: (value) => value || "N/A",
         setCellProps: () => ({
           style: { width: "300px" },
         }),
@@ -47,24 +82,34 @@ const AdminTrainer = () => {
       },
     },
     { name: "gender", label: "Gender" },
-    { name: "age", label: "Age" },
     {
-      name: "status",
-      label: "Status",
+      name: "speciality",
+      label: "Field",
       options: {
-        customBodyRender: (value) => {
-          const isActive = String(value).toLowerCase() === "active";
-          const cellStyle = {
-            backgroundColor: isActive ? "#D0FED5" : "#7f1d1d", // green | red
-            color: "#1A85C8",
-            borderRadius: "15px",
-            padding: "10px 40px",
-            display: "inline-block",
-            textTransform: "capitalize",
-          };
-          return <span style={cellStyle}>{value}</span>;
+        setCellProps: () => ({
+          style: { width: "200px" },
+        }),
+      },
+    },
+
+    {
+      label: "Actions",
+      name: "actions",
+      options: {
+        customBodyRender: (_, tableMeta) => {
+          const rowIndex = tableMeta.rowIndex;
+          const user = data[rowIndex];
+
+          return (
+            <button
+              onClick={() => handleDeleteClick(user)}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+              title="Delete User"
+            >
+              <DeleteIcon className="del-trainer" />
+            </button>
+          );
         },
-        setCellProps: () => ({ style: { width: "50px" } }),
       },
     },
   ];
@@ -116,10 +161,50 @@ const AdminTrainer = () => {
               />
             </div>
 
+            <div className="tabs-and-add">
+              <div className="tabs">
+                {["ALL", "NEW", "PAST"].map((tab) => (
+                  <div
+                    key={tab}
+                    className={`tab-button ${
+                      activeTab === tab ? "active" : ""
+                    }`}
+                    onClick={() => setActiveTab(tab)}
+                  >
+                    {tab}
+                  </div>
+                ))}
+              </div>
+
+              <div className="add-trainer">
+                <div>
+                  <Link className="add-trainer-button" to="/addTrainers">
+                    <p>Add Trainer</p>
+                    <AddIcon />
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <BasicTable data={data} columns={columns} />
           </div>
         )}
       </div>
+
+      {openModal && (
+        <BasicModal
+          isOpen={openModal}
+          title={`Are you sure you want to delete ${selectedUser?.name}?`}
+          onConfirm={() => {
+            <CustomButton
+              size="large"
+              onClick={handleDeleteUser(selectedUser)}
+              text="Delete"
+            />;
+          }}
+          onCancel={handleCloseModal}
+        />
+      )}
     </SkeletonTheme>
   );
 };

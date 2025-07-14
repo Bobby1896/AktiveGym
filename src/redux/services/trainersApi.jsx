@@ -39,6 +39,12 @@ export const trainersApi = createApi({
         body: trainerData,
       }),
     }),
+    deleteTrainer: builder.mutation({
+      query: ({ id }) => ({
+        url: `${AUTH_API.TRAINERS}/${id}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -46,5 +52,6 @@ export const {
   useTrainersQuery,
   useGetTrainerByIdQuery,
   useAddTrainerMutation,
+  useDeleteTrainerMutation,
 } = trainersApi;
 export const trainersReducer = trainersApi.reducer;

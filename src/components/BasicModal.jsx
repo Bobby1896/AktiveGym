@@ -1,8 +1,7 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import CustomButton from "./CustomButton";
+import Button from "@mui/material/Button";
 
 const style = {
   position: "absolute",
@@ -13,7 +12,7 @@ const style = {
   bgcolor: "#181818",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 8,
+  p: 6,
   textAlign: "center",
   borderRadius: 4,
 };
@@ -21,30 +20,38 @@ const style = {
 export default function BasicModal({
   isOpen,
   onClose,
-  subTitle,
   title,
-  icon,
-  onContinue,
-  buttonText,
+  onConfirm,
+  onCancel,
 }) {
   return (
-    <Modal
-      open={isOpen}
-      onClose={onClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
+    <Modal open={isOpen} onClose={onClose} aria-labelledby="modal-modal-title">
       <Box sx={style}>
-        {icon && (
-          <div style={{ marginBottom: 16 }}>{icon}</div>
-        )}
-        <Typography id="modal-modal-title" variant="h6" component="h2">
+        <Typography
+          id="modal-modal-title"
+          variant="h6"
+          component="h2"
+          sx={{ color: "#fff" }}
+        >
           {title}
         </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2, mb:5 }}>
-          {subTitle}
-        </Typography>
-        <CustomButton size="large" onClick={onContinue}>{buttonText}</CustomButton>
+
+        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4 }}>
+          <Button
+            onClick={onConfirm}
+            variant="contained"
+            sx={{ backgroundColor: "#1976d2", color: "#fff", px: 4 }}
+          >
+            YES
+          </Button>
+          <Button
+            onClick={onCancel}
+            variant="contained"
+            sx={{ backgroundColor: "#d32f2f", color: "#fff", px: 4 }}
+          >
+            NO
+          </Button>
+        </Box>
       </Box>
     </Modal>
   );
