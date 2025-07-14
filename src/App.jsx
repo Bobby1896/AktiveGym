@@ -3,7 +3,7 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-import SignUp from ".auth/signUp";
+import Signup from "./auth/signup";
 import Logout from "./auth/logOut";
 import LandingPage from "./pages/landingPage";
 import Dashboard from "./features/dashboard";
@@ -31,7 +31,7 @@ function App() {
 
         <Route path="/login" element={<Login />} />
         <Route path="/login/:uuid" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup" element={<Signup />} />
 
         <Route
           element={

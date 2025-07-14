@@ -26,7 +26,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import BasicModal from "../components/BasicModal";
 import { SuccessIcon } from "../utils/svg";
 
-const SignUp = () => {
+const Signup = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [showPassword, setShowPassword] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -688,4 +688,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
