@@ -93,3 +93,61 @@ gap: 2rem;
     text-decoration: none;
     color: #ffffff;
 }
+.del-trainer {
+  &:hover {
+    color: red !important;
+    transition: color 0.3s ease;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #181818;
+  padding: 10px 20px;
+  border-radius: 20px;
+  // max-width: 20%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  .tab-button {
+    cursor: pointer;
+    font-weight: 500;
+    color: #ffffff;
+    text-transform: capitalize;
+    &.active {
+      background-color: #1a85c8;
+      padding: 5px 20px;
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+    }
+  }
+}
+
+.tabs-and-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-trainer-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #1a85c8;
+  padding: 1px 20px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}

@@ -62,7 +62,7 @@ const WorkoutExercises = () => {
 
   useEffect(() => {
     refetch();
-  });
+  }, [refetch]);
 
   const formatExerciseKey = (name) => {
     return name.replace(/([a-z])([A-Z])/g, "$1_$2").toUpperCase();

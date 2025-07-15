@@ -25,21 +25,28 @@ import trainer6 from "../assets/images/smallTrainer6.png";
 import trainer7 from "../assets/images/smallTrainer7.png";
 import trainer8 from "../assets/images/smallTrainer8.png";
 import trainer9 from "../assets/images/smallTrainer3.png";
+import useUserRole from "../utils/roles";
 
 const Trainers = () => {
+  const { isAdmin, isUser } = useUserRole();
   const [searchTrainer, setSearchTrainer] = useState("");
+  const [activeTab, setActiveTab] = useState("ALL");
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
-  const { data: trainersData, isLoading } = useTrainersQuery({
+  const {
+    data: trainersData,
+    isLoading,
+    refetch,
+  } = useTrainersQuery({
     pageNumber: 1,
     pageSize: 10,
     searchQuery: "",
-    category: "ALL",
+    category: activeTab,
   });
   const [deleteTrainer] = useDeleteTrainerMutation();
-  // const [searchTerm, setSearchTerm] = useState("");
-  const [openModal, setOpenModal] = useState(false);
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [activeTab, setActiveTab] = useState("ALL");
+
   const trainersImages = [
     trainer1,
     trainer2,
@@ -56,20 +63,12 @@ const Trainers = () => {
     setSearchTrainer(query.toLowerCase());
   };
 
-  const filteredTrainers = trainersData?.content?.filter((trainer) => {
-    const nameMatch = trainer.fullName.toLowerCase().includes(searchTrainer);
-    const specialityMatch = trainer.speciality
-      ?.toLowerCase()
-      .includes(searchTrainer);
-    return nameMatch || specialityMatch;
-  });
-
   const handleDeleteUser = async (user) => {
     try {
       await deleteTrainer({ id: user.id }).unwrap();
       setOpenModal(false);
-      toast.success(`Trainer ${user.name} deleted successfully!`);
-      // setSelectedUser(null);
+      toast.success(`Trainer ${user.fullName} deleted successfully!`);
+      refetch();
     } catch (error) {
       toast.error("Failed to delete user:", error);
     }
@@ -91,7 +90,7 @@ const Trainers = () => {
       label: "Full Name",
       options: {
         setCellProps: () => ({
-          style: { width: "200px" },
+          style: { width: "250px" },
         }),
       },
     },
@@ -103,27 +102,50 @@ const Trainers = () => {
         sort: false,
         customBodyRender: (value) => value || "N/A",
         setCellProps: () => ({
-          style: { width: "300px" },
+          style: { width: "250px" },
         }),
       },
     },
     {
-      name: "dateJoined",
+      name: "createdAt",
       label: "Date Joined",
 
       options: {
         customBodyRender: (value) => formatDate(value),
-        setCellProps: () => ({}),
+        setCellProps: () => ({ style: { width: "150px" } }),
       },
     },
-    { name: "gender", label: "Gender" },
     {
       name: "speciality",
       label: "Field",
       options: {
+        customBodyRender: (value) => value?.speciality || "Not Specified",
         setCellProps: () => ({
-          style: { width: "200px" },
+          style: { width: "150px" },
         }),
+      },
+    },
+
+    {
+      name: "status",
+      label: "Status",
+      options: {
+        customBodyRender: (value) => {
+          const normalized = String(value).toLowerCase();
+          const isActive = normalized === "active";
+          const displayText = isActive ? "Active" : "Inactive";
+
+          const cellStyle = {
+            backgroundColor: isActive ? "#D0FED5" : "#7f1d1d", // green | red
+            color: isActive ? "#1A85C8" : "#ffffff",
+            borderRadius: "15px",
+            padding: "10px 40px",
+            display: "inline-block",
+            textTransform: "capitalize",
+          };
+          return <span style={cellStyle}>{displayText}</span>;
+        },
+        setCellProps: () => ({ style: { width: "100px" } }),
       },
     },
 
@@ -145,6 +167,7 @@ const Trainers = () => {
             </button>
           );
         },
+        setCellProps: () => ({ style: { width: "50px" } }),
       },
     },
   ];
@@ -158,13 +181,20 @@ const Trainers = () => {
     )
     .map((row, index) => ({ id: index, ...row }));
 
+  const filteredTrainers =
+    trainersData?.content?.filter((trainer) =>
+      Object.values(trainer).some((val) =>
+        String(val).toLowerCase().includes(searchTrainer)
+      )
+    ) || [];
+
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
       {" "}
       <div className="trainers-container">
         <div className="dashboard-nav">
           <div className="dashboard-header">
-            <p className="header-text">Trainer</p>
+            <p className="header-text">Trainers</p>
           </div>
 
           <div className="name-initials">
@@ -187,107 +217,123 @@ const Trainers = () => {
 
         <div className="trainers">
           <div className="">
-            <p className="trainer-heading">Meet your Fitness Trainers</p>
+            <p className="trainer-heading">
+              {isAdmin ? "List of All Trainers" : " Meet your Fitness Trainers"}
+            </p>
             <SearchInput
               placeholder="Search for trainers"
               onSearch={handleSearch}
             />
           </div>
 
-          <div className="trainers-cards">
-            {isLoading ? (
-              Array(9)
-                .fill(null)
-                .map((_, index) => (
-                  <div className="trainer" key={index}>
-                    <Skeleton width={100} height={100} />
-                    <Skeleton width={100} height={15} />
-                    <Skeleton width={80} height={15} />
-                    <Skeleton width={60} height={15} />
-                  </div>
-                ))
-            ) : filteredTrainers?.length === 0 ? (
-              <p className="no-results">No trainers match your search.</p>
-            ) : (
-              filteredTrainers?.slice(0, 9)?.map((trainer, index) => (
-                <div className="trainer" key={trainer.id}>
-                  <div className="trainer-image-wrapper">
-                    <img
-                      className="trainer-images"
-                      src={trainersImages[index % trainersImages.length]}
-                      alt="Trainer"
-                    />
-                  </div>
+          {isUser && (
+            <>
+              <div className="trainers-cards">
+                {isLoading ? (
+                  Array(9)
+                    .fill(null)
+                    .map((_, index) => (
+                      <div className="trainer" key={index}>
+                        <Skeleton width={100} height={100} />
+                        <Skeleton width={100} height={15} />
+                        <Skeleton width={80} height={15} />
+                        <Skeleton width={60} height={15} />
+                      </div>
+                    ))
+                ) : filteredTrainers?.length === 0 ? (
+                  <p className="no-results">No trainers match your search.</p>
+                ) : (
+                  filteredTrainers?.map((trainer, index) => (
+                    <div className="trainer" key={trainer.id}>
+                      <div className="trainer-image-wrapper">
+                        <img
+                          className="trainer-images"
+                          src={trainersImages[index % trainersImages.length]}
+                          alt="Trainer"
+                        />
+                      </div>
 
-                  <div className="rtrainer-name">
-                    <div>
-                      <p className="fullname">{trainer?.fullName}</p>
-                      <p className="speciality">
-                        {
-                          trainer?.speciality
-                            ?.split("-")
-                            .map((s) => s.trim())
-                            .filter((s) => s)[0]
-                        }
-                      </p>
+                      <div className="rtrainer-name">
+                        <div>
+                          <p className="fullname">{trainer?.fullName}</p>
+                          <p className="speciality">
+                            {
+                              trainer?.speciality
+                                ?.split("-")
+                                .map((s) => s.trim())
+                                .filter((s) => s)[0]
+                            }
+                          </p>
+                        </div>
+
+                        <div className="rating">
+                          <StarIcon />
+                          {trainer?.rating}
+                        </div>
+                      </div>
+
+                      <Link
+                        to={`/trainersProfile/${trainer?.id}`}
+                        state={{
+                          trainer: trainer,
+                          image: trainersImages[index % trainersImages.length],
+                        }}
+                      >
+                        <CustomButton className="profile-btn">
+                          View Profile
+                        </CustomButton>
+                      </Link>
                     </div>
-
-                    <div className="rating">
-                      <StarIcon />
-                      {trainer?.rating}
-                    </div>
-                  </div>
-
-                  <Link
-                    to={`/trainersProfile/${trainer?.id}`}
-                    state={{
-                      trainer: trainer,
-                      image: trainersImages[index % trainersImages.length],
-                    }}
-                  >
-                    <CustomButton className="profile-btn">
-                      View Profile
-                    </CustomButton>
-                  </Link>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
-
-        <div className="tabs-and-add">
-          <div className="tabs">
-            {["ALL", "NEW", "PAST"].map((tab) => (
-              <div
-                key={tab}
-                className={`tab-button ${activeTab === tab ? "active" : ""}`}
-                onClick={() => setActiveTab(tab)}
-              >
-                {tab}
+                  ))
+                )}
               </div>
-            ))}
-          </div>
+            </>
+          )}
 
-          <div className="add-trainer">
-            <div>
-              <Link className="add-trainer-button" to="/addTrainers">
-                <p>Add Trainer</p>
-                <AddIcon />
-              </Link>
-            </div>
-          </div>
+          {isAdmin && (
+            <>
+              <div className="tabs-and-add">
+                <div className="tabs">
+                  {["ALL", "NEW", "PAST"].map((tab) => (
+                    <div
+                      key={tab}
+                      className={`tab-button ${
+                        activeTab === tab ? "active" : ""
+                      }`}
+                      onClick={() => {
+                        setActiveTab(tab);
+                        setSearchTrainer("");
+                      }}
+                    >
+                      {tab}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="add-trainer">
+                  <div>
+                    <Link className="add-trainer-button" to="/addTrainers">
+                      <p>Add Trainer</p>
+                      <AddIcon />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <BasicTable data={data} columns={columns} />
+              </div>{" "}
+            </>
+          )}
         </div>
-
-        <BasicTable data={data} columns={columns} />
       </div>
       {openModal && (
         <BasicModal
           isOpen={openModal}
-          title={`Are you sure you want to delete ${selectedUser?.name}?`}
+          title={`Are you sure you want to delete ${selectedUser?.fullName}?`}
           onConfirm={() => {
             <CustomButton
               size="large"
-              onClick={handleDeleteUser(selectedUser)}
+              onClick={() => handleDeleteUser(selectedUser)}
               text="Delete"
             />;
           }}

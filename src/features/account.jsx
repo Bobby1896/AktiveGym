@@ -14,7 +14,7 @@ const Account = () => {
 
   useEffect(() => {
     refetch();
-  });
+  }, [refetch]);
   const personalDetails = [
     { label: "Name", value: uProfileData?.fullName },
     { label: "Email", value: uProfileData?.email },

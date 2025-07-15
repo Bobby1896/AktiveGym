@@ -11,56 +11,50 @@ import {
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import useUserRole from "../utils/roles";
 
 const SideBar = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { userRole } = useSelector((state) => state.userProfile);
 
-  const isAdmin = userRole === "ADMIN";
-  // const isUser = userRole === "MEMBER";
+  const { isAdmin, isUser } = useUserRole();
 
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem("token");
+    localStorage.removeItem("userRole");
+    localStorage.removeItem("expiresIn");
     navigate("/", { replace: true });
   };
 
   const menuItem = [
-    {
-      path: "/dashboard",
-      name: "Dashboard",
-      icon: <DashboardIcon />,
-    },
-    {
-      path: "/dietaryPlan",
-      name: "Dietary Plan",
-      icon: <DietaryIcon />,
-    },
-    {
-      path: "/workoutPlan",
-      name: "Work-Out Plan",
-      icon: <WorkoutPlanIcon />,
-    },
-     {
-      path: "/trainers",
-      name: "Trainers",
-      icon: <TrainerIcon />,
-    },
-
-    ...(isAdmin
+    ...(isUser
       ? [
           {
-            path: "/notification",
-            name: "Notification",
-            icon: <NotificationIcon />,
+            path: "/dashboard",
+            name: "Dashboard",
+            icon: <DashboardIcon />,
+          },
+          {
+            path: "/dietaryPlan",
+            name: "Dietary Plan",
+            icon: <DietaryIcon />,
+          },
+          {
+            path: "/workoutPlan",
+            name: "Work-Out Plan",
+            icon: <WorkoutPlanIcon />,
+          },
+
+          {
+            path: "/trainers",
+            name: "Trainers",
+            icon: <TrainerIcon />,
           },
         ]
       : []),
-
-   
 
     ...(isAdmin
       ? [
@@ -69,26 +63,32 @@ const SideBar = ({ children }) => {
             name: "User Management",
             icon: <ProfileIcon />,
           },
-        ]
-      : []),
 
-    ...(isAdmin
-      ? [
           {
-            path: "/adminTrainer",
-            name: "Admin Trainer",
-            icon: <WorkoutPlanIcon />,
+            path: "/trainers",
+            name: "Trainers",
+            icon: <TrainerIcon />,
+          },
+          {
+            path: "/notification",
+            name: "Notification",
+            icon: <NotificationIcon />,
           },
         ]
       : []),
   ];
 
   const bottomItems = [
-    {
-      path: "/profile",
-      name: "Account",
-      icon: <ProfileIcon />,
-    },
+    ...(isUser
+      ? [
+          {
+            path: "/profile",
+            name: "Account",
+            icon: <ProfileIcon />,
+          },
+        ]
+      : []),
+
     {
       path: "/logout",
       name: "Log Out",

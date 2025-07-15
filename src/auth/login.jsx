@@ -16,7 +16,6 @@ const Login = () => {
     email: "",
     password: "",
   };
-  console.log(loginData, "okjg");
   const navigate = useNavigate();
   // const {uuid} = useParams()
 
