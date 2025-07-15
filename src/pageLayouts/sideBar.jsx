@@ -11,12 +11,16 @@ import {
 import { FaBars } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const SideBar = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { userRole } = useSelector((state) => state.userProfile);
+
+  const isAdmin = userRole === "ADMIN";
+  // const isUser = userRole === "MEMBER";
 
   const handleLogout = () => {
     dispatch(logout());
@@ -36,30 +40,47 @@ const SideBar = ({ children }) => {
       icon: <DietaryIcon />,
     },
     {
-      path: "/notification",
-      name: "Notification",
-      icon: <NotificationIcon />,
-    },
-    {
-      path: "/trainers",
-      name: "Trainers",
-      icon: <TrainerIcon />,
-    },
-    {
-      path: "/userManagement",
-      name: "User Management",
-      icon: <ProfileIcon />,
-    },
-    {
       path: "/workoutPlan",
       name: "Work-Out Plan",
       icon: <WorkoutPlanIcon />,
     },
      {
-      path: "/adminTrainer",
-      name: "Admin Trainer",
-      icon: <WorkoutPlanIcon />,
+      path: "/trainers",
+      name: "Trainers",
+      icon: <TrainerIcon />,
     },
+
+    ...(isAdmin
+      ? [
+          {
+            path: "/notification",
+            name: "Notification",
+            icon: <NotificationIcon />,
+          },
+        ]
+      : []),
+
+   
+
+    ...(isAdmin
+      ? [
+          {
+            path: "/userManagement",
+            name: "User Management",
+            icon: <ProfileIcon />,
+          },
+        ]
+      : []),
+
+    ...(isAdmin
+      ? [
+          {
+            path: "/adminTrainer",
+            name: "Admin Trainer",
+            icon: <WorkoutPlanIcon />,
+          },
+        ]
+      : []),
   ];
 
   const bottomItems = [

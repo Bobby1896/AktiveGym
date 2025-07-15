@@ -4,7 +4,6 @@ import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
 import Signup from "./auth/signup";
-import Logout from "./auth/logOut";
 import LandingPage from "./pages/landingPage";
 import Dashboard from "./features/dashboard";
 import DietaryPlan from "./features/dietaryPlan";
@@ -47,7 +46,7 @@ function App() {
           <Route path="/userManagement" element={<UserManagement />} />
           <Route path="/workoutPlan" element={<WorkoutPlan />} />
           <Route path="/profile" element={<Account />} />
-          <Route path="/logout" element={<Logout />} />
+          {/* <Route path="/logout" element={<Logout />} /> */}
           <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
           <Route path="/adminTrainer" element={<AdminTrainer />} />
           <Route path="/addTrainers" element={<AddTrainers />} />

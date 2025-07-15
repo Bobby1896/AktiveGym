@@ -6,6 +6,7 @@ const initialState = {
   membershipPlan: "",
   email: "",
   gender: "",
+  userRole: null
 };
 
 export const userProfileSlice = createSlice({
@@ -27,6 +28,9 @@ export const userProfileSlice = createSlice({
     setGender(state, action) {
       state.gender = action.payload;
     },
+    setUserRole(state, action) {
+      state.userRole = action.payload;
+    },
   },
 });
 
@@ -36,6 +40,7 @@ export const {
   setGender,
   setMembershipId,
   setMembershipPlan,
+  setUserRole,
 } = userProfileSlice.actions;
 
 export default userProfileSlice.reducer;

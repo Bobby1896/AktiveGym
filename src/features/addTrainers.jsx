@@ -227,7 +227,7 @@ const AddTrainers = () => {
                   </div>
                 </div>
 
-                <div className="add-trainer-button">
+                <div className="">
                   <CustomButton
                     type="submit"
                     size="large"

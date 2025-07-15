@@ -9,6 +9,13 @@ import SearchInput from "../components/SearchInput";
 import { useTrainersQuery } from "../redux/services/trainersApi";
 import { StarIcon } from "../utils/svg";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useDeleteTrainerMutation } from "../redux/services/trainersApi";
+import { AddIcon } from "../utils/svg";
+import BasicTable from "../components/BasicTable";
+import { formatDate } from "../utils/DateFormat";
+import BasicModal from "../components/BasicModal";
+import DeleteIcon from "@mui/icons-material/Delete";
 import trainer1 from "../assets/images/smallTrainer1.png";
 import trainer2 from "../assets/images/smallTrainer2.png";
 import trainer3 from "../assets/images/smallTrainer3.png";
@@ -28,7 +35,11 @@ const Trainers = () => {
     searchQuery: "",
     category: "ALL",
   });
-
+  const [deleteTrainer] = useDeleteTrainerMutation();
+  // const [searchTerm, setSearchTerm] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [activeTab, setActiveTab] = useState("ALL");
   const trainersImages = [
     trainer1,
     trainer2,
@@ -52,6 +63,100 @@ const Trainers = () => {
       .includes(searchTrainer);
     return nameMatch || specialityMatch;
   });
+
+  const handleDeleteUser = async (user) => {
+    try {
+      await deleteTrainer({ id: user.id }).unwrap();
+      setOpenModal(false);
+      toast.success(`Trainer ${user.name} deleted successfully!`);
+      // setSelectedUser(null);
+    } catch (error) {
+      toast.error("Failed to delete user:", error);
+    }
+  };
+
+  const handleDeleteClick = (user) => {
+    setSelectedUser(user);
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+    setSelectedUser(null);
+  };
+
+  const columns = [
+    {
+      name: "fullName",
+      label: "Full Name",
+      options: {
+        setCellProps: () => ({
+          style: { width: "200px" },
+        }),
+      },
+    },
+    {
+      name: "email",
+      label: "Email",
+      options: {
+        filter: false,
+        sort: false,
+        customBodyRender: (value) => value || "N/A",
+        setCellProps: () => ({
+          style: { width: "300px" },
+        }),
+      },
+    },
+    {
+      name: "dateJoined",
+      label: "Date Joined",
+
+      options: {
+        customBodyRender: (value) => formatDate(value),
+        setCellProps: () => ({}),
+      },
+    },
+    { name: "gender", label: "Gender" },
+    {
+      name: "speciality",
+      label: "Field",
+      options: {
+        setCellProps: () => ({
+          style: { width: "200px" },
+        }),
+      },
+    },
+
+    {
+      label: "Actions",
+      name: "actions",
+      options: {
+        customBodyRender: (_, tableMeta) => {
+          const rowIndex = tableMeta.rowIndex;
+          const user = data[rowIndex];
+
+          return (
+            <button
+              onClick={() => handleDeleteClick(user)}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+              title="Delete User"
+            >
+              <DeleteIcon className="del-trainer" />
+            </button>
+          );
+        },
+      },
+    },
+  ];
+
+  const rawData = trainersData?.content || [];
+  const data = rawData
+    .filter((row) =>
+      Object.values(row).some((val) =>
+        String(val).toLowerCase().includes(searchTrainer)
+      )
+    )
+    .map((row, index) => ({ id: index, ...row }));
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
@@ -149,7 +254,46 @@ const Trainers = () => {
             )}
           </div>
         </div>
+
+        <div className="tabs-and-add">
+          <div className="tabs">
+            {["ALL", "NEW", "PAST"].map((tab) => (
+              <div
+                key={tab}
+                className={`tab-button ${activeTab === tab ? "active" : ""}`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab}
+              </div>
+            ))}
+          </div>
+
+          <div className="add-trainer">
+            <div>
+              <Link className="add-trainer-button" to="/addTrainers">
+                <p>Add Trainer</p>
+                <AddIcon />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <BasicTable data={data} columns={columns} />
       </div>
+      {openModal && (
+        <BasicModal
+          isOpen={openModal}
+          title={`Are you sure you want to delete ${selectedUser?.name}?`}
+          onConfirm={() => {
+            <CustomButton
+              size="large"
+              onClick={handleDeleteUser(selectedUser)}
+              text="Delete"
+            />;
+          }}
+          onCancel={handleCloseModal}
+        />
+      )}
     </SkeletonTheme>
   );
 };
