@@ -26,12 +26,15 @@ const AddTrainers = () => {
     experience: "",
     role: "",
     certification: "",
-    specialities: "",
+    speciality: "",
     description: "",
     phone: "",
     timeAvailable: "",
     date: "",
   };
+
+  const today = new Date();
+today.setHours(0, 0, 0, 0);
 
   const trainerSchema = Yup.object({
     name: Yup.string()
@@ -47,7 +50,7 @@ const AddTrainers = () => {
       .min(1, "Experience must be a number and at least 1")
       .max(50, "Please enter a valid experience in years")
       .required("Please enter your experience in years"),
-    specialities: Yup.string()
+    speciality: Yup.string()
       .min(3, "Specialities must be at least 3 characters")
       .required("Please enter your specialities"),
     description: Yup.string()
@@ -58,7 +61,7 @@ const AddTrainers = () => {
       .required("Please enter your certification details"),
     timeAvailable: Yup.string().required("Please enter your available time"),
     date: Yup.date()
-      .min(new Date(), "Date must be today or later")
+      .min(today , "Date must be today or later")
       .required("Please enter a valid date"),
   });
 
@@ -70,7 +73,7 @@ const AddTrainers = () => {
       fullName: values.name,
       email: values.email,
       yearsOfExperience: values.experience.toString(),
-      specialities: values.specialities,
+      speciality: values.speciality,
       description: values.description,
       certification: values.certification,
       role: values.role,
@@ -168,14 +171,14 @@ const AddTrainers = () => {
 
                 <div className="add-trainer-details">
                   <div className="form-group">
-                    <label htmlFor="specialities">Specialities</label>
+                    <label htmlFor="speciality">Specialities</label>
                     <Field
-                      name="specialities"
+                      name="speciality"
                       as="textarea"
                       className="custom-area"
                     />
-                    {errors.specialities && touched.specialities && (
-                      <p className="error-msg">{errors.specialities}</p>
+                    {errors.speciality && touched.speciality && (
+                      <p className="error-msg">{errors.speciality}</p>
                     )}
                   </div>
 
@@ -219,7 +222,7 @@ const AddTrainers = () => {
 
                 <div className="add-trainer-details">
                   <div className="form-group">
-                    <label htmlFor="field">Field</label>
+                    <label htmlFor="role">Field</label>
                     <Field name="role" type="text" className="custom-input" />
                     {errors.role && touched.role && (
                       <p className="error-msg">{errors.role}</p>

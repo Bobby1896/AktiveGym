@@ -1,7 +1,6 @@
 import { useEffect, useMemo } from "react";
 import "../styles/features/dashboard.scss";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "react-loading-skeleton/dist/skeleton.css";
 import {
@@ -26,11 +25,9 @@ import food2 from "../assets/images/smallFood2.png";
 import food3 from "../assets/images/smallFood3.png";
 import CustomButton from "../components/CustomButton";
 import FirstLetters from "../utils/FirstLetters";
-import { setUserRole } from "../redux/slices/userProfileSlice";
 import useUserRole from "../utils/roles";
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const {
     data: userData,
@@ -41,13 +38,6 @@ const Dashboard = () => {
     useRecommendedTrainerQuery();
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const { isAdmin } = useUserRole();
-
-  useEffect(() => {
-    if (uProfileData?.userRole) {
-      dispatch(setUserRole(uProfileData.userRole));
-      localStorage.setItem("userRole", uProfileData.userRole);
-    }
-  }, [uProfileData, dispatch]);
 
   useEffect(() => {
     if (isAdmin) {

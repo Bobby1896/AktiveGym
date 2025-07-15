@@ -41,7 +41,7 @@ const Trainers = () => {
     refetch,
   } = useTrainersQuery({
     pageNumber: 1,
-    pageSize: 10,
+    pageSize: 10000, 
     searchQuery: "",
     category: activeTab,
   });
@@ -119,7 +119,7 @@ const Trainers = () => {
       name: "speciality",
       label: "Field",
       options: {
-        customBodyRender: (value) => value?.speciality || "Not Specified",
+        customBodyRender: (value) => value || "Not Specified",
         setCellProps: () => ({
           style: { width: "150px" },
         }),
@@ -258,7 +258,7 @@ const Trainers = () => {
                           <p className="fullname">{trainer?.fullName}</p>
                           <p className="speciality">
                             {
-                              trainer?.speciality
+                              trainer?.role
                                 ?.split("-")
                                 .map((s) => s.trim())
                                 .filter((s) => s)[0]
@@ -333,7 +333,7 @@ const Trainers = () => {
           onConfirm={() => {
             <CustomButton
               size="large"
-              onClick={() => handleDeleteUser(selectedUser)}
+              onClick={handleDeleteUser(selectedUser)}
               text="Delete"
             />;
           }}

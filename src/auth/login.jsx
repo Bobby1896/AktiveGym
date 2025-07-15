@@ -30,6 +30,7 @@ const Login = () => {
 
       localStorage.setItem("token", response.token);
       localStorage.setItem("expiresIn", response.expiresIn);
+      localStorage.setItem("userRole", response.userRole);
       toast.success(loginData?.message || "Login Successful");
       navigate("/dashboard");
     } catch (error) {
