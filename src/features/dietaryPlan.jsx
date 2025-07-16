@@ -23,17 +23,17 @@ import meal15 from "../assets/images/meal15.png";
 import { FilterIcon } from "../utils/svg";
 
 const DietaryPlan = () => {
-  const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const [activeTab, setActiveTab] = useState("ALL");
+  const [openFilterModal, setOpenFilterModal] = useState(false);
+  const [foodFilter, setFoodFilter] = useState("");
 
+  const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const { data: dietaryPlanData } = useDietaryPlanQuery({
-    foodType: "",
+    foodType: foodFilter,
     pageNumber: 1,
     pageSize: 1000,
     type: activeTab === "ALL" ? "" : activeTab,
   });
-
-  console.log("Dietary Plan Data:", dietaryPlanData);
 
   const mealImages = [
     meal1,
@@ -54,6 +54,10 @@ const DietaryPlan = () => {
   ];
 
   const tabs = ["ALL", "LOOSE_WEIGHT", "MAINTAIN_WEIGHT", "GAIN_WEIGHT"];
+
+  const handleOpenFilter = () => {
+    setOpenFilterModal((prev) => !prev);
+  };
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
@@ -105,10 +109,58 @@ const DietaryPlan = () => {
             </div>
 
             <div>
-              <div className="filter-button">
+              <div className="filter-button" onClick={handleOpenFilter}>
                 <FilterIcon className="filter-icon" />
-                <p className="filter-text">Filter</p>
+                <p className="filter-text">All Filter</p>
               </div>
+
+              {openFilterModal && (
+                <div className="filter-modal">
+                  <div className="filter-option">
+                    <label className="filter-radio">
+                      <input
+                        type="radio"
+                        name="foodFilter"
+                        value="VEGAN"
+                        checked={foodFilter === "VEGAN"}
+                        onChange={() => {
+                          setFoodFilter("VEGAN");
+                          setOpenFilterModal(false);
+                        }}
+                      />
+                      Vegan
+                    </label>
+
+                    <label className="filter-radio">
+                      <input
+                        type="radio"
+                        name="foodFilter"
+                        value="NON_VEGAN"
+                        checked={foodFilter === "NON_VEGAN"}
+                        onChange={() => {
+                          setFoodFilter("NON_VEGAN");
+                          setOpenFilterModal(false);
+                        }}
+                      />
+                      Non-Vegan
+                    </label>
+                  </div>
+
+                  <label className="filter-radio clear">
+                    <input
+                      type="radio"
+                      name="foodFilter"
+                      value=""
+                      checked={foodFilter === ""}
+                      onChange={() => {
+                        setFoodFilter("");
+                        setOpenFilterModal(false);
+                      }}
+                    />
+                    Clear Filter
+                  </label>
+                </div>
+              )}
             </div>
           </div>
 

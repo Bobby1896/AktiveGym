@@ -25,12 +25,16 @@
         cursor: pointer;
         font-weight: 500;
         background-color: #181818;
-        padding: 1px 20px;
+        padding: 1px 30px;
         border-radius: 15px;
         -webkit-border-radius: 15px;
         -moz-border-radius: 15px;
         -ms-border-radius: 15px;
         -o-border-radius: 15px;
+
+        .filter-text{
+            font-size: 18px;
+        }
       }
     }
     .dietary-plan-tabs {
@@ -86,7 +90,6 @@
       }
 
       .meal-details {
-
         .meal-name {
           font-size: 16px;
           font-weight: bold;
@@ -100,10 +103,40 @@
           margin-bottom: 10px;
         }
 
-        .meal-nutrition{
-            margin-top: auto
+        .meal-nutrition {
+          margin-top: auto;
         }
       }
+    }
+  }
+
+  .filter-modal {
+    position: absolute;
+    background: #181818;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    z-index: 10;
+    border-radius: 6px;
+    overflow: hidden !important;
+    padding: 20px;
+
+    .filter-option{
+        // display: flex;
+       
+    }
+
+    .filter-radio {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 10px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .filter-radio.clear {
+      color: red;
     }
   }
 }
