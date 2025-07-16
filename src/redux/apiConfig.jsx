@@ -13,6 +13,7 @@ export const AUTH_API = {
   ASSIGN_TRAINER: `/api/v1/trainer/assign`,
   WORKOUT: `/api/v1/user/workout`,
   USERS_LIST: `/api/v1/user`,
+  DIETARY_PLAN: `/api/v1/dietary-plan`,
 };
 
 

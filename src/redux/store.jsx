@@ -16,6 +16,7 @@ import {
 } from "./services/assignTrainerApi";
 import { workOutApi, workOutReducer } from "./services/workOutApi";
 import { usersListApi, usersListReducer } from "./services/usersListApi";
+import { dietaryPlanApi, dietaryPlanReducer } from "./services/dietaryPlanApi";
 
 export const store = configureStore({
   reducer: {
@@ -37,6 +38,8 @@ export const store = configureStore({
     [workOutApi.reducerPath]: workOutApi.reducer,
     usersList: usersListReducer,
     [usersListApi.reducerPath]: usersListApi.reducer,
+    dietaryPlan: dietaryPlanReducer,
+    [dietaryPlanApi.reducerPath]: dietaryPlanApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
@@ -48,5 +51,6 @@ export const store = configureStore({
       .concat(trainersApi.middleware)
       .concat(assignTrainerApi.middleware)
       .concat(workOutApi.middleware)
-      .concat(usersListApi.middleware),
+      .concat(usersListApi.middleware)
+      .concat(dietaryPlanApi.middleware),
 });

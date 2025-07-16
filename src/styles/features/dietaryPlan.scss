@@ -1,0 +1,109 @@
+.dietary-plan-container {
+  .dietary-plan-content {
+    background: #2c2c2c;
+    padding: 30px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+    .dietary-plan-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .dietary-plan-tabs-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .filter-button {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 500;
+        background-color: #181818;
+        padding: 1px 20px;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+      }
+    }
+    .dietary-plan-tabs {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 1.5rem;
+      background-color: #181818;
+      padding: 15px 20px;
+      font-size: 18px;
+      border-radius: 20px;
+      // max-width: 20%;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+
+      .tab-button {
+        cursor: pointer;
+        font-weight: 500;
+        color: #ffffff;
+        text-transform: capitalize;
+        &.active {
+          background-color: #1a85c8;
+          padding: 10px 20px;
+          border-radius: 15px;
+          -webkit-border-radius: 15px;
+          -moz-border-radius: 15px;
+          -ms-border-radius: 15px;
+          -o-border-radius: 15px;
+        }
+      }
+    }
+
+    .dietary-plan-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      //   width: 10%;
+
+      .meal-card {
+        margin-bottom: 20px;
+        padding: 20px;
+        display: flex;
+        background-color: #181818;
+        border-radius: 20px;
+        overflow: hidden;
+
+        .meal-image {
+          width: 40%;
+          border-radius: 10px;
+          object-fit: cover;
+          margin-right: 20px;
+        }
+      }
+
+      .meal-details {
+
+        .meal-name {
+          font-size: 16px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+
+        .meal-description,
+        em {
+          font-size: 14px;
+          opacity: 0.6;
+          margin-bottom: 10px;
+        }
+
+        .meal-nutrition{
+            margin-top: auto
+        }
+      }
+    }
+  }
+}
