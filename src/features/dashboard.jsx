@@ -26,6 +26,7 @@ import food3 from "../assets/images/smallFood3.png";
 import CustomButton from "../components/CustomButton";
 import FirstLetters from "../utils/FirstLetters";
 import useUserRole from "../utils/roles";
+import { useDietaryPlanQuery } from "../redux/services/dietaryPlanApi";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -37,6 +38,12 @@ const Dashboard = () => {
   const { data: rTrainerData, isLoading: isLoadingRData } =
     useRecommendedTrainerQuery();
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
+    const { data: dietaryPlanData, isLoading: isLoadingDData } = useDietaryPlanQuery({
+    foodType: "",
+    pageNumber: 1,
+    pageSize: 1000,
+    type: "" 
+  });
   const { isAdmin } = useUserRole();
 
   useEffect(() => {
@@ -212,29 +219,29 @@ const Dashboard = () => {
               </div>
 
               <div className="rfood-list">
-                {(isLoadingRData
+                {(isLoadingDData
                   ? Array(3).fill({})
-                  : rTrainerData?.slice(0, 3)
-                )?.map((trainer, index) => (
+                  : dietaryPlanData?.content?.slice(0, 3)
+                )?.map((food, index) => (
                   <div className="rfood" key={index}>
                     <img
                       className="food-rec-images"
                       src={foodImages[index]}
-                      alt={trainer?.fullName || "Food"}
+                      alt={food?.fullName || "Food"}
                     />
 
                     <div>
-                      {isLoadingRData ? (
+                      {isLoadingDData ? (
                         <>
                           <Skeleton width={100} height={15} />
                           <Skeleton width={80} height={15} />
                         </>
                       ) : (
                         <>
-                          <p className="rfood-name">{trainer?.fullName}</p>
+                          <p className="rfood-name">{food?.description}</p>
                           <p className="rfood-type">
                             {
-                              trainer?.speciality
+                              food?.type
                                 ?.split("-")
                                 .map((s) => s.trim())
                                 .filter((s) => s)[0]
