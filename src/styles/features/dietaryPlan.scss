@@ -32,8 +32,8 @@
         -ms-border-radius: 15px;
         -o-border-radius: 15px;
 
-        .filter-text{
-            font-size: 18px;
+        .filter-text {
+          font-size: 18px;
         }
       }
     }
@@ -81,6 +81,10 @@
         border-radius: 20px;
         overflow: hidden;
 
+        &:hover {
+          transform: scale(1.02);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
         .meal-image {
           width: 40%;
           border-radius: 10px;
@@ -90,6 +94,10 @@
       }
 
       .meal-details {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
         .meal-name {
           font-size: 16px;
           font-weight: bold;
@@ -106,6 +114,14 @@
         .meal-nutrition {
           margin-top: auto;
         }
+        > div {
+          margin-top: auto;
+          padding-top: 10px;
+        }
+
+        .profile-btn {
+          cursor: pointer;
+        }
       }
     }
   }
@@ -120,11 +136,6 @@
     border-radius: 6px;
     overflow: hidden !important;
     padding: 20px;
-
-    .filter-option{
-        // display: flex;
-       
-    }
 
     .filter-radio {
       display: flex;

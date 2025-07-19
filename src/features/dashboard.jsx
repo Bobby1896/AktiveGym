@@ -173,12 +173,7 @@ const Dashboard = () => {
                           <>
                             <p className="rec-fullname">{trainer?.fullName}</p>
                             <p className="rec-speciality">
-                              {
-                                trainer?.speciality
-                                  ?.split("-")
-                                  .map((s) => s.trim())
-                                  .filter((s) => s)[0]
-                              }
+                              {trainer?.role?.split("|")[0]?.trim()}
                             </p>
                           </>
                         )}

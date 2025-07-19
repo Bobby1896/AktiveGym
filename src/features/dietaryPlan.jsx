@@ -5,6 +5,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import FirstLetters from "../utils/FirstLetters";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { useDietaryPlanQuery } from "../redux/services/dietaryPlanApi";
+import { Link } from "react-router-dom";
+import CustomButton from "../components/CustomButton";
 import meal1 from "../assets/images/meal1.png";
 import meal2 from "../assets/images/meal2.png";
 import meal3 from "../assets/images/meal3.png";
@@ -191,6 +193,18 @@ const DietaryPlan = () => {
                     {meal?.carlories} Kcal / {meal.protein} Protein /{" "}
                     {meal?.carbs} Carbs / {meal?.fat} Fats{" "}
                   </em>
+
+                  <Link
+                    to={`/dietaryDetails/${meal?.id}`}
+                    state={{
+                      meal: meal,
+                      image: mealImages[index % mealImages.length],
+                    }}
+                  >
+                    <CustomButton className="profile-btn">
+                      View Details
+                    </CustomButton>
+                  </Link>
                 </div>
               </div>
             ))}

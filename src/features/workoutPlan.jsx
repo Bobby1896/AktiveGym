@@ -28,8 +28,6 @@ const WorkoutPlan = () => {
     }
   }, [searchQuery]);
 
-  // const handleWorkoutPlan = () => {};
-
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444">
       <div className="workout-container">
