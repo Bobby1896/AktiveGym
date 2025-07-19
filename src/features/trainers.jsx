@@ -41,7 +41,7 @@ const Trainers = () => {
     refetch,
   } = useTrainersQuery({
     pageNumber: 1,
-    pageSize: 10000, 
+    pageSize: 10000,
     searchQuery: "",
     category: activeTab,
   });
@@ -119,7 +119,10 @@ const Trainers = () => {
       name: "speciality",
       label: "Field",
       options: {
-        customBodyRender: (value) => value || "Not Specified",
+        customBodyRender: (value) => {
+          const firstItem = value?.split(" - ")[0]?.trim() || "Not Specified";
+          return firstItem.replace(/^[-\s]+/, ""); 
+        },
         setCellProps: () => ({
           style: { width: "150px" },
         }),
