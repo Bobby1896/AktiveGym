@@ -38,12 +38,13 @@ const Dashboard = () => {
   const { data: rTrainerData, isLoading: isLoadingRData } =
     useRecommendedTrainerQuery();
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
-    const { data: dietaryPlanData, isLoading: isLoadingDData } = useDietaryPlanQuery({
-    foodType: "",
-    pageNumber: 1,
-    pageSize: 1000,
-    type: "" 
-  });
+  const { data: dietaryPlanData, isLoading: isLoadingDData } =
+    useDietaryPlanQuery({
+      foodType: "",
+      pageNumber: 1,
+      pageSize: 1000,
+      type: "",
+    });
   const { isAdmin } = useUserRole();
 
   useEffect(() => {
@@ -212,7 +213,6 @@ const Dashboard = () => {
             <div className="rec-food">
               <div className="rec-food-header">
                 <p className="rec-text">Recommended Food</p>
-
                 <Link to="/dietaryPlan" className="rec-view">
                   View More
                 </Link>
@@ -224,13 +224,14 @@ const Dashboard = () => {
                   : dietaryPlanData?.content?.slice(0, 3)
                 )?.map((food, index) => (
                   <div className="rfood" key={index}>
-                    <img
-                      className="food-rec-images"
-                      src={foodImages[index]}
-                      alt={food?.fullName || "Food"}
-                    />
-
-                    <div>
+                    <div className="rfood-image-container">
+                      <img
+                        className="food-rec-images"
+                        src={foodImages[index]}
+                        alt={food?.fullName || "Food"}
+                      />
+                    </div>
+                    <div className="rfood-details">
                       {isLoadingDData ? (
                         <>
                           <Skeleton width={100} height={15} />
@@ -239,14 +240,17 @@ const Dashboard = () => {
                       ) : (
                         <>
                           <p className="rfood-name">{food?.description}</p>
-                          <p className="rfood-type">
-                            {
-                              food?.type
+                          <div className="rfood-bottom">
+                            <p className="rfood-type">
+                              {food?.type
                                 ?.split("-")
                                 .map((s) => s.trim())
                                 .filter((s) => s)[0]
-                            }
-                          </p>
+                                .replace("_", " ")
+                                .toLowerCase()
+                                .replace(/\b\w/g, (c) => c.toUpperCase())}
+                            </p>
+                          </div>
                         </>
                       )}
                     </div>
