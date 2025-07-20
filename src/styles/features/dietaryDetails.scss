@@ -5,6 +5,48 @@
     border-radius: 20px;
   }
 
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .step-icon {
+      width: 36px;
+      height: 36px;
+      background-color: #1892d1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 15px;
+      font-size: 18px;
+    }
+
+    .tool-icon {
+      width: 36px;
+      height: 36px;
+      background-color: #1a85c8;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .tool-text {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  .section-header {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
   .dishes-section {
     display: flex;
     flex-direction: row;
@@ -12,6 +54,8 @@
 
     .dish-left-section {
       width: 74%;
+      height: 100%;
+
       .dish-meal {
         background-color: #181818;
         padding: 15px;
@@ -107,10 +151,10 @@
       .direction-tools {
         display: flex;
         justify-content: space-between;
-        background-color: #181818; 
+        background-color: #181818;
         border-radius: 20px;
         padding: 20px;
-        
+        margin-bottom: 2%;
 
         .direction-col,
         .tools-col {
@@ -121,44 +165,18 @@
             font-weight: 700;
             margin-bottom: 20px;
           }
+        }
+      }
 
-          ul {
-            list-style: none;
-            padding: 0;
+      .note-col {
+        background-color: #181818;
+        border-radius: 20px;
+        padding: 20px;
 
-            li {
-              display: flex;
-              align-items: center;
-              margin-bottom: 20px;
-            }
-
-            .step-icon {
-              width: 36px;
-              height: 36px;
-              background-color: #1892d1 ;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 50%;
-              margin-right: 15px;
-              font-size: 18px;
-            }
-
-            .tool-icon {
-              width: 36px;
-              height: 36px;
-              background-color: #1A85C8;
-              border-radius: 50%;
-              margin-right: 15px;
-
-              
-            }
-
-            .tool-text {
-              font-size: 16px;
-              line-height: 1.5;
-            }
-          }
+        .section-header {
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 20px;
         }
       }
     }
@@ -171,8 +189,9 @@
         justify-content: space-between;
         align-items: flex-start;
         background: #1a85c8;
-        padding: 15px;
+        padding: 15px 35px;
         border-radius: 25px;
+        margin-bottom: 5%;
 
         .nutrient-item {
           display: flex;
@@ -200,7 +219,6 @@
 
           .nutrient-value {
             font-size: 16px;
-            // font-weight: bold;
             margin: 0;
           }
 
@@ -208,6 +226,41 @@
             font-size: 16px;
             margin: 0;
             color: #ccc;
+          }
+        }
+      }
+
+      .ingredient-col {
+        justify-content: space-between;
+        background-color: #181818;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 5%;
+      }
+
+      .facts-col {
+        justify-content: space-between;
+        background-color: #181818;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 5%;
+
+        .fact-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          .fact-details {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+          .fact-details:not(:last-child) {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+          }
+          .fact-points {
+            display: flex;
+            gap: 10px;
           }
         }
       }

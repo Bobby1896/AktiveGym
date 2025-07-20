@@ -6,7 +6,13 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import { Link } from "react-router-dom";
 import FirstLetters from "../utils/FirstLetters";
-import { EatIcon, FoodIcon, HealthIcon, TimeIcon } from "../utils/svg";
+import {
+  EatIcon,
+  FoodIcon,
+  HealthIcon,
+  SpiceIcon,
+  TimeIcon,
+} from "../utils/svg";
 
 const DietaryDetails = () => {
   const location = useLocation();
@@ -20,10 +26,11 @@ const DietaryDetails = () => {
     mealProtein,
     mealDirection,
     mealTools,
-    // mealNote,
+    mealNote,
     mealPrepTime,
     mealEatTime,
     mealScore,
+    mealIngredients,
   } = location.state || {};
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
 
@@ -144,7 +151,7 @@ const DietaryDetails = () => {
                 <div className="direction-col">
                   <p className="section-header">Directions</p>
                   <ul>
-                    {mealDirection?.split(",").map((step, index) => (
+                    {mealDirection?.split(/[,;]+/).map((step, index) => (
                       <li key={index}>
                         <div className="step-icon">{index + 1}</div>
                         <span className="step-text">
@@ -159,7 +166,7 @@ const DietaryDetails = () => {
                 <div className="tools-col">
                   <p className="section-header">Tool and Equipments</p>
                   <ul>
-                    {mealTools?.split(",").map((tool, index) => (
+                    {mealTools?.split(/[,;]+/).map((tool, index) => (
                       <li key={index}>
                         <div className="tool-icon">
                           <FoodIcon />
@@ -172,6 +179,21 @@ const DietaryDetails = () => {
                     ))}
                   </ul>
                 </div>
+              </div>
+
+              <div className="note-col">
+                <p className="section-header">Notes</p>
+                <ul>
+                  {mealNote?.split(",").map((step, index) => (
+                    <li key={index}>
+                      <div className="step-icon">{index + 1}</div>
+                      <span className="step-text">
+                        {step.trim().charAt(0).toUpperCase() +
+                          step.trim().slice(1)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 
@@ -186,6 +208,42 @@ const DietaryDetails = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+
+              <div className="ingredient-col">
+                <p className="section-header">Ingredients</p>
+                <ul>
+                  {mealIngredients?.split(",").map((tool, index) => (
+                    <li key={index}>
+                      <div className="tool-icon">
+                        <SpiceIcon />
+                      </div>
+                      <span className="tool-text">
+                        {tool.trim().charAt(0).toUpperCase() +
+                          tool.trim().slice(1)}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="facts-col">
+                <p className="section-header" >Nutrition Facts</p>
+
+                <div className="fact-wrapper">
+                  {nutrients.map(({ label, value, unit }) => (
+                    <div className="fact-details" key={label}>
+                      <p className="fact-label">{label}</p>
+                      <div className="fact-points">
+                        <p className="fact-value">{value}</p>
+                        <p className="fact-unit">{unit}</p>
+                      </div>
+                       
+                
+                    </div>
+                    
+                  ))}
+                </div>
               </div>
             </div>
           </div>

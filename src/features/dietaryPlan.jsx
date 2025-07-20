@@ -211,9 +211,8 @@ const DietaryPlan = () => {
                       mealNote: meal?.note,
                       mealPrepTime: meal?.prepTime,
                       mealEatTime: meal?.cookTime,
-                      mealScore: meal?.healthScore
-
-
+                      mealScore: meal?.healthScore,
+                      mealIngredients: meal?.ingredient
                     }}
                   >
                     <CustomButton className="profile-btn">
