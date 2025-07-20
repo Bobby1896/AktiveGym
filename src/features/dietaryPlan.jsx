@@ -197,8 +197,23 @@ const DietaryPlan = () => {
                   <Link
                     to={`/dietaryDetails/${meal?.id}`}
                     state={{
-                      meal: meal,
-                      image: mealImages[index % mealImages.length],
+                      mealName: meal?.description,
+                      mealImage: mealImages[index % mealImages.length],
+                      mealType: `${meal?.foodType || ""} | ${
+                        meal?.type || ""
+                      }`.trim(),
+                      mealCalories: meal?.calories,
+                      mealCarbs: meal?.carbs,
+                      mealFat: meal?.fat,
+                      mealProtein: meal?.protein,
+                      mealDirection: meal?.direction,
+                      mealTools: meal?.tools,
+                      mealNote: meal?.note,
+                      mealPrepTime: meal?.prepTime,
+                      mealEatTime: meal?.cookTime,
+                      mealScore: meal?.healthScore
+
+
                     }}
                   >
                     <CustomButton className="profile-btn">

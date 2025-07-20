@@ -1,0 +1,216 @@
+.dietaryDetails-container {
+  .dishes-details {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .dishes-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .dish-left-section {
+      width: 74%;
+      .dish-meal {
+        background-color: #181818;
+        padding: 15px;
+        border-radius: 20px;
+        display: flex;
+        gap: 40px;
+        align-items: start;
+        margin-bottom: 2%;
+
+        .dishes-img {
+          border-radius: 20px;
+          width: 100%;
+          -webkit-border-radius: 20px;
+          -moz-border-radius: 20px;
+          -ms-border-radius: 20px;
+          -o-border-radius: 20px;
+          // height: auto;
+          object-fit: cover;
+        }
+
+        .dish-side-details {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 90%;
+
+          .dish-type {
+            font-size: 16px;
+            background: #2c2c2c;
+            text-align: center;
+            border-radius: 30px;
+            width: 40%;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+          }
+
+          .dish-name {
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 10px;
+            min-height: 24px;
+          }
+
+          .dish-desc {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 20px;
+            min-height: 50px;
+          }
+
+          .dish-prep-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+
+            .dish-prep {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+            }
+
+            .icon-circle {
+              background-color: #1a85c8;
+              border-radius: 50%;
+              width: 40px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+
+            .dish-prep-text {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+
+            .dish-time-label {
+              font-size: 14px;
+              color: #ccc;
+              margin: 0;
+            }
+
+            .dish-time-value {
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .direction-tools {
+        display: flex;
+        justify-content: space-between;
+        background-color: #181818; 
+        border-radius: 20px;
+        padding: 20px;
+        
+
+        .direction-col,
+        .tools-col {
+          width: 40%;
+
+          .section-header {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+              display: flex;
+              align-items: center;
+              margin-bottom: 20px;
+            }
+
+            .step-icon {
+              width: 36px;
+              height: 36px;
+              background-color: #1892d1 ;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 50%;
+              margin-right: 15px;
+              font-size: 18px;
+            }
+
+            .tool-icon {
+              width: 36px;
+              height: 36px;
+              background-color: #1A85C8;
+              border-radius: 50%;
+              margin-right: 15px;
+
+              
+            }
+
+            .tool-text {
+              font-size: 16px;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
+    }
+
+    .dish-values-container {
+      width: 25%;
+
+      .dish-nutrient {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        background: #1a85c8;
+        padding: 15px;
+        border-radius: 25px;
+
+        .nutrient-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+
+          .nutrient-label {
+            margin-bottom: 10px;
+          }
+
+          .dish-values {
+            background-color: #181818;
+            padding: 10px 15px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+          }
+
+          .nutrient-value {
+            font-size: 16px;
+            // font-weight: bold;
+            margin: 0;
+          }
+
+          .nutrient-unit {
+            font-size: 16px;
+            margin: 0;
+            color: #ccc;
+          }
+        }
+      }
+    }
+  }
+}
