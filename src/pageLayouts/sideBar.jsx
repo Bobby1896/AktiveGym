@@ -14,6 +14,7 @@ import { logout } from "../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useUserRole from "../utils/roles";
+import whiteLogo from "../assets/images/whiteLogo.png"
 
 const SideBar = ({ children }) => {
   const dispatch = useDispatch();
@@ -99,7 +100,7 @@ const SideBar = ({ children }) => {
     <aside className="sidebar-container">
       <div className="sidebar">
         <div className="sidebar-top-section">
-          <img src="src/assets/images/whiteLogo.png" alt="White Logo" />
+          <img src={whiteLogo} alt="White Logo" />
           <div className="bars">{/* <FaBars /> */}</div>
         </div>
 
