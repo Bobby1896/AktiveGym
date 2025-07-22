@@ -10,6 +10,11 @@ import Testimony from "./testimony";
 import Membership from "./membership";
 import { FAQData } from "../utils/plainData";
 import Footer from "../pageLayouts/footer";
+import Nike from "../assets/images/nike.png";
+import Bulk from "../assets/images/bulk.png";
+import Gym from "../assets/images/gymshark.png";
+import FreshFit from "../assets/images/freshfit.png";
+import Protein from "../assets/images/myprotein.png";
 
 const LandingPage = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -42,17 +47,17 @@ const LandingPage = () => {
         <section className="sponsor-section">
           <div className="sponsor-slider">
             <div className="slide-track">
-              <img src="src/assets/images/nike.png" alt="NIKE" />
-              <img src="src/assets/images/myprotein.png" alt="MY PROTEIN" />
-              <img src="src/assets/images/bulk.png" alt="BULK" />
-              <img src="src/assets/images/gymshark.png" alt="GYM SHARK" />
-              <img src="src/assets/images/freshfit.png" alt="FRESH FIT" />
+              <img src={Nike} alt="NIKE" />
+              <img src={Protein} alt="MY PROTEIN" />
+              <img src={Bulk} alt="BULK" />
+              <img src={Gym} alt="GYM SHARK" />
+              <img src={FreshFit} alt="FRESH FIT" />
 
-              <img src="src/assets/images/nike.png" alt="NIKE" />
-              <img src="src/assets/images/myprotein.png" alt="MY PROTEIN" />
-              <img src="src/assets/images/bulk.png" alt="BULK" />
-              <img src="src/assets/images/gymshark.png" alt="GYM SHARK" />
-              <img src="src/assets/images/freshfit.png" alt="FRESH FIT" />
+              <img src={Nike} alt="NIKE" />
+              <img src={Protein} alt="MY PROTEIN" />
+              <img src={Bulk} alt="BULK" />
+              <img src={Gym} alt="GYM SHARK" />
+              <img src={FreshFit} alt="FRESH FIT" />
             </div>
           </div>
         </section>

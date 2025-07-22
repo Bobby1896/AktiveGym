@@ -25,6 +25,7 @@ import { toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
 import BasicModal from "../components/BasicModal";
 import { SuccessIcon } from "../utils/svg";
+import WhiteLogo from "../assets/images/whiteLogo.png";
 
 const Signup = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -209,7 +210,7 @@ const Signup = () => {
     <div className="signup-container">
       <div className="progress-section">
         <img
-          src="src/assets/images/whiteLogo.png"
+          src={WhiteLogo}
           alt="AktiveGym Logo"
           className="logo"
         />

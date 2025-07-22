@@ -1,4 +1,5 @@
 import "../styles/pages/about.scss";
+import AboutImg from "../assets/images/about.png"
 
 const About = () => {
   return (
@@ -16,7 +17,7 @@ const About = () => {
       </div>
 
       <div className="about-image">
-        <img src="src/assets/images/about.png" alt="About Image" />
+        <img src={AboutImg} alt="About Image" />
       </div>
     </div>
   );

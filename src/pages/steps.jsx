@@ -1,4 +1,6 @@
 import "../styles/pages/steps.scss";
+import AccountImg from "../assets/images/account.png"
+import GymImg from "../assets/images/gym.png"
 
 const Steps = () => {
   return (
@@ -33,7 +35,7 @@ const Steps = () => {
             <div className="step-item">
               <div className="step-image">
                 <img
-                  src="src/assets/images/account.png"
+                  src={AccountImg}
                   alt="Create your account image"
                 />
               </div>
@@ -50,7 +52,7 @@ const Steps = () => {
             <div className="step-item">
               <div className="step-image">
                 <img
-                  src="src/assets/images/gym.png"
+                  src={GymImg}
                   alt="Start Trainning Smart Image"
                 />
               </div>

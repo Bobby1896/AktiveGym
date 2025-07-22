@@ -29,7 +29,6 @@ const MeetTrainers = () => {
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log("")}
       >
         {trainers.map((trainer, index) => (
           <SwiperSlide key={index}>

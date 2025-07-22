@@ -23,7 +23,6 @@ const Testimony = () => {
         spaceBetween={30}
         slidesPerView={3}
         slidesPerGroup={3}
-        // navigation
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         onSwiper={(swiper) => console.log(swiper)}

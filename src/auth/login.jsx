@@ -7,7 +7,8 @@ import CustomButton from "../components/CustomButton";
 import { EyeClosedIcon, EyeIcon, SuccessIcon } from "../utils/svg";
 import { useLoginMutation } from "../redux/services/loginApi";
 import { toast } from "react-toastify";
-import BasicModal from "../components/BasicModal";
+import WhiteLogo from "../assets/images/whiteLogo.png";
+import LoginImg from "../assets/images/loginImg.png"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -57,12 +58,12 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="login-image">
-        <img src="src/assets/images/loginImg.png"  alt="Image on Login Page" />
+        <img src={LoginImg}  alt="Image on Login Page" />
       </div>
 
       <div className="login-form-container">
         <img
-          src="src/assets/images/whiteLogo.png"
+          src={WhiteLogo}
           className="login-imagery"
           alt="White Logo"
         />
