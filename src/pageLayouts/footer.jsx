@@ -5,6 +5,8 @@ import {
   faInstagram,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import WhiteLogo from "../assets/images/whiteLogo.png"
+import FooterImg from "../assets/images/footerImg.png"
 
 const Footer = () => {
   return (
@@ -12,7 +14,7 @@ const Footer = () => {
        
       <div className="footer-content">
         <div className="footer-logo">
-          <img src="src/assets/images/whiteLogo.png" alt="Gym Logo" />
+          <img src={WhiteLogo} alt="Gym Logo" />
           <div className="social-icons">
             <a
               href="https://www.instagram.com"
@@ -34,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <img src="src/assets/images/footerImg.png" alt="Footer Image" />
+        <img src={FooterImg} alt="Footer Image" />
 
         <div className="footer-links">
           <ul>

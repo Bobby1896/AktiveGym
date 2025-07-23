@@ -3,7 +3,8 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-import Signup from "./auth/signup";
+// import Signup from "./auth/signup";
+import Signup from "./auth/signUp";
 import LandingPage from "./pages/landingPage";
 import Dashboard from "./features/dashboard";
 import DietaryPlan from "./features/dietaryPlan";
@@ -53,7 +54,8 @@ function App() {
             path="/workOutExercises/:type"
             element={<WorkoutExercises />}
           />
-          <Route path="dietaryDetails/:id" element={<DietaryDetails/>} />
+          <Route path="/dietaryDetails/:id" element={<DietaryDetails/>} />
+          <Route path="/createEmail" element={<Notification/>} />
         </Route>
 
       </Routes>
