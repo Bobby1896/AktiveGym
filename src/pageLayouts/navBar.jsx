@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import CustomButton from "../components/CustomButton";
 import "../styles/pageLayouts/navBar.scss";
+import NavImg from "../assets/images/logo.png"
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="src/assets/images/logo.png" alt="GYM LOGO" />
+        <img src={NavImg} alt="GYM LOGO" />
       </div>
 
       <div className="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>

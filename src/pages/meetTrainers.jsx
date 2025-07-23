@@ -33,7 +33,7 @@ const MeetTrainers = () => {
         {trainers.map((trainer, index) => (
           <SwiperSlide key={index}>
             <div className="trainer-card">
-              <img src={trainer.image} alt={trainer.name} />
+              <img src={trainer.image} alt={trainer.name} loading="lazy" />
               <div className="overlay">
                 <h3>{trainer.name}</h3>
                 <p>{trainer.specialization}</p>

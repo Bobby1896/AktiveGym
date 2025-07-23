@@ -2,62 +2,82 @@ import workoutImg from "../assets/images/workOut1.png";
 import workoutImg1 from "../assets/images/workOut2.png";
 import workoutImg2 from "../assets/images/workOut3.png";
 import workoutImg3 from "../assets/images/workOut4.png";
+import Test1 from "../assets/images/testimony1.png";
+import Test2 from "../assets/images/testimony2.png";
+import Test3 from "../assets/images/testimony3.png";
+import Test4 from "../assets/images/testimony4.png";
+import Test5 from "../assets/images/testimony5.png";
+import Test6 from "../assets/images/testimony6.png";
+import Test7 from "../assets/images/testimony7.png";
+import Test8 from "../assets/images/testimony8.png";
+import Test9 from "../assets/images/testimony9.png";
+import Trainer1 from "../assets/images/trainer1.png"
+import Trainer2 from "../assets/images/trainer2.png"
+import Trainer3 from "../assets/images/trainer3.png"
+import Trainer4 from "../assets/images/trainer4.png"
+import Trainer5 from "../assets/images/trainer5.png"
+import Trainer6 from "../assets/images/trainer6.png"
+import Trainer7 from "../assets/images/trainer7.png"
+import Trainer8 from "../assets/images/trainer8.png"
+import Trainer9 from "../assets/images/trainer9.png"
+import Trainer10 from "../assets/images/trainer10.png"
+
 
 export const TestimonyData = [
   {
     feedback:
       "I joined AktiveGym on the Student Plan and lost 12kg in 3 months. The energy here is unmatched",
     name: "LARA",
-    image: "src/assets/images/testimony1.png",
+    image: {Test1},
     rating: "src/assets/images/rating.png",
   },
   {
     feedback:
       "AktiveGym has transformed my fitness journey. The trainers are knowledgeable and the community is so supportive.",
     name: "JAMES",
-    image: "src/assets/images/testimony2.png",
+    image:{Test2},
   },
   {
     feedback:
       "I love the variety of classes and the personalized attention I get. It’s more than just a gym, it’s a lifestyle.",
     name: "SOPHIA",
-    image: "src/assets/images/testimony3.png",
+    image: {Test3},
   },
   {
     feedback:
       "The Premium Plan is worth every penny. I’ve seen incredible results and made lifelong friends here.",
     name: "MICHAEL",
-    image: "src/assets/images/testimony4.png",
+    image: {Test4},
   },
   {
     feedback:
       "Being a student, I wanted something affordable but effective. AktiveGym’s Student Plan delivered results I never expected.",
     name: "JACK",
-    image: "src/assets/images/testimony5.png",
+    image: {Test5},
   },
   {
     feedback:
       "I’ve tried many gyms, but AktiveGym’s community and trainers make it stand out. I feel motivated every time I step in.",
     name: "EMILY",
-    image: "src/assets/images/testimony6.png",
+    image: {Test6},
   },
   {
     feedback:
       "The nutrition guidance has been a game-changer for me. I’m not just working out, I’m learning how to fuel my body right.",
     name: "DAVID",
-    image: "src/assets/images/testimony9.png",
+    image:{Test7},
   },
   {
     feedback:
       "I joined the Regular Plan and it’s been the best decision. The classes are fun and the trainers are always there to help.",
     name: "SARAH",
-    image: "src/assets/images/testimony8.png",
+    image: {Test8},
   },
   {
     feedback:
       "AktiveGym is more than a gym, it’s a community. I’ve made friends and achieved goals I never thought possible.",
     name: "OLIVER",
-    image: "src/assets/images/testimony7.png",
+    image: {Test9},
   },
 ];
 
@@ -66,55 +86,55 @@ export const trainers = [
     name: "TOM ADAM",
     specialization: "Strength & Hypertrophy Specialist",
     experience: "6+ years",
-    image: "src/assets/images/trainer6.png",
+    image: {Trainer6},
   },
   {
     name: "JESSICA LARA",
     specialization: "Kickboxing",
     experience: "12+ years",
-    image: "src/assets/images/trainer2.png",
+    image: {Trainer2},
   },
   {
     name: "ESTHER SARAH",
     specialization: "Nutrition & Diet Planning",
     experience: "4+ years",
-    image: "src/assets/images/trainer9.png",
+    image: {Trainer9},
   },
   {
     name: "DAVID LEE",
     specialization: "Functional Training & Mobility",
     experience: "8+ years",
-    image: "src/assets/images/trainer10.png",
+    image: {Trainer10},
   },
   {
     name: "MAYA KAPOOR",
     specialization: "Yoga & Flexibility Coach",
     experience: "10+ years",
-    image: "src/assets/images/trainer5.png",
+    image: {Trainer5},
   },
   {
     name: "JORDAN WILLIAMS",
     specialization: "Powerlifting & Strength Coach",
     experience: "7+ years",
-    image: "src/assets/images/trainer1.png",
+    image: {Trainer1},
   },
   {
     name: "LINDA CHEN",
     specialization: "Pilates Instructor",
     experience: "5+ years",
-    image: "src/assets/images/trainer7.png",
+    image: {Trainer7},
   },
   {
     name: "ALEX MURPHY",
     specialization: "CrossFit & Endurance Training",
     experience: "9+ years",
-    image: "src/assets/images/trainer8.png",
+    image: {Trainer8},
   },
   {
     name: "NINA OKAFOR",
     specialization: "HIIT & Bodyweight Expert",
     experience: "6+ years",
-    image: "src/assets/images/trainer4.png",
+    image: {Trainer4},
   },
 ];
 
