@@ -86,7 +86,7 @@ export const trainers = [
     name: "TOM ADAM",
     specialization: "Strength & Hypertrophy Specialist",
     experience: "6+ years",
-    image: {Trainer6},
+    image: <img src={Trainer6} alt="" />,
   },
   {
     name: "JESSICA LARA",
