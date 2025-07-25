@@ -19,6 +19,7 @@ import PrivateRoute from "./utils/auth/privateRoute";
 import WorkoutExercises from "./features/workoutExercises";
 import AddTrainers from "./features/addTrainers";
 import DietaryDetails from "./features/dietaryDetails";
+import NotificationEmail from "./features/notificationEmail";
 
 function App() {
   return (
@@ -54,10 +55,9 @@ function App() {
             path="/workOutExercises/:type"
             element={<WorkoutExercises />}
           />
-          <Route path="/dietaryDetails/:id" element={<DietaryDetails/>} />
-          <Route path="/createEmail" element={<Notification/>} />
+          <Route path="/dietaryDetails/:id" element={<DietaryDetails />} />
+          <Route path="/createEmail" element={<NotificationEmail />} />
         </Route>
-
       </Routes>
     </Router>
   );

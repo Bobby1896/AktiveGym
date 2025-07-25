@@ -8,20 +8,30 @@
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 
-    // .notification-heading {
-    // }
+    .notification-heading {
+      font-size: 20px;
+      font-weight: 600;
+    }
 
     .notification-welcome {
       text-align: center;
-      
-      .createEmailIcon {
-        cursor: pointer;
 
+      .notification {
+        margin-bottom: 2rem;
       }
 
-       .addIcon{
-            margin-left: 10px;
-        }
+      .notification-sub {
+        color: #1a85c8;
+        font-size: 18px;
+      }
+
+      .createEmailIcon {
+        cursor: pointer;
+      }
+
+      .create-text {
+        margin-right: 10px !important;
+      }
     }
   }
 }

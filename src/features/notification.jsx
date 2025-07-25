@@ -45,13 +45,16 @@ const Notification = () => {
 
           <div className="notification-welcome">
             <div>
-              <NoteIcon />
-              <p>No Notification Created Yet</p>
-              <p>Kickstart by creating one</p>
+              <div className="notification">
+                <NoteIcon />
+                <p className="notification-sub">No Notification Created Yet</p>
+                <p>Kickstart by creating one</p>
+              </div>
 
               <Link to="/createEmail" className="createEmailIcon">
-                <CustomButton>
-                  Create <AddIcon  className="addIcon" />
+                <CustomButton size="large">
+                  <span className="create-text">Create</span>{" "}
+                  <AddIcon className="addIcon" />
                 </CustomButton>
               </Link>
             </div>
