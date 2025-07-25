@@ -14,6 +14,7 @@ export const AUTH_API = {
   WORKOUT: `/api/v1/user/workout`,
   USERS_LIST: `/api/v1/user`,
   DIETARY_PLAN: `/api/v1/dietary-plan`,
+  SEND_EMAIL: "/api/v1/user/send-email"
 };
 
 

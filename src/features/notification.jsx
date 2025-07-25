@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 // import { toast } from "react-toastify";
 import { AddIcon } from "../utils/svg";
 
+
 const Notification = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
 
@@ -60,6 +61,11 @@ const Notification = () => {
             </div>
           </div>
         </div>
+
+        
+            <div>
+              NOTIFICATION TABLE
+            </div>
       </div>
     </SkeletonTheme>
   );

@@ -8,18 +8,38 @@ import FirstLetters from "../utils/FirstLetters";
 import "../styles/features/notificationEmail.scss";
 import CustomButton from "../components/CustomButton";
 import BlueLogo from "../assets/images/bigLogo.png";
-// import { toast } from "react-toastify";
+import { useNotificationEmailMutation } from "../redux/services/notificationEmail";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const NotificationEmail = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
+  const [sendEmail, { isLoading: emailLoading }] =
+    useNotificationEmailMutation();
 
+  const navigate = useNavigate();
   const initialValues = {
     subject: "",
     body: "",
     notificationName: "",
   };
 
-  //   const handleSendEmail = () => {};
+  const handleSendEmail = async (values) => {
+    const payload = {
+      subject: values.subject,
+      message: values.body,
+    };
+
+    console.log(payload, "test")
+
+    try {
+      await sendEmail(payload).unwrap();
+      toast.success("Email Sent Successfully");
+      navigate("/notification");
+    } catch (error) {
+      toast.error(error?.content?.error || "Unable to send Email");
+    }
+  };
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444">
@@ -54,71 +74,80 @@ const NotificationEmail = () => {
           <div>
             <p className="email-heading">Notification</p>
           </div>
-          <Formik initialValues={initialValues} onSubmit={"handleSendEmail"}>
-            <div className="email-form">
-              <Form>
-                <div className="email-flex">
-                  <div className="email-space">
-                    <img src={BlueLogo} alt="Blue Logo" />
-                    <div className="email-body">
-                      <div className="email-left-field">
-                        <Field
-                          name="subject"
-                          type="text"
-                          placeholder="Email Subject"
-                          className="custom-email-text"
-                        />
-                      </div>
+          <Formik initialValues={initialValues} onSubmit={handleSendEmail}>
+            {({ dirty, isValid }) => (
+              <div className="email-form">
+                <Form>
+                  <div className="email-flex">
+                    <div className="email-space">
+                      <img src={BlueLogo} alt="Blue Logo" />
+                      <div className="email-body">
+                        <div className="email-left-field">
+                          <Field
+                            name="subject"
+                            type="text"
+                            placeholder="Email Subject"
+                            className="custom-email-text"
+                          />
+                        </div>
 
-                      <div className="email-left-field">
-                        <Field
-                          name="speciality"
-                          as="textarea"
-                          className="custom-email-area"
-                          placeholder="Body"
-                        />
+                        <div className="email-left-field">
+                          <Field
+                            name="body"
+                            as="textarea"
+                            className="custom-email-area"
+                            placeholder="Body"
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="email-details">
-                    <div>
-                      <p className="email-title-text">Title</p>
+                    <div className="email-details">
+                      <div>
+                        <p className="email-title-text">Title</p>
 
-                      <div className="email-right-field">
-                        <label htmlFor="notificationName">
-                          Notification Name
-                        </label>
-                        <Field
-                          id="notificationName"
-                          name="notificationName"
-                          type="text"
-                          className="custom-input"
-                        />
+                        <div className="email-right-field">
+                          <label htmlFor="notificationName">
+                            Notification Name
+                          </label>
+                          <Field
+                            id="notificationName"
+                            name="notificationName"
+                            type="text"
+                            className="custom-input"
+                          />
+                        </div>
+
+                        <div className="email-send-to">
+                          <p className="email-title-text">Send to</p>
+                          <label htmlFor="user"> User</label>
+                          <Field
+                            name="sendTo"
+                            as="select"
+                            className="email-dropdown"
+                          >
+                            <option value="All">All</option>
+                          </Field>
+                        </div>
                       </div>
 
-                      <div className="email-send-to">
-                        <p className="email-title-text">Send to</p>
-                        <label htmlFor="user"> User</label>
-                        <Field
-                          name="sendTo"
-                          as="select"
-                          className="email-dropdown"
+                      <div className="email-button">
+                        <CustomButton
+                          size="large"
+                          type="submit"
+                          disabled={!isValid ||  !dirty || emailLoading}
                         >
-                          <option value="All">All</option>
-                        </Field>
+                          {emailLoading ? "Processing.." : "Send Email"}
+                        </CustomButton>
                       </div>
                     </div>
-
-                    <div className="email-button">
-                      <CustomButton size="large" type="submit">Send Email</CustomButton>
-                    </div>
                   </div>
-                </div>
-              </Form>
-            </div>
+                </Form>
+              </div>
+            )}
           </Formik>
         </div>
+
       </div>
     </SkeletonTheme>
   );
