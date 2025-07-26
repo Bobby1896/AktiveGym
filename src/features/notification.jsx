@@ -1,17 +1,91 @@
+import { useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useUserProfileQuery } from "../redux/services/userProfileApi";
 import FirstLetters from "../utils/FirstLetters";
 import "../styles/features/notification.scss";
-import { NoteIcon, NotificationIcon } from "../utils/svg";
+import { EditIcon, NoteIcon, NotificationIcon } from "../utils/svg";
 import CustomButton from "../components/CustomButton";
 import { Link } from "react-router-dom";
-// import { toast } from "react-toastify";
 import { AddIcon } from "../utils/svg";
-
+import BasicTable from "../components/BasicTable";
+import { useGetAllNotificationEmailQuery} from "../redux/services/notificationEmail";
+import { formatDate } from "../utils/DateFormat";
+import SearchInput from "../components/SearchInput";
 
 const Notification = () => {
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
+  const { data: emailData } = useGetAllNotificationEmailQuery();
+  const [searchEmail, setSearchEmail] = useState("");
+
+  const handleSearch = (value) => {
+    setSearchEmail(value.toLowerCase());
+  };
+
+  const columns = [
+    {
+      name: "subject",
+      label: "Title",
+      options: {
+        setCellProps: () => ({
+          style: { width: "200px" },
+        }),
+      },
+    },
+
+    {
+      name: "createdAt",
+      label: "Date Created",
+
+      options: {
+        customBodyRender: (value) => formatDate(value),
+        setCellProps: () => ({}),
+      },
+    },
+    {
+      name: "notificationType",
+      label: "Notification Type",
+      options: {
+        customBodyRender: (value) => value || "N/A",
+        setCellProps: () => ({
+          style: { width: "300px" },
+        }),
+      },
+    },
+
+   {
+  label: "Actions",
+  name: "actions",
+  options: {
+    customBodyRender: (value, tableMeta) => {
+      const rowIndex = tableMeta.rowIndex;
+      const emailId = data[rowIndex]?.id;
+
+      return (
+        <Link to={`/createEmail?id=${emailId}`}>
+          <button
+            style={{ background: "none", border: "none", cursor: "pointer" }}
+            title="View Email"
+          >
+            <EditIcon className="del-trainer" />
+          </button>
+        </Link>
+      );
+    },
+    setCellProps: () => ({ style: { width: "50px" } }),
+  },
+}
+
+  ];
+
+  const rawData = emailData?.content || [];
+  const data = rawData
+    .filter((row) =>
+      Object.values(row).some((val) =>
+        String(val).toLowerCase().includes(searchEmail)
+      )
+    )
+    .map((row, index) => ({ id: index, ...row }));
 
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
@@ -62,10 +136,17 @@ const Notification = () => {
           </div>
         </div>
 
-        
-            <div>
-              NOTIFICATION TABLE
-            </div>
+        <div className="users-table-wrapper">
+          <div className="user-header">
+            <p className="trainer-heading">List of all Notification</p>
+            <SearchInput
+              placeholder="Search for Notification by Title"
+              onSearch={handleSearch}
+            />
+          </div>
+
+          <BasicTable data={data} columns={columns} />
+        </div>
       </div>
     </SkeletonTheme>
   );

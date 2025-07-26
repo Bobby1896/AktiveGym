@@ -23,11 +23,33 @@ export const notificationEmailApi = createApi({
           "Content-Type": "application/json",
         },
         method: "POST",
-        body
+        body,
+      }),
+    }),
+    getNotificationEmailById: builder.query({
+      query: ({ id }) => ({
+        url: `${AUTH_API.GET_ALL_EMAIL}/${id}`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
+      }),
+    }),
+    getAllNotificationEmail: builder.query({
+      query: () => ({
+        url: AUTH_API.GET_ALL_EMAIL,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "GET",
       }),
     }),
   }),
 });
 
-export const { useNotificationEmailMutation } = notificationEmailApi;
+export const {
+  useNotificationEmailMutation,
+  useGetAllNotificationEmailQuery,
+  useGetNotificationEmailByIdQuery,
+} = notificationEmailApi;
 export const notificationEmailReducer = notificationEmailApi.reducer;
