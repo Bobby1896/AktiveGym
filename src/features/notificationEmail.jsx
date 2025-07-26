@@ -45,9 +45,9 @@ const NotificationEmail = () => {
 
   const handleSendEmail = async (values) => {
     const payload = {
-      subject: values.subject,
-      message: values.body,
-      notificationType: values.notificationName,
+      subject: values?.subject,
+      message: values?.body,
+      notificationType: values?.notificationName,
     };
 
     try {
