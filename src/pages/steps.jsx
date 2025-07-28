@@ -1,13 +1,13 @@
 import "../styles/pages/steps.scss";
 import AccountImg from "../assets/images/account.png"
 import GymImg from "../assets/images/gym.png"
-import SquatImg from "../assets/images/plan.png"
+import SquatImg from "../assets/images/trainer4.png"
 
 const Steps = () => {
   return (
       <div className="steps-container">
         <div className="steps-image">
-          <img src="src/assets/images/trainer4.png" alt="Trainer Squatting" />
+          <img src={SquatImg} alt="Trainer Squatting" />
         </div>
 
         <div className="steps-text">
@@ -18,7 +18,7 @@ const Steps = () => {
             <div className="step-item">
               <div className="step-image">
                 <img
-                  src={SquatImg}
+                  src="src/assets/images/plan.png"
                   alt="Pick your plan image"
                 />
               </div>
