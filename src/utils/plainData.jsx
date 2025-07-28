@@ -11,73 +11,72 @@ import Test6 from "../assets/images/testimony6.png";
 import Test7 from "../assets/images/testimony7.png";
 import Test8 from "../assets/images/testimony8.png";
 import Test9 from "../assets/images/testimony9.png";
-import Trainer1 from "../assets/images/trainer1.png"
-import Trainer2 from "../assets/images/trainer2.png"
-import Trainer3 from "../assets/images/trainer3.png"
-import Trainer4 from "../assets/images/trainer4.png"
-import Trainer5 from "../assets/images/trainer5.png"
-import Trainer6 from "../assets/images/trainer6.png"
-import Trainer7 from "../assets/images/trainer7.png"
-import Trainer8 from "../assets/images/trainer8.png"
-import Trainer9 from "../assets/images/trainer9.png"
-import Trainer10 from "../assets/images/trainer10.png"
-
+import Trainer1 from "../assets/images/trainer1.png";
+import Trainer2 from "../assets/images/trainer2.png";
+import Trainer3 from "../assets/images/trainer3.png";
+import Trainer4 from "../assets/images/trainer4.png";
+import Trainer5 from "../assets/images/trainer5.png";
+import Trainer6 from "../assets/images/trainer6.png";
+import Trainer7 from "../assets/images/trainer7.png";
+import Trainer8 from "../assets/images/trainer8.png";
+import Trainer9 from "../assets/images/trainer9.png";
+import Trainer10 from "../assets/images/trainer10.png";
 
 export const TestimonyData = [
   {
     feedback:
       "I joined AktiveGym on the Student Plan and lost 12kg in 3 months. The energy here is unmatched",
     name: "LARA",
-    image: {Test1},
+    image: Test1,
     rating: "src/assets/images/rating.png",
   },
   {
     feedback:
       "AktiveGym has transformed my fitness journey. The trainers are knowledgeable and the community is so supportive.",
     name: "JAMES",
-    image:{Test2},
+    image: Test2,
   },
   {
     feedback:
       "I love the variety of classes and the personalized attention I get. It’s more than just a gym, it’s a lifestyle.",
     name: "SOPHIA",
-    image: {Test3},
+    image: Test3,
   },
   {
     feedback:
       "The Premium Plan is worth every penny. I’ve seen incredible results and made lifelong friends here.",
     name: "MICHAEL",
-    image: {Test4},
+    image: Test4,
   },
   {
     feedback:
       "Being a student, I wanted something affordable but effective. AktiveGym’s Student Plan delivered results I never expected.",
     name: "JACK",
-    image: {Test5},
+    image: Test5,
   },
   {
     feedback:
       "I’ve tried many gyms, but AktiveGym’s community and trainers make it stand out. I feel motivated every time I step in.",
     name: "EMILY",
-    image: {Test6},
+    image: Test6,
   },
   {
     feedback:
       "The nutrition guidance has been a game-changer for me. I’m not just working out, I’m learning how to fuel my body right.",
     name: "DAVID",
-    image:{Test7},
+    image: Test7,
   },
   {
     feedback:
       "I joined the Regular Plan and it’s been the best decision. The classes are fun and the trainers are always there to help.",
     name: "SARAH",
-    image: {Test8},
+    image: Test8,
   },
   {
     feedback:
       "AktiveGym is more than a gym, it’s a community. I’ve made friends and achieved goals I never thought possible.",
     name: "OLIVER",
-    image: {Test9},
+    image: Test9,
   },
 ];
 
@@ -86,55 +85,55 @@ export const trainers = [
     name: "TOM ADAM",
     specialization: "Strength & Hypertrophy Specialist",
     experience: "6+ years",
-    image: <img src={Trainer6} alt="" />,
+    image: Trainer6,
   },
   {
     name: "JESSICA LARA",
     specialization: "Kickboxing",
     experience: "12+ years",
-    image: {Trainer2},
+    image: Trainer2,
   },
   {
     name: "ESTHER SARAH",
     specialization: "Nutrition & Diet Planning",
     experience: "4+ years",
-    image: {Trainer9},
+    image: Trainer9,
   },
   {
     name: "DAVID LEE",
     specialization: "Functional Training & Mobility",
     experience: "8+ years",
-    image: {Trainer10},
+    image: Trainer10,
   },
   {
     name: "MAYA KAPOOR",
     specialization: "Yoga & Flexibility Coach",
     experience: "10+ years",
-    image: {Trainer5},
+    image: Trainer5,
   },
   {
     name: "JORDAN WILLIAMS",
     specialization: "Powerlifting & Strength Coach",
     experience: "7+ years",
-    image: {Trainer1},
+    image: Trainer1,
   },
   {
     name: "LINDA CHEN",
     specialization: "Pilates Instructor",
     experience: "5+ years",
-    image: {Trainer7},
+    image: Trainer7,
   },
   {
     name: "ALEX MURPHY",
     specialization: "CrossFit & Endurance Training",
     experience: "9+ years",
-    image: {Trainer8},
+    image: Trainer8,
   },
   {
     name: "NINA OKAFOR",
     specialization: "HIIT & Bodyweight Expert",
     experience: "6+ years",
-    image: {Trainer4},
+    image: Trainer4,
   },
 ];
 
@@ -232,27 +231,27 @@ export const WorkOutType = [
     description:
       "A balanced routine to target all major muscle groups. Ideal for building strength, endurance, and overall fitness.",
     images: workoutImg,
-    type: "FULL_BODY_WORKOUT"
-    },
+    type: "FULL_BODY_WORKOUT",
+  },
   {
     name: "Core & Fat Burn",
     description:
       "Torch calories and strengthen your core with high-intensity circuits designed for fat loss and definition.",
     images: workoutImg1,
-    type: "CORE_AND_FAT_BURN_WORKOUT"
-    },
+    type: "CORE_AND_FAT_BURN_WORKOUT",
+  },
   {
     name: "Upper Body Strength",
     description:
       "Work your chest, back, arms, and shoulders. Perfect for sculpting and building upper-body power.",
     images: workoutImg2,
-    type: "UPPER_BODY_STRETCH_WORKOUT"
-    },
+    type: "UPPER_BODY_STRETCH_WORKOUT",
+  },
   {
     name: "Full Leg Workout",
     description:
       "Focus on glutes, quads, hamstrings, and calves. Build lower-body strength and improve stability.",
     images: workoutImg3,
     type: "FULL_LEG_WORKOUT",
-    },
+  },
 ];
