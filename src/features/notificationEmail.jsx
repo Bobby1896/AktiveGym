@@ -12,7 +12,7 @@ import BlueLogo from "../assets/images/bigLogo.png";
 import {
   useNotificationEmailMutation,
   useGetNotificationEmailByIdQuery,
-} from "../redux/services/notificationEmail";
+} from "../redux/services/notificationEmailApi";
 import { toast } from "react-toastify";
 
 const NotificationEmail = () => {

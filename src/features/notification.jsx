@@ -9,7 +9,7 @@ import CustomButton from "../components/CustomButton";
 import { Link } from "react-router-dom";
 import { AddIcon } from "../utils/svg";
 import BasicTable from "../components/BasicTable";
-import { useGetAllNotificationEmailQuery} from "../redux/services/notificationEmail";
+import { useGetAllNotificationEmailQuery } from "../redux/services/notificationEmailApi";
 import { formatDate } from "../utils/DateFormat";
 import SearchInput from "../components/SearchInput";
 
@@ -39,7 +39,9 @@ const Notification = () => {
 
       options: {
         customBodyRender: (value) => formatDate(value),
-        setCellProps: () => ({}),
+        setCellProps: () => ({
+          style: {width: "200px"}
+        }),
       },
     },
     {
@@ -53,29 +55,32 @@ const Notification = () => {
       },
     },
 
-   {
-  label: "Actions",
-  name: "actions",
-  options: {
-    customBodyRender: (value, tableMeta) => {
-      const rowIndex = tableMeta.rowIndex;
-      const emailId = data[rowIndex]?.id;
+    {
+      label: "Actions",
+      name: "actions",
+      options: {
+        customBodyRender: (value, tableMeta) => {
+          const rowIndex = tableMeta.rowIndex;
+          const emailId = data[rowIndex]?.id;
 
-      return (
-        <Link to={`/createEmail?id=${emailId}`}>
-          <button
-            style={{ background: "none", border: "none", cursor: "pointer" }}
-            title="View Email"
-          >
-            <EditIcon className="del-trainer" />
-          </button>
-        </Link>
-      );
+          return (
+            <Link to={`/createEmail?id=${emailId}`}>
+              <button
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                }}
+                title="View Email"
+              >
+                <EditIcon className="del-trainer" />
+              </button>
+            </Link>
+          );
+        },
+        setCellProps: () => ({ style: { width: "50px" } }),
+      },
     },
-    setCellProps: () => ({ style: { width: "50px" } }),
-  },
-}
-
   ];
 
   const rawData = emailData?.content || [];
@@ -113,40 +118,44 @@ const Notification = () => {
           </div>
         </div>
 
-        <div className="notification-wrapper">
-          <div>
-            <p className="notification-heading">Notification</p>
-          </div>
-
-          <div className="notification-welcome">
+        {emailData?.length === 0 ? (
+          <div className="notification-wrapper">
             <div>
-              <div className="notification">
-                <NoteIcon />
-                <p className="notification-sub">No Notification Created Yet</p>
-                <p>Kickstart by creating one</p>
-              </div>
+              <p className="notification-heading">Notification</p>
+            </div>
 
-              <Link to="/createEmail" className="createEmailIcon">
-                <CustomButton size="large">
-                  <span className="create-text">Create</span>{" "}
-                  <AddIcon className="addIcon" />
-                </CustomButton>
-              </Link>
+            <div className="notification-welcome">
+              <div>
+                <div className="notification">
+                  <NoteIcon />
+                  <p className="notification-sub">
+                    No Notification Created Yet
+                  </p>
+                  <p>Kickstart by creating one</p>
+                </div>
+
+                <Link to="/createEmail" className="createEmailIcon">
+                  <CustomButton size="large">
+                    <span className="create-text">Create</span>{" "}
+                    <AddIcon className="addIcon" />
+                  </CustomButton>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="users-table-wrapper">
+            <div className="user-header">
+              <p className="trainer-heading">List of all Notification</p>
+              <SearchInput
+                placeholder="Search for Notification by Title"
+                onSearch={handleSearch}
+              />
+            </div>
 
-        <div className="users-table-wrapper">
-          <div className="user-header">
-            <p className="trainer-heading">List of all Notification</p>
-            <SearchInput
-              placeholder="Search for Notification by Title"
-              onSearch={handleSearch}
-            />
+            <BasicTable data={data} columns={columns} />
           </div>
-
-          <BasicTable data={data} columns={columns} />
-        </div>
+        )}
       </div>
     </SkeletonTheme>
   );

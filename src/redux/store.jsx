@@ -20,7 +20,7 @@ import { dietaryPlanApi, dietaryPlanReducer } from "./services/dietaryPlanApi";
 import {
   notificationEmailApi,
   notificationEmailReducer,
-} from "./services/notificationEmail";
+} from "./services/notificationEmailApi";
 
 export const store = configureStore({
   reducer: {
