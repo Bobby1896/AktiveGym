@@ -3,7 +3,6 @@ import signUpReducer from "./slices/signUpSlice";
 import { signUpApi } from "./services/signUpApi";
 import { dashboardApi, dashboardReducer } from "../redux/services/dashboardApi";
 import { loginReducer, loginApi } from "./services/loginApi";
-// import { dashboardApi, dashboardReducer } from "./services/dashboardApi";
 import {
   recommendedTrainerApi,
   recommendedTrainerReducer,

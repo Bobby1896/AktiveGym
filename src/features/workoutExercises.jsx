@@ -14,7 +14,6 @@ import {
 const WorkoutExercises = () => {
   const { state } = useLocation();
   const type = state?.type;
-
   const { data: uProfileData, isLoading: uLoadingData } = useUserProfileQuery();
   const {
     data: workoutData,

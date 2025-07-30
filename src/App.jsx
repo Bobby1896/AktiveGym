@@ -3,7 +3,6 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-// import Signup from "./auth/signup";
 import Signup from "./auth/signUp";
 import LandingPage from "./pages/landingPage";
 import Dashboard from "./features/dashboard";
@@ -48,7 +47,6 @@ function App() {
           <Route path="/userManagement" element={<UserManagement />} />
           <Route path="/workoutPlan" element={<WorkoutPlan />} />
           <Route path="/profile" element={<Account />} />
-          {/* <Route path="/logout" element={<Logout />} /> */}
           <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
           <Route path="/addTrainers" element={<AddTrainers />} />
           <Route
