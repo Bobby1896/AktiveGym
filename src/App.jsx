@@ -26,45 +26,44 @@ const Dashboard = lazy(() => import("./features/dashboard")); // lazy loading to
 const Signup = lazy(() => import("./auth/signUp"));
 
 function App() {
-  
   return (
     <Router>
-       <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/steps" element={<Steps />} />
-        <Route path="/membership" element={<Membership />} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/steps" element={<Steps />} />
+          <Route path="/membership" element={<Membership />} />
 
-        <Route path="/login" element={<Login />} />
-        <Route path="/login/:uuid" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/login/:uuid" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-        <Route
-          element={
-            <PrivateRoute>
-              <DashBoardLayout />
-            </PrivateRoute>
-          }
-        >
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dietaryPlan" element={<DietaryPlan />} />
-          <Route path="/notification" element={<Notification />} />
-          <Route path="/trainers" element={<Trainers />} />
-          <Route path="/userManagement" element={<UserManagement />} />
-          <Route path="/workoutPlan" element={<WorkoutPlan />} />
-          <Route path="/profile" element={<Account />} />
-          <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
-          <Route path="/addTrainers" element={<AddTrainers />} />
           <Route
-            path="/workOutExercises/:type"
-            element={<WorkoutExercises />}
-          />
-          <Route path="/dietaryDetails/:id" element={<DietaryDetails />} />
-          <Route path="/createEmail" element={<NotificationEmail />} />
-        </Route>
-      </Routes>
-      </Suspense> 
+            element={
+              <PrivateRoute>
+                <DashBoardLayout />
+              </PrivateRoute>
+            }
+          >
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dietaryPlan" element={<DietaryPlan />} />
+            <Route path="/notification" element={<Notification />} />
+            <Route path="/trainers" element={<Trainers />} />
+            <Route path="/userManagement" element={<UserManagement />} />
+            <Route path="/workoutPlan" element={<WorkoutPlan />} />
+            <Route path="/profile" element={<Account />} />
+            <Route path="/trainersProfile/:id" element={<TrainersProfile />} />
+            <Route path="/addTrainers" element={<AddTrainers />} />
+            <Route
+              path="/workOutExercises/:type"
+              element={<WorkoutExercises />}
+            />
+            <Route path="/dietaryDetails/:id" element={<DietaryDetails />} />
+            <Route path="/createEmail" element={<NotificationEmail />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

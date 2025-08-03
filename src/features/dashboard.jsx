@@ -27,7 +27,7 @@ import CustomButton from "../components/CustomButton";
 import FirstLetters from "../utils/FirstLetters";
 import useUserRole from "../utils/roles";
 import { useDietaryPlanQuery } from "../redux/services/dietaryPlanApi";
-
+import EventIcon from "../assets/images/memberId.png";
 const Dashboard = () => {
   const navigate = useNavigate();
   const {
@@ -287,7 +287,7 @@ const Dashboard = () => {
 
             <div className="membership-card">
               <img
-                src="src/assets/images/MemberCard.png"
+                src={EventIcon}
                 alt="Membership Card"
                 className="gymId-Icon"
               />
