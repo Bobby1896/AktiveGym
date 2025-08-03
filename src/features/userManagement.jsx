@@ -91,8 +91,8 @@ const UserManagement = () => {
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
       <div className="users-container">
-        <div className="dashboard-nav">
-          <div className="dashboard-header">
+        <div className="userMgt-nav">
+          <div className="userMgt-header">
             <p className="header-text">User Management</p>
           </div>
 
