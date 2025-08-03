@@ -1,11 +1,12 @@
+import { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-import Signup from "./auth/signUp";
+// import Signup from "./auth/signUp";
 import LandingPage from "./pages/landingPage";
-import Dashboard from "./features/dashboard";
+// import Dashboard from "./features/dashboard";
 import DietaryPlan from "./features/dietaryPlan";
 import Notification from "./features/notification";
 import Trainers from "./features/trainers";
@@ -20,9 +21,15 @@ import AddTrainers from "./features/addTrainers";
 import DietaryDetails from "./features/dietaryDetails";
 import NotificationEmail from "./features/notificationEmail";
 
+// // Lazy loaded components
+const Dashboard = lazy(() => import("./features/dashboard")); // lazy loading to optimize bundle size and improve load performance
+const Signup = lazy(() => import("./auth/signUp"));
+
 function App() {
+  
   return (
     <Router>
+       <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
@@ -57,6 +64,7 @@ function App() {
           <Route path="/createEmail" element={<NotificationEmail />} />
         </Route>
       </Routes>
+      </Suspense> 
     </Router>
   );
 }
