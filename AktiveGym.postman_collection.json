@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "1b5bf2cd-ac10-4dab-8247-d5d800811aff",
+		"name": "AktiveGym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24164064"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"StrongPassword123\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fullName\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"gender\": \"MALE\",\n  \"age\": 28,\n  \"password\": \"StrongPassword123\",\n  \"confirmPassword\": \"StrongPassword123\",\n  \"membershipPlan\": \"PREMIUM\",\n  \"fitnessAndBodyInfo\": {\n    \"weight\": 70.5,\n    \"height\": 175.0,\n    \"fitnessGoal\": [\"LOOSE_WEIGHT\", \"BUILD_MUSCLE\"],\n    \"dietaryPreference\": \"VEGAN\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/api/v1/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List of User",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "workout",
+			"item": [
+				{
+					"name": "Compute workout progress",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get workout plan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get dashboard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trainer",
+			"item": [
+				{
+					"name": "Get Trainers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get trainer by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get trainer recommendation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign trainer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Trainer",
+					"request": {
+						"method": "POST",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trainer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://aktivegym.onrender.com/api/v1/trainer/10",
+							"protocol": "https",
+							"host": [
+								"aktivegym",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"trainer",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dietary Plan",
+			"item": [
+				{
+					"name": "Get All Dietary Plan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGFiaWpvbmF0aGFuNjBAeWFob28uY29tIiwiaWF0IjoxNzUyMTgyOTM5LCJleHAiOjE3NTIxODY1Mzl9.bQvD_w6YnwQzxmZjj12KC2QaQlDc-wFegmlUuVBYL7I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://aktivegym.onrender.com/api/v1/dietary-plan?foodType=VEGAN&pageNumber=1&pageSize=12&type=MAINTAIN_WEIGHT",
+							"protocol": "https",
+							"host": [
+								"aktivegym",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dietary-plan"
+							],
+							"query": [
+								{
+									"key": "foodType",
+									"value": "VEGAN"
+								},
+								{
+									"key": "pageNumber",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "12"
+								},
+								{
+									"key": "type",
+									"value": "MAINTAIN_WEIGHT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get dietary by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGFiaWpvbmF0aGFuNjBAeWFob28uY29tIiwiaWF0IjoxNzUyMTgyOTM5LCJleHAiOjE3NTIxODY1Mzl9.bQvD_w6YnwQzxmZjj12KC2QaQlDc-wFegmlUuVBYL7I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://aktivegym.onrender.com/api/v1/dietary-plan/12",
+							"protocol": "https",
+							"host": [
+								"aktivegym",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"dietary-plan",
+								"12"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notification",
+			"item": [
+				{
+					"name": "Send Email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/api/v1/user/send-email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"send-email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Notification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pblVzZXJAZ21haWwuY29tIiwiaWF0IjoxNzUzNTE4MDc4LCJleHAiOjE3NTM1MjE2Nzh9.i26rcxmhBasfS_rlLQP3b6VJdhKO2arH3ZoNilRVAWA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://aktivegym.onrender.com/api/v1/notification",
+							"protocol": "https",
+							"host": [
+								"aktivegym",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notication by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pblVzZXJAZ21haWwuY29tIiwiaWF0IjoxNzUzNTE4MDc4LCJleHAiOjE3NTM1MjE2Nzh9.i26rcxmhBasfS_rlLQP3b6VJdhKO2arH3ZoNilRVAWA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://aktivegym.onrender.com/api/v1/notification/1",
+							"protocol": "https",
+							"host": [
+								"aktivegym",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"notification",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
