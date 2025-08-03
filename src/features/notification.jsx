@@ -118,7 +118,7 @@ const Notification = () => {
           </div>
         </div>
 
-        {emailData?.length === 0 ? (
+        {emailData?.content?.length === 0 ? (
           <div className="notification-wrapper">
             <div>
               <p className="notification-heading">Notification</p>
