@@ -4,7 +4,7 @@ import About from "./pages/about";
 import Steps from "./pages/steps";
 import Membership from "./pages/membership";
 import Login from "./auth/login";
-// import Signup from "./auth/signUp";
+import Signup from "./auth/signUp";
 import LandingPage from "./pages/landingPage";
 // import Dashboard from "./features/dashboard";
 import DietaryPlan from "./features/dietaryPlan";
@@ -21,9 +21,8 @@ import AddTrainers from "./features/addTrainers";
 import DietaryDetails from "./features/dietaryDetails";
 import NotificationEmail from "./features/notificationEmail";
 
-// // Lazy loaded components
+// // Lazy loaded component
 const Dashboard = lazy(() => import("./features/dashboard")); // lazy loading to optimize bundle size and improve load performance
-const Signup = lazy(() => import("./auth/signUp"));
 
 function App() {
   return (
