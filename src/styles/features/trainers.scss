@@ -1,5 +1,42 @@
 .trainers-container {
   overflow: hidden !important;
+
+  .train-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+
+  .header-text {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+.initials {
+  background: #1a85c8;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  padding: 2px 15px;
+  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
+}
+.name-initials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background: #2c2c2c;
+  height: 20px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
 }
 .trainers {
   background: #2c2c2c;

@@ -40,7 +40,7 @@ const Notification = () => {
       options: {
         customBodyRender: (value) => formatDate(value),
         setCellProps: () => ({
-          style: {width: "200px"}
+          style: { width: "200px" },
         }),
       },
     },
@@ -95,7 +95,7 @@ const Notification = () => {
   return (
     <SkeletonTheme baseColor="#2C2C2C" highlightColor="#444" animation="wave">
       <div className="notification-container">
-        <div className="dashboard-nav">
+        <div className="note-nav">
           <div className="dashboard-header">
             <p className="header-text">Trainers</p>
           </div>
@@ -147,10 +147,19 @@ const Notification = () => {
           <div className="users-table-wrapper">
             <div className="user-header">
               <p className="trainer-heading">List of all Notification</p>
-              <SearchInput
-                placeholder="Search for Notification by Title"
-                onSearch={handleSearch}
-              />
+
+              <div className="search-add">
+                <SearchInput
+                  placeholder="Search for Notification by Title"
+                  onSearch={handleSearch}
+                />
+                <div>
+                  <Link className="add-trainer-button" to="/createEmail">
+                    <p>Create Email</p>
+                    <AddIcon />
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <BasicTable data={data} columns={columns} />
