@@ -89,6 +89,7 @@ const Signup = () => {
       "GET_FLEXIBLE",
       "IMPROVE_STAMINA",
       "GAIN_WEIGHT",
+
     ];
 
     const goals = Array.isArray(values.fitnessGoal)
@@ -419,7 +420,7 @@ const Signup = () => {
                             <Field
                               type="checkbox"
                               name="fitnessGoal"
-                              value="lose-weight"
+                              value="lose_weight"
                               className="diet-input"
                             />
                             Lose Weight
@@ -431,7 +432,7 @@ const Signup = () => {
                             <Field
                               type="checkbox"
                               name="fitnessGoal"
-                              value="build-muscle"
+                              value="build_muscle"
                               className="diet-input"
                             />
                             Build Muscle
@@ -443,7 +444,7 @@ const Signup = () => {
                             <Field
                               type="checkbox"
                               name="fitnessGoal"
-                              value="get-flexible"
+                              value="get_flexible"
                               className="diet-input"
                             />
                             Get Flexible
@@ -474,7 +475,7 @@ const Signup = () => {
                             <Field
                               type="radio"
                               name="diet"
-                              value="high-protein"
+                              value="high_protein"
                               className="diet-input"
                             />
                             High Protein
@@ -486,7 +487,7 @@ const Signup = () => {
                             <Field
                               type="radio"
                               name="diet"
-                              value="no-preference"
+                              value="no_preference"
                               className="diet-input"
                             />
                             No Preference
