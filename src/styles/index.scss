@@ -6,16 +6,10 @@ body {
   color: #ffffff;
   overflow-x: hidden !important;
   box-sizing: border-box;
-}
-.container {
+  margin: 0;
+  padding: 0;
   width: 100%;
-  max-width: 1500px;
-  padding: 0 2rem;
-  margin: 0 auto;
-
-  // overflow-x: hidden !important;
 }
-
 h1 {
   font-weight: 700;
   font-size: 2.5rem;

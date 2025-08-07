@@ -23,7 +23,7 @@ const LandingPage = () => {
     setOpenIndex(index === openIndex ? null : index);
   };
   return (
-    <div>
+    <div className="home-container">
       <div className="hero-background">
         <Navbar />
         <section className="hero-section">
