@@ -47,13 +47,13 @@ const Footer = () => {
               <a href="#meet-trainers">About Us</a>
             </li>
             <li>
-              <a href="#how-it-works">How It Works</a>
+              <a href="#how-it-works" className="terms">How It Works</a>
             </li>
             <li>
-              <a href="#testimony">Pricing</a>
+              <a href="#testimony" >Pricing</a>
             </li>
             <li>
-              <a href="#testimony">Contact Us</a>
+              <a href="#testimony" className="terms">Contact Us</a>
             </li>
             <li>
               <a href="#pricing">FAQ</a>

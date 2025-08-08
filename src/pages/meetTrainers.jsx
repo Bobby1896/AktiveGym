@@ -25,8 +25,8 @@ const MeetTrainers = () => {
         spaceBetween={30}
         // slidesPerView={3}
         // slidesPerGroup={3}
-        navigation
-        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        // navigation
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         onSwiper={(swiper) => swiper}
         breakpoints={{

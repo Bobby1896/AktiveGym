@@ -223,3 +223,16 @@
     animation-duration: 30s;
   }
 }
+
+@media (max-width: 1048px){
+  .home-container{
+    width: 100%;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .hero-background{
+    width: 100%;
+  }
+
+
+}

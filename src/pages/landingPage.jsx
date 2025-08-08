@@ -39,20 +39,25 @@ const LandingPage = () => {
         <section className="hero-section">
           <div className="container">
             <div className="hero-text">
-            <h1 className="hero-title">
-              TRAIN SMARTER. <br />
-              LIVE LONGER.
-            </h1>
-            <p className="hero-subtitle">
-              Welcome to AktiveGym – your all-in-one <br />
-              destination for fitness, wellness, and lifestyle <br />
-              transformation.
-            </p>
+              <h1 className="hero-title">
+                TRAIN SMARTER. <br />
+                LIVE LONGER.
+              </h1>
+              <p className="hero-subtitle">
+                Welcome to AktiveGym – your all-in-one <br />
+                destination for fitness, wellness, and lifestyle <br />
+                transformation.
+              </p>
 
-            <CustomButton component={RouterLink} size={buttonSize} to="/signup">
-              Explore Plan
-            </CustomButton>
-          </div>
+              <CustomButton
+                component={RouterLink}
+                size={buttonSize}
+                to="/signup"
+                className="explore"
+              >
+                Explore Plan
+              </CustomButton>
+            </div>
           </div>
         </section>
 

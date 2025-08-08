@@ -131,4 +131,12 @@
       justify-content: space-between;
     }
   }
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .terms {
+    display: none;
+  }
 }

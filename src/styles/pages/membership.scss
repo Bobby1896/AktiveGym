@@ -108,13 +108,16 @@
   padding-top: 2rem;
 }
 
-@media (max-width : 480px){
-  .membership-container{
-margin-bottom: 7rem;
+@media (max-width: 480px) {
+  .membership-container {
+    margin-bottom: 7rem;
   }
-
-
-  
+  .plan-card {
+    padding: 1rem;
+  }
+  .plan-middle-card {
+    padding: 1rem  !important;
+  }
 }
 
 @media (max-width: 768px) {
