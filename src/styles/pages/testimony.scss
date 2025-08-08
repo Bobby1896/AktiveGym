@@ -59,6 +59,11 @@
 
 //media query
 
-@media (max-width: 768px) {
- 
+@media (max-width: 480px) {
+  .testimony-container{
+    margin-bottom: 5rem;
+  }
+ .testimony-title{
+  font-size: 1.5rem;
+ }
 }

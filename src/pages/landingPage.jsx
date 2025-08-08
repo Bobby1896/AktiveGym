@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../pageLayouts/navBar";
 import "../styles/pages/landingPage.scss";
 import CustomButton from "../components/CustomButton";
@@ -18,6 +18,16 @@ import Protein from "../assets/images/myprotein.png";
 
 const LandingPage = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const buttonSize = windowWidth <= 768 ? "small" : "large";
 
   const toggleAccordion = (index) => {
     setOpenIndex(index === openIndex ? null : index);
@@ -28,6 +38,7 @@ const LandingPage = () => {
         <Navbar />
         <section className="hero-section">
           <div className="container">
+            <div className="hero-text">
             <h1 className="hero-title">
               TRAIN SMARTER. <br />
               LIVE LONGER.
@@ -38,9 +49,10 @@ const LandingPage = () => {
               transformation.
             </p>
 
-            <CustomButton component={RouterLink} size="large" to="/signup">
+            <CustomButton component={RouterLink} size={buttonSize} to="/signup">
               Explore Plan
             </CustomButton>
+          </div>
           </div>
         </section>
 

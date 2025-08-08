@@ -152,9 +152,28 @@
 }
 
 
+
+@media (max-width: 480px){
+
+  .navbar {
+    padding: 0rem 1rem;
+    margin: 0;
+    align-items: flex-start;
+  }
+  .navbar-logo{
+    img{
+      width: 70%;
+    }
+  }
+  .menu-bar{
+    width: 20px;
+    height: 2px;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
-    padding: 0.5rem 1rem; 
+    padding: 0rem 1rem; 
     margin: 0;
     align-items: flex-start;
   }
@@ -167,4 +186,6 @@
     margin-bottom: 1rem; 
   }
 }
+
+
 

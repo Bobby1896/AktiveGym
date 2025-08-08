@@ -67,6 +67,11 @@
 
 //media responsiveness
 
-@media (max-width : 768px ){
-  
+@media (max-width : 480px ){
+  .meet-trainers-header{
+    margin-top: -1rem;
+  }
+  .section-subtitle{
+    font-size: 1.5rem;
+  }
 }

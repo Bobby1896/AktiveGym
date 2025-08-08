@@ -108,6 +108,15 @@
   padding-top: 2rem;
 }
 
+@media (max-width : 480px){
+  .membership-container{
+margin-bottom: 7rem;
+  }
+
+
+  
+}
+
 @media (max-width: 768px) {
   .plan-group {
     display: flex;

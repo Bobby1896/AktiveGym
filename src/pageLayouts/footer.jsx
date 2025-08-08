@@ -79,10 +79,10 @@ const Footer = () => {
         <div className="footer-terms">
           <ul>
             <li>
-              <a href="/">Terms of conditions</a>
+              <a href="/" className="terms">Terms of conditions</a>
             </li>
             <li>
-              <a href="/">Privacy Policy</a>
+              <a href="/" className="terms">Privacy Policy</a>
             </li>
           </ul>
         </div>

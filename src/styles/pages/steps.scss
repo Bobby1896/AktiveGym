@@ -44,7 +44,21 @@
   margin-top: 1rem;
 }
 
-//Media Responsiveness
+//Media Query
+
+@media(max-width: 480px){
+  .steps-container{
+    margin-bottom: 7rem; 
+  }
+  .steps-title{
+    font-size: 1.5rem;
+  }
+  .step-item{
+    h2{
+      font-size: 1.2rem;
+    }
+  }
+}
 
 @media (max-width: 768px) {
   .steps-container {
