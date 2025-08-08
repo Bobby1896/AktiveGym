@@ -101,3 +101,22 @@
     }
   }
 }
+
+//media query
+
+@media (max-width: 768px){
+  .footer-content{
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-gym{
+    display: none;
+  }
+  .footer-links{
+ ul{
+
+  display: flex;
+  justify-content: space-between;
+ }
+  }
+}

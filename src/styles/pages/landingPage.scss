@@ -6,7 +6,7 @@
   background-image: url("/src/assets/images/running man.png");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;   
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -140,8 +140,8 @@
 //Media Responsiveness
 
 @media (max-width: 768px) {
-  .landing-container {
-    overflow: hidden;
+  .home-container {
+    overflow-x: hidden;
   }
   .hero-background {
     background-size: contain;
@@ -151,7 +151,7 @@
   }
 
   .hero-section {
-     padding: 0;
+    padding: 0;
     margin-top: 0;
   }
 
@@ -162,7 +162,22 @@
     font-size: 1rem;
     margin-bottom: 2rem;
   }
+  .sponsor-section {
+    padding: 1rem 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: #000000bd; 
+  }
 
+  .sponsor-slider {
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
   .slide-track {
     animation-duration: 30s;
   }

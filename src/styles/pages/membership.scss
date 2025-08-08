@@ -53,14 +53,14 @@
 .plan-middle-card {
   background-color: #1a85c8;
   border-radius: 20px;
-  padding: 2rem 3rem; 
+  padding: 2rem 3rem;
   border: 5px solid #ffffff;
   height: 700px;
   min-height: 700px;
   display: flex;
   flex-direction: column;
-  margin-top: -50px; 
-  margin-bottom: -50px; 
+  margin-top: -50px;
+  margin-bottom: -50px;
 
   .check-icon {
     color: #ffffff !important;
@@ -106,4 +106,28 @@
   align-items: center;
   margin-top: auto;
   padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .plan-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  .plan-card {
+    width: 90%;
+    max-width: 400px;
+    height: 600px;
+    margin-top: 0;
+  }
+  .plan-middle-card {
+    width: 90%;
+    max-width: 400px;
+    height: 600px !important;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 2rem;
+    border: none;
+  }
 }

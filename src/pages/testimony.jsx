@@ -21,11 +21,26 @@ const Testimony = () => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={30}
-        slidesPerView={3}
-        slidesPerGroup={3}
+        // slidesPerView={3}
+        // slidesPerGroup={3}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSwiper={(swiper) => swiper}
+        // navigation
+         breakpoints={{
+          0: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          769: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+          1024:{
+             slidesPerView: 2,
+            slidesPerGroup: 2,
+          }
+        }}
       >
         {TestimonyData.map((testimony, index) => (
           <SwiperSlide key={index}>

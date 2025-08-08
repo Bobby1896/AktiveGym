@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <img src={FooterImg} alt="Footer Image" />
+        <img src={FooterImg} alt="Footer Image" className="footer-gym" />
 
         <div className="footer-links">
           <ul>
