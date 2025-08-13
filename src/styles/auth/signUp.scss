@@ -415,7 +415,6 @@ textarea:-webkit-autofill {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem;
     background-color: #2c2c2c;
     z-index: 1000;
   }
@@ -432,14 +431,26 @@ textarea:-webkit-autofill {
     margin-top: 6rem;
   }
   .gs-field {
-    gap: 1rem;
+    flex-direction: column;
   }
   .gender-options {
+    width: 100%;
     gap: 1rem !important;
   }
+  .female-option,
+  .male-option {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
   .diet-options {
     flex-direction: column;
     gap: 1rem !important;
+  }
+  .age-field {
+    width: 100% !important;
+    margin-bottom: 1.5rem;
+    margin-top: -1rem;
   }
 
   .vegan-option,
@@ -449,8 +460,8 @@ textarea:-webkit-autofill {
     box-sizing: border-box;
   }
 
-    .form-title {
-   font-size: 18px;
+  .form-title {
+    font-size: 18px;
     text-transform: uppercase;
   }
 }
