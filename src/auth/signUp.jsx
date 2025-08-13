@@ -89,7 +89,6 @@ const Signup = () => {
       "GET_FLEXIBLE",
       "IMPROVE_STAMINA",
       "GAIN_WEIGHT",
-
     ];
 
     const goals = Array.isArray(values.fitnessGoal)
@@ -210,11 +209,7 @@ const Signup = () => {
   return (
     <div className="signup-container">
       <div className="progress-section">
-        <img
-          src={WhiteLogo}
-          alt="AktiveGym Logo"
-          className="logo"
-        />
+        <img src={WhiteLogo} alt="AktiveGym Logo" className="logo" />
 
         <div className="progress-steps">
           <div
@@ -248,6 +243,8 @@ const Signup = () => {
           </div>
         </div>
 
+      
+
         <div className="spacer" />
         <Link to={"/"}>
           <div className="return-home">
@@ -256,6 +253,10 @@ const Signup = () => {
           </div>
         </Link>
       </div>
+
+        <div className="logo-container">
+          <img src={WhiteLogo} alt="AktiveGym Logo"/>
+        </div>
 
       <div className="form-section">
         <div className="step-counter">

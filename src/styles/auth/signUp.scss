@@ -1,7 +1,6 @@
 .signup-container {
   display: flex;
-  height: 100%;
-  // margin: 0;
+  min-height: 100vh;
 }
 
 .progress-section {
@@ -13,7 +12,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 100vh;
 
   .logo {
     width: 170px;
@@ -80,7 +78,8 @@
   margin: 0 auto;
   padding: 2rem;
   flex: 1;
-  overflow-y: auto;
+  // overflow-y: auto;
+  overflow-y: visible;
 
   .step-counter {
     color: #1a85c8;
@@ -310,8 +309,6 @@
     }
   }
 
-  
-
   /*billing country dropdown*/
   .billing-select {
     margin-top: 0.5rem;
@@ -394,10 +391,49 @@
 }
 
 input:-webkit-autofill,
-  textarea:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
-    -webkit-text-fill-color: #ffffff !important;
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.logo-container {
+  display: none;
+}
+
+// Media Queries
+
+@media (max-width: 480px) {
+  .signup-container {
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100vh;
+    // padding-top: 1rem;
   }
+
+  .logo-container {
+    background-color: #2c2c2c;
+    display: block;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    // text-align: center;
+  }
+  .progress-section {
+    display: none;
+  }
+
+  .form-section {
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 95%;
+    padding: 1rem;
+    // margin: 2 auto;
+    overflow-y: visible;
+  }
+}
 
 @media (max-width: 768px) {
   .signup-container {
