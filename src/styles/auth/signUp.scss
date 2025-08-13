@@ -407,31 +407,46 @@ textarea:-webkit-autofill {
     overflow-x: hidden;
     overflow-y: auto;
     min-height: 100vh;
-    // padding-top: 1rem;
   }
 
   .logo-container {
-    background-color: #2c2c2c;
     display: block;
-    padding: 1rem;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
+    padding: 1.5rem;
+    background-color: #2c2c2c;
     z-index: 1000;
-    // text-align: center;
   }
+ 
   .progress-section {
     display: none;
   }
 
   .form-section {
-    margin-top: 5rem;
     width: 100%;
-    max-width: 95%;
+    max-width: 90%;
     padding: 1rem;
-    // margin: 2 auto;
     overflow-y: visible;
+    margin-top: 6rem;
+  }
+  .gs-field{
+    gap: 1rem;
+  }
+   .gender-options {
+    gap: 1rem !important;
+  }
+  .diet-options {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+
+  .vegan-option,
+  .hp-option,
+  .np-option {
+    width: 100% !important;
+    box-sizing: border-box; 
   }
 }
 
