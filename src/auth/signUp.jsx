@@ -255,6 +255,7 @@ const Signup = () => {
       </div>
 
         <div className="logo-container">
+          <link rel="stylesheet" href=""  />
           <img src={WhiteLogo} alt="AktiveGym Logo"/>
         </div>
 

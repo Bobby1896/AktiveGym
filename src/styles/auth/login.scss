@@ -100,3 +100,21 @@ input:-webkit-autofill,
     -webkit-box-shadow: 0 0 0px 1000px #2c2c2c inset !important;
     -webkit-text-fill-color: #ffffff !important;
   }
+
+
+@media (max-width: 768px) {
+  .login-image {
+    display: none;
+  }
+  .login-form-container {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+  //   padding-top: 2rem;
+  // justify-content: flex-start; 
+  }
+
+  .login-header {
+    font-size: 1.2rem;
+  }
+}
