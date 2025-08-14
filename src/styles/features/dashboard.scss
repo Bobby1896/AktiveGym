@@ -19,7 +19,7 @@
   padding: 2px 15px;
   font-size: 18px;
   font-weight: 600;
-  font-size: 20px;
+  // font-size: 20px;
 }
 .name-initials {
   display: flex;
@@ -175,7 +175,7 @@
     border-radius: 20px;
     overflow: hidden;
     width: 100%;
-    max-width: 30%; 
+    max-width: 30%;
     min-height: 150px;
     padding: 0px 10px;
   }
@@ -198,7 +198,7 @@
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-}
+  }
 
   .rfood-details {
     flex: 1;
@@ -218,8 +218,6 @@
   .rfood-bottom {
     margin-top: auto;
   }
-
-  
 
   .profile-btn {
     margin-top: auto;
@@ -308,5 +306,143 @@
       object-fit: contain;
       object-position: center;
     }
+  }
+}
+
+//Media Queries
+@media ((max-width: 768px)) {
+  .dashboard-container {
+    max-width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+  .dashboard-nav {
+    flex-direction: column;
+    align-items: end;
+    margin-top: 1rem;
+    order: 2;
+
+    .name-initials {
+      gap: 7px;
+      padding: 15px;
+      height: 15px;
+
+      .initials {
+        font-size: 16px;
+      }
+    }
+  }
+  .dashboard-header {
+    order: 2;
+  }
+  .header-text {
+    font-size: 1.2rem !important;
+  }
+  .user-progress {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+
+    .progress-item {
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+      align-items: center;
+
+      .progress-data {
+        font-size: 20px;
+      }
+      .user-desc {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .second-section {
+    margin-top: 2rem;
+
+    .recommendation-sect {
+      width: 100%;
+    }
+    .recommended-trainer,
+    .rec-food {
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box !important;
+
+      .rec-text {
+        font-size: 18px;
+      }
+      .rec-view {
+        font-size: 16px;
+      }
+    }
+
+    .rtrainer-list,
+    .rfood-list {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      scrollbar-width: none; // hide scrollbar for Firefox //
+
+      .rtrainer {
+        flex: 0 0 50%; // 1.5 cards visible -> ~66%, add gap for spacing //
+        scroll-snap-align: start;
+      }
+    }
+    .rec-fullname {
+      font-size: 16px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+
+    .rec-speciality {
+      font-size: 14px;
+      opacity: 0.7;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .rating {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .rtrainer {
+      min-width: 0;
+    }
+
+    .rfood {
+      max-width: 80%;
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+    .rfood-name {
+      font-size: 16px;
+    }
+    .rfood-type {
+      font-size: 14px;
+    }
+  }
+
+  .event-section {
+    display: none;
   }
 }

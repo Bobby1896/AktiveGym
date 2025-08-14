@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../styles/pageLayouts/sideBar.scss";
 import {
   DashboardIcon,
@@ -14,12 +15,14 @@ import { logout } from "../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useUserRole from "../utils/roles";
-import whiteLogo from "../assets/images/whiteLogo.png"
+import whiteLogo from "../assets/images/whiteLogo.png";
 
 const SideBar = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false); // for mobile toggle
 
+  const toggleSidebar = () => setIsOpen(!isOpen);
   const { isAdmin, isUser } = useUserRole();
 
   const handleLogout = () => {
@@ -101,10 +104,12 @@ const SideBar = ({ children }) => {
       <div className="sidebar">
         <div className="sidebar-top-section">
           <img src={whiteLogo} alt="White Logo" />
-          <div className="bars">{/* <FaBars /> */}</div>
+          <div className="bars" onClick={toggleSidebar}>
+            <FaBars />
+          </div>
         </div>
 
-        <div className="sidebar-menu">
+        <div className={`sidebar-menu ${isOpen ? "show" : ""}`}>
           {menuItem.map((item, index) => (
             <NavLink
               to={item.path}
