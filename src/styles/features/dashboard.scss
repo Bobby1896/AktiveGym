@@ -316,7 +316,6 @@
     height: 100vh;
     box-sizing: border-box;
     padding: 1rem;
-    overflow-x: hidden;
   }
   .dashboard-nav {
     flex-direction: column;
@@ -399,7 +398,7 @@
       scrollbar-width: none; // hide scrollbar for Firefox //
 
       .rtrainer {
-        flex: 0 0 50%; // 1.5 cards visible -> ~66%, add gap for spacing //
+        flex: 0 0 70%; // 1.5 cards visible -> ~66%, add gap for spacing //
         scroll-snap-align: start;
       }
     }

@@ -1,53 +1,44 @@
-
 .sidebar-container {
   display: flex;
   height: 100vh;
-//   overflow: hidden;
 }
+
 .main-layout {
   width: 100%;
   padding: 0px 50px;
-  margin-left:300px; 
-//   overflow-y: auto; 
+  margin-left: 300px; 
+}
 
-}
-.bars {
-    display: none !important; 
-}
 .sidebar {
   background: #2c2c2c;
-  position: fixed; 
+  position: fixed;
   color: #ffffff;
   height: 98vh;
-  border-radius: 30px;
   width: 300px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
+  transition: left 0.3s ease;
 }
+
 .sidebar-top-section {
   padding: 20px 15px;
   text-align: center;
 }
+
 .sidebar-menu {
   flex-grow: 1;
 }
+
 .sidebar-footer {
   padding-bottom: 30px;
 }
 
-.logo {
-  font-size: 25px;
-}
 .bars {
-  display: flex;
-  font-size: 25px;
-  margin-left: 30px;
+  display: none;
 }
+
 .sidebar-link {
   display: flex;
   color: #939597;
@@ -56,60 +47,45 @@
   text-decoration: none;
   align-items: center;
   gap: 15px;
+  border-radius: 30px;
   transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -ms-transition: all 0.5s;
-  -o-transition: all 0.5s;
 }
+
 .sidebar-link:hover {
   background: #80abc5;
-  border-radius: 30px;
   color: #ffffff;
-  transition: all 0.5ss;
-  -webkit-transition: all 0.5ss;
-  -moz-transition: all 0.5ss;
-  -ms-transition: all 0.5ss;
-  -o-transition: all 0.5ss;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-
-  
 }
+
 .active-sidebar {
   background: #1a85c8 !important;
   color: #ffffff;
-  border-radius: 30px;
 }
+
 .icon,
 .link-text {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+
 @media (max-width: 768px) {
-   .sidebar-container {
-    width: 100%;
-    height: 100vh;
-    overflow-x: hidden !important;
+ .bars {
+    display: block !important;
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 0;
+    color: white;
+    background-color: darkorange;
   }
+
   .sidebar {
-    position: fixed;
-    left: -300px;
-    transition: left 0.3s ease;
+    left: -300px; 
     z-index: 1000;
   }
- 
 
   .sidebar.show {
-    left: 0;
-  }
-
-  .bars {
-    display: block !important; 
-    cursor: pointer;
+    left: 0; 
   }
 
   .main-layout {
