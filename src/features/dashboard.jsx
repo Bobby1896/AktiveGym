@@ -28,6 +28,7 @@ import FirstLetters from "../utils/FirstLetters";
 import useUserRole from "../utils/roles";
 import { useDietaryPlanQuery } from "../redux/services/dietaryPlanApi";
 import EventIcon from "../assets/images/memberId.png";
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const {
@@ -87,6 +88,10 @@ const Dashboard = () => {
                 <p>{uProfileData?.fullName}</p>
               </>
             )}
+
+           
+             
+            
           </div>
         </div>
 

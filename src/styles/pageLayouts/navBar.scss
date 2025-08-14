@@ -105,6 +105,7 @@
     transition: right 0.3s ease-in-out;
     z-index: 9999;
     align-items: center;
+    margin: 0;
   }
 
   .navbar-links.active {
@@ -147,7 +148,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.4);
-    z-index: 9998;
+    z-index: 998;
   }
 }
 

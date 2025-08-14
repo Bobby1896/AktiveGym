@@ -55,7 +55,7 @@ const WorkoutPlan = () => {
         </div>
 
         <div className="workout-wrapper">
-          <div>
+          <div className="workout-search">
             <p className="trainer-heading">
               We’ve built your workout plan based on your goals.
             </p>
@@ -70,6 +70,7 @@ const WorkoutPlan = () => {
                   src={workout.images}
                   alt="Workout Image Cards"
                 />
+
                 <div className="card-content">
                   <p className="trainer-heading">{workout.name}</p>
                   <p className="wp-desc">{workout.description}</p>
