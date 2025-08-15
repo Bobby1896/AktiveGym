@@ -58,7 +58,7 @@
 
     .card {
       flex-direction: column;
-      max-width: 100% !important;
+      gap: 10px !important;
     }
 
     .card img {
@@ -68,7 +68,17 @@
   .card-content {
     width: 100% !important;
   }
-  
+  .wp-desc{
+    margin-bottom: 3rem !important;
+
+  }
+
+  .workout-search input,
+  .workout-search .search-input-class { 
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
 }
 
 @media (max-width: 768px) {

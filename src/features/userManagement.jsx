@@ -123,6 +123,7 @@ const UserManagement = () => {
               <SearchInput
                 placeholder="Search for User"
                 onSearch={handleSearch}
+                
               />
             </div>
 

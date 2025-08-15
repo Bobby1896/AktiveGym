@@ -59,7 +59,7 @@ const WorkoutPlan = () => {
             <p className="trainer-heading">
               We’ve built your workout plan based on your goals.
             </p>
-            <SearchInput onSearch={handleSearch} />
+            <SearchInput onSearch={handleSearch}/>
           </div>
 
           <div className="workout-cards">

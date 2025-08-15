@@ -219,7 +219,7 @@ const Trainers = () => {
         </div>
 
         <div className="trainers">
-          <div className="">
+          <div className="workout-search">
             <p className="trainer-heading">
               {isAdmin ? "List of All Trainers" : " Meet your Fitness Trainers"}
             </p>
