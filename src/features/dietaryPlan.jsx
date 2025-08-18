@@ -109,6 +109,20 @@ const DietaryPlan = () => {
                 </div>
               ))}
             </div>
+            <select
+              className="dietary-plan-dropdown"
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value)}
+            >
+              {tabs.map((tab) => (
+                <option key={tab} value={tab}>
+                  {tab
+                    .replace("_", " ")
+                    .toLowerCase()
+                    .replace(/\b\w/g, (c) => c.toUpperCase())}
+                </option>
+              ))}
+            </select>
 
             <div>
               <div className="filter-button" onClick={handleOpenFilter}>
@@ -212,7 +226,7 @@ const DietaryPlan = () => {
                       mealPrepTime: meal?.prepTime,
                       mealEatTime: meal?.cookTime,
                       mealScore: meal?.healthScore,
-                      mealIngredients: meal?.ingredient
+                      mealIngredients: meal?.ingredient,
                     }}
                   >
                     <CustomButton className="profile-btn">

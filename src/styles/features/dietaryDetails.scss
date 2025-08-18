@@ -267,3 +267,55 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .dietaryDetails-container {
+    // padding: 20px;
+
+    .dishes-section {
+      flex-direction: column;
+
+      .dish-left-section {
+        width: 100%;
+
+        .dish-meal {
+          flex-direction: column;
+          align-items: flex-start;
+
+          gap: 20px;
+
+          .dishes-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+          }
+        }
+      }
+
+      .dish-values-container {
+        width: 100%;
+        margin-top: 20px;
+      }
+    }
+  }
+  .dish-type {
+    align-items: center !important;
+    width:auto !important;
+    box-sizing: border-box !important;
+    padding: 6px 4px !important;
+
+}
+.direction-tools{
+  flex-direction: column;
+  
+    .direction-col,
+    .tools-col {
+      width: 100% !important;
+      margin-bottom: 1rem;
+    }
+  }
+
+}
+.dish-nutrient{
+  display: none !important;
+}

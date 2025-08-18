@@ -67,6 +67,25 @@
       }
     }
 
+    .dietary-plan-dropdown {
+      display: none;
+      width: 100%;
+      max-width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      background-color: #181818;
+      color: #fff;
+      border: 1px solid #444;
+      margin-bottom: 1rem;
+      border-color: transparent;
+    }
+    .dietary-plan-dropdown:focus {
+      outline: none !important;
+      border-color: #444 !important;
+      box-shadow: none !important;
+    }
+
     .dietary-plan-list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -153,7 +172,76 @@
 }
 
 @media (max-width: 768px) {
-  // .dietary-plan-list {
-  //   grid-template-columns: 1fr;
-  // }
+  .dashboard-nav {
+    flex-direction: column;
+    align-items: end;
+    margin-top: 1rem;
+    order: 2;
+
+    .name-initials {
+      gap: 7px;
+      padding: 15px;
+      height: 15px;
+
+      .initials {
+        font-size: 16px;
+      }
+    }
+  }
+  .dashboard-header {
+    order: 2;
+  }
+  .header-text {
+    font-size: 1.2rem !important;
+  }
+
+  .dietary-plan-tabs-container {
+    flex-direction: column;
+    align-items: flex-start !important;
+    margin-bottom: 2rem;
+  }
+
+  .dietary-plan-list {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .meal-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .meal-image {
+    width: 100% !important;
+    height: auto;
+    margin-right: 0 !important;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .dietary-plan-list {
+    grid-template-columns: 1fr !important;
+  }
+
+  .filter-button {
+    gap: 1rem;
+    padding: 0px 15px !important;
+  }
+  .dietary-plan-tabs {
+    display: none !important;
+  }
+
+  .dietary-plan-dropdown {
+    display: block !important;
+  }
+  .meal-card {
+    padding: 15px;
+  }
+
+  .meal-details {
+    text-align: center;
+  }
 }

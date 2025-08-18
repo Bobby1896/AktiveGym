@@ -68,3 +68,19 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .account-main {
+    padding: 10px;
+
+    .user-details {
+      flex-direction: column;
+      gap: 20px;
+
+      .personal,
+      .body-fitness {
+        width: 100%;
+      }
+    }
+  }
+}
