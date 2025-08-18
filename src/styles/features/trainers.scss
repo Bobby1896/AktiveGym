@@ -2,41 +2,41 @@
   overflow: hidden !important;
 
   .train-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
 
-  .header-text {
-    font-size: 24px;
-    font-weight: 600;
+    .header-text {
+      font-size: 24px;
+      font-weight: 600;
+    }
   }
-}
-.initials {
-  background: #1a85c8;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  padding: 2px 15px;
-  font-size: 18px;
-  font-weight: 600;
-  font-size: 20px;
-}
-.name-initials {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  background: #2c2c2c;
-  height: 20px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-}
+  .initials {
+    background: #1a85c8;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    padding: 2px 15px;
+    font-size: 18px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+  .name-initials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #2c2c2c;
+    height: 20px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+  }
 }
 .trainers {
   background: #2c2c2c;
@@ -186,4 +186,70 @@
   -moz-border-radius: 25px;
   -ms-border-radius: 25px;
   -o-border-radius: 25px;
+}
+
+@media (max-width: 768px) {
+  .trainers-cards {
+    width: 100% !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .trainer {
+      gap: 1rem !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
+    }
+  }
+
+  .trainer-image-wrapper {
+    height: 250px;
+  }
+  .trainer-heading{
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .train-nav {
+    flex-direction: column;
+    align-items: end;
+    margin-top: 1rem;
+
+    .name-initials {
+      gap: 7px;
+      padding: 15px;
+      height: 15px;
+
+      .initials {
+        font-size: 16px;
+      }
+    }
+  }
+  .train-header {
+    order: 2;
+  }
+  .header-text {
+    font-size: 1.2rem !important;
+  }
+
+  .trainers-cards {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    display: block;
+    
+
+    .trainer {
+      flex-direction: column !important;
+      gap: 10px !important;
+      width: 100% !important;
+
+    }
+  }
+
+  .trainer-image-wrapper {
+    height: 250px;
+  }
+   .trainer-heading{
+    font-size: 1rem;
+  }
 }

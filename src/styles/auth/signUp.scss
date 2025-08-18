@@ -78,7 +78,7 @@
   margin: 0 auto;
   padding: 2rem;
   flex: 1;
-  // overflow-y: auto;
+  overflow-y: auto;
   overflow-y: visible;
 
   .step-counter {
@@ -371,7 +371,6 @@
     /* Search input in the menu */
     .an-simple-select__input-container {
       color: #2c2c2c;
-      // padding: 8px 16px 4px;
     }
   }
 

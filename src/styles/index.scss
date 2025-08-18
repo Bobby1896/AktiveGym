@@ -9,7 +9,12 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
+  // scrollbar-width: none !important; 
+  //  -ms-overflow-style: none; 
 }
+// body::-webkit-scrollbar {
+//   display: none;
+// }
 h1 {
   font-weight: 700;
   font-size: 2.5rem;

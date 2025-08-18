@@ -88,10 +88,6 @@ const Dashboard = () => {
                 <p>{uProfileData?.fullName}</p>
               </>
             )}
-
-           
-             
-            
           </div>
         </div>
 
