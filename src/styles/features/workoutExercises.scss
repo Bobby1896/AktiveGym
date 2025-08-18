@@ -85,3 +85,20 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .exercise-wrapper {
+    max-width: 100% !important;
+  }
+
+  .exercise-card {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .exercise-gif,
+  .exercise-checks {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}

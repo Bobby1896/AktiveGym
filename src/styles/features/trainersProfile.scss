@@ -97,3 +97,50 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+    .trainers-nav {
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items:end !important;
+
+
+    .name-initials {
+      gap: 7px;
+      padding: 15px;
+      height: 15px;
+
+      .initials {
+        font-size: 16px;
+      }
+    }
+  }
+  .trainer-header {
+    order: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+
+  }
+  .header-text {
+    font-size: 1.2rem !important;
+  }
+
+  .trainers-profile {
+    flex-direction: column;
+    align-items: center;
+
+    .trainer-img
+    {
+      display: none;
+    }
+    .trainer-details {
+      width: 100%;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .trainer-fullName {
+      font-size: 20px;  
+  }}
+}

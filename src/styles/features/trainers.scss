@@ -189,6 +189,28 @@
 }
 
 @media (max-width: 768px) {
+   .train-nav {
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items:end !important;
+
+    .name-initials {
+      gap: 7px;
+      padding: 15px;
+      height: 15px;
+
+      .initials {
+        font-size: 16px;
+      }
+    }
+  }
+  .train-header {
+    order: 2;
+  }
+  .header-text {
+    font-size: 1.2rem !important;
+  }
+
   .trainers-cards {
     width: 100% !important;
     display: grid;
@@ -210,27 +232,7 @@
 }
 
 @media (max-width: 480px) {
-  .train-nav {
-    flex-direction: column;
-    align-items: end;
-    margin-top: 1rem;
-
-    .name-initials {
-      gap: 7px;
-      padding: 15px;
-      height: 15px;
-
-      .initials {
-        font-size: 16px;
-      }
-    }
-  }
-  .train-header {
-    order: 2;
-  }
-  .header-text {
-    font-size: 1.2rem !important;
-  }
+ 
 
   .trainers-cards {
     width: 100% !important;
