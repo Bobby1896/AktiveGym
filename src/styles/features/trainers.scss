@@ -190,8 +190,9 @@
 
 @media (max-width: 768px) {
    .train-nav {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items:end !important;
+    margin-top: 2rem !important;
 
     .name-initials {
       gap: 7px;
