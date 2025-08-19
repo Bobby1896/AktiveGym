@@ -268,7 +268,7 @@ const Dashboard = () => {
                 <CalenderIcon className="event-icon" />
                 <div className="event-date">
                   <p className="event-day">
-                    Monday, July 7th 2025 <br />
+                    Monday, Aug 27th 2025 <br />
                     <span style={{ fontSize: 16 }}>09:00 AM - 14:00 PM</span>
                   </p>
                 </div>

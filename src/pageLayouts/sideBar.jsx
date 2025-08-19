@@ -9,8 +9,7 @@ import {
   TrainerIcon,
   WorkoutPlanIcon,
 } from "../utils/svg";
-import { FaBars, FaTimes
- } from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { logout } from "../redux/slices/authSlice";
 import { useDispatch } from "react-redux";
@@ -22,10 +21,10 @@ const SideBar = ({ children }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
- useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
       if (window.innerWidth > 768) {
@@ -33,11 +32,9 @@ const SideBar = ({ children }) => {
       }
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
-
-
 
   const { isAdmin, isUser } = useUserRole();
 
@@ -121,39 +118,43 @@ const SideBar = ({ children }) => {
   ];
   return (
     <aside className="sidebar-container">
-      <div>
-       {isMobile && (
-        <button className="hamburger-btn" onClick={toggleSidebar}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      )}
-      </div>
-      
-
-      <div className={`sidebar ${isMobile ? (isOpen ? 'open' : 'closed') : ''}`}>
-        <div className="sidebar-top-section">
-          <img src={whiteLogo} alt="White Logo" />
+      <div className="sidebar-nav">
+        {isMobile && (
           <button className="hamburger-btn" onClick={toggleSidebar}>
-             {isOpen ? <FaTimes /> : <FaBars />}
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        )}
+
+        <div className="">
+          <img src={whiteLogo} alt="White Logo" />
+        </div>
+      </div>
+
+      <div
+        className={`sidebar ${isMobile ? (isOpen ? "open" : "closed") : ""}`}
+      >
+        <div className="sidebar-top-section">
+          <img src={whiteLogo} alt="White Logo" className="logo-max"  />
+          <button className="hamburger-btn" onClick={toggleSidebar}>
+            {isOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
-        
-          <div className="sidebar-menu">
-            {menuItem.map((item, index) => (
-              <NavLink
-                to={item.path}
-                key={index}
-                className={({ isActive }) =>
-                  isActive ? "sidebar-link active-sidebar" : "sidebar-link"
-                }
-                onClick={() => isMobile && setIsOpen(false)}
-              >
-                <div className="icon">{item.icon}</div>
-                <div className="link-text">{item.name}</div>
-              </NavLink>
-            ))}
-          </div>
-       
+
+        <div className="sidebar-menu">
+          {menuItem.map((item, index) => (
+            <NavLink
+              to={item.path}
+              key={index}
+              className={({ isActive }) =>
+                isActive ? "sidebar-link active-sidebar" : "sidebar-link"
+              }
+              onClick={() => isMobile && setIsOpen(false)}
+            >
+              <div className="icon">{item.icon}</div>
+              <div className="link-text">{item.name}</div>
+            </NavLink>
+          ))}
+        </div>
 
         <div className="sidebar-footer">
           {bottomItems.map((item, index) => {
@@ -161,7 +162,7 @@ const SideBar = ({ children }) => {
               return (
                 <div
                   key={index}
-                   onClick={() => {
+                  onClick={() => {
                     handleLogout();
                     isMobile && setIsOpen(false);
                   }}
@@ -180,7 +181,7 @@ const SideBar = ({ children }) => {
                   className={({ isActive }) =>
                     isActive ? "sidebar-link active-sidebar" : "sidebar-link"
                   }
-                   onClick={() => isMobile && setIsOpen(false)}
+                  onClick={() => isMobile && setIsOpen(false)}
                 >
                   <div className="icon">{item.icon}</div>
                   <div className="link-text">{item.name}</div>
@@ -190,7 +191,10 @@ const SideBar = ({ children }) => {
           })}
         </div>
       </div>
-      <main className={`main-layout ${isMobile && isOpen ? 'sidebar-open' : ''}`}>
+
+      <main
+        className={`main-layout ${isMobile && isOpen ? "sidebar-open" : ""}`}
+      >
         {children}
       </main>
     </aside>
